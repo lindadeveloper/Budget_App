@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: light dark;
+  font-family: "Inter", sans-serif;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --primary-bg-color: #fafafa;
+  --primary-text-color: #222222;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --primary-bg-color: #1a1b22;
+  --primary-text-color: #fafafa;
+}
+
+/*changes the google material icons styles*/
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+
+li {
+  list-style-type: none;
+}
