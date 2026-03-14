@@ -1,4 +1,5 @@
-import categoryIcons from "./components/categoryIcons.js";
+import populateIcons from "./logic/populateIcons.js";
+import populateExpenses from "./logic/populateExpenses.js";
 
 async function loadComponent(id, url) {
   const element = document.getElementById(id);
@@ -17,7 +18,8 @@ async function loadComponent(id, url) {
   }
 }
 
-categoryIcons();
+populateIcons();
+populateExpenses();
 
 loadComponent("site-header", "/src/components/header.html");
 loadComponent("site-footer", "/src/components/footer.html");

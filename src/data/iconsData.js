@@ -1,4 +1,4 @@
-const icons = [
+const iconsData = [
   { name: "manufacturing", type: "edit" },
   { name: "exercise", type: "category" },
   { name: "house", type: "category" },
@@ -24,8 +24,8 @@ const icons = [
   { name: "local_gas_station", type: "category" },
   { name: "pets", type: "category" },
   { name: "business_center", type: "category" },
-  { name: "family_restroom", type: "category" },
   { name: "potted_plant", type: "category" },
+  { name: "child_care", type: "category" },
 ];
 
-export default icons;
+export default iconsData;
