@@ -1,7 +1,14 @@
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+/* by default the markers are positioned outside of the content flow of the list item due to universal no margin and no padding. So, I'm making the ul and ol visible by positioning it to inside just in case if needed in the future. */
+
+ul,
+ol {
+  list-style-position: inside;
 }
 
 :root {
@@ -13,28 +20,32 @@
   color-scheme: light;
   --primary-bg-color: #fafafa;
   --primary-text-color: #222222;
+  --primary-brand-color: #0a5b69;
 }
 
 [data-theme="dark"] {
   color-scheme: dark;
   --primary-bg-color: #1a1b22;
   --primary-text-color: #fafafa;
+  --primary-brand-color: #1a8699;
 }
 
 /*changes the google material icons styles*/
 .material-symbols-outlined {
+  padding: 1rem;
+
   /* Support for all WebKit browsers. */
   -webkit-font-smoothing: antialiased;
   /* Support for Safari and Chrome. */
   text-rendering: optimizeLegibility;
-
   /* Support for Firefox. */
   -moz-osx-font-smoothing: grayscale;
-
   /* Support for IE. */
   font-feature-settings: "liga";
 }
 
-li {
+.nav-list-side,
+.nav-list-top {
+  padding: 1rem 2rem;
   list-style-type: none;
 }
