@@ -11,9 +11,9 @@ async function loadComponent(id, url) {
     if (!res.ok) {
       throw new Error("File not found");
     }
-    element.innerHTML = await res.text();
+    element.insertAdjacentHTML("beforeend", await res.text());
   } catch (error) {
-    element.innerHTML = `<p>Component failed to load</p>`;
+    element.insertAdjacentHTML("afterbegin", `<p>Component failed to load</p>`);
   }
 }
 

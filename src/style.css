@@ -16,24 +16,32 @@ ol {
   font-family: "Inter", sans-serif;
 }
 
+body,
+html {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
 [data-theme="light"] {
   color-scheme: light;
   --primary-bg-color: #fafafa;
   --primary-text-color: #222222;
-  --primary-brand-color: #0a5b69;
+  --green: #307c8a;
+  --green-hover: #347480;
 }
 
 [data-theme="dark"] {
   color-scheme: dark;
   --primary-bg-color: #1a1b22;
   --primary-text-color: #fafafa;
-  --primary-brand-color: #1a8699;
+  --green: #1a8699;
+  --green-hover: var(--green);
 }
 
 /*changes the google material icons styles*/
 .material-symbols-outlined {
   padding: 1rem;
-
   /* Support for all WebKit browsers. */
   -webkit-font-smoothing: antialiased;
   /* Support for Safari and Chrome. */
@@ -44,8 +52,66 @@ ol {
   font-feature-settings: "liga";
 }
 
+.site-wrapper {
+  display: flex;
+}
+
+.nav-side-container {
+  width: 10rem;
+  height: 100vh;
+  background-color: rgb(162, 195, 201);
+}
+
+.header {
+  height: 8rem;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0a5b69;
+}
+
+/*to keep the footer at the bottom*/
+.main-container {
+  height: 100%;
+}
+
+.nav-top-container {
+  background-color: var(--green);
+}
+
+.nav-top-inner-container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.nav-list-top {
+  display: flex;
+  justify-content: center;
+}
+
 .nav-list-side,
 .nav-list-top {
   padding: 1rem 2rem;
   list-style-type: none;
+}
+
+.category-section {
+}
+
+.footer-p {
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid black;
+}
+@media (min-width: 1200px) {
+  button {
+    cursor: pointer;
+  }
+
+  .nav-list-top > button:hover {
+    background-color: var(--green-hover);
+  }
 }
