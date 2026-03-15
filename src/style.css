@@ -18,25 +18,31 @@ ol {
 
 body,
 html {
-  height: 100vh;
-  width: 100vw;
   overflow-x: hidden;
 }
 
 [data-theme="light"] {
   color-scheme: light;
-  --primary-bg-color: #fafafa;
-  --primary-text-color: #222222;
+  --primary-bg-color: var(--white);
+  --primary-text-color: var(--black);
+  --h1: var(--white);
+
+  --black: #222222;
+  --white: #fafafa;
   --green: #307c8a;
-  --green-hover: #347480;
+  --green-hover: #000000;
 }
 
 [data-theme="dark"] {
   color-scheme: dark;
-  --primary-bg-color: #1a1b22;
-  --primary-text-color: #fafafa;
+  --primary-bg-color: var(--black);
+  --primary-text-color: var(--white);
+  --h1: var(--white);
+
+  --black: #1a1b22;
+  --white: #fafafa;
   --green: #1a8699;
-  --green-hover: var(--green);
+  --green-hover: #ffffff;
 }
 
 /*changes the google material icons styles*/
@@ -52,29 +58,44 @@ html {
   font-feature-settings: "liga";
 }
 
+/*for the side nav-side-container and the right main-container*/
 .site-wrapper {
   display: flex;
-}
-
-.nav-side-container {
-  width: 10rem;
   height: 100vh;
-  background-color: rgb(162, 195, 201);
 }
 
-.header {
-  height: 8rem;
+.logo {
   width: 100%;
-  z-index: 1000;
+  border-radius: 50%;
+  padding: 1rem;
+}
+.brand-name {
+  color: white;
+  margin-left: 1rem;
+}
+
+.sidebar {
+  width: 15%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #a2c3c9;
+}
+
+.sidebar.open {
+  width: 15%;
+}
+
+.content-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.site-header {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #0a5b69;
-}
-
-/*to keep the footer at the bottom*/
-.main-container {
-  height: 100%;
 }
 
 .nav-top-container {
@@ -92,21 +113,41 @@ html {
   justify-content: center;
 }
 
-.nav-list-side,
-.nav-list-top {
-  padding: 1rem 2rem;
-  list-style-type: none;
+.sidebar > ul > li > a {
+  text-align: center;
+  padding: 2rem;
+  display: block;
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
 }
 
-.category-section {
+.nav-list-top {
+  padding: 1.5rem;
+}
+
+/*to remove the dot in the list*/
+.sidebar > ul > li,
+.nav-list-top {
+  list-style-type: none;
+}
+/*to keep footer at the bottom*/
+.main-content {
+  height: 100%;
 }
 
 .footer-p {
   padding: 2rem;
   text-align: center;
-  border: 1px solid black;
+  color: white;
+  background-color: black;
 }
+
 @media (min-width: 1200px) {
+  .sidebar {
+    transition: width 0.3s ease;
+  }
+  li > a,
   button {
     cursor: pointer;
   }

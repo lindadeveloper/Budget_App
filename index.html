@@ -44,34 +44,33 @@
   </head>
   <body class="site-wrapper">
     <!-- left nav bar -->
-    <nav class="nav-side-container">
-      <img src="/assets/logo.svg" alt="logo" class="logo" />
+    <nav class="sidebar">
+      <img src="/assets/budget-logo.png" alt="logo" class="logo" />
       <ul>
-        <li class="nav-list-side">Budget</li>
-        <li class="nav-list-side">Expenses</li>
-        <li class="nav-list-side">Income</li>
-        <li class="nav-list-side">Receipts</li>
-        <li class="nav-list-side">Settings</li>
+        <li><a href="#">Budget</a></li>
+        <li><a href="#">Expenses</a></li>
+        <li><a href="#">Income</a></li>
+        <li><a href="#">Receipts</a></li>
+        <li><a href="#">Settings</a></li>
       </ul>
     </nav>
     <!-- top nav bar -->
-    <div class="main-container">
-      <header id="site-header" class="header">
-        <h1 class="brand-name">Budget App</h1>
+    <div class="content-wrapper">
+      <header id="site-header" class="site-header" role="banner">
+        <h1 class="brand-name">Budgeting</h1>
       </header>
       <main class="main-content">
-        <!--unused id category-section, site-footer-->
-        <section id="category-section" class="category-section">
+        <section>
           <button id="gear-icon"></button>
           <div id="category-icon-container"></div>
         </section>
-        <section id="category-details" class="category-details">
+        <section>
           <h2 id="category-title"></h2>
           <div id="expense-list"></div>
         </section>
       </main>
       <footer id="site-footer"></footer>
-      <script src="/src/index.js" type="module"></script>
     </div>
+    <script src="/src/index.js" type="module"></script>
   </body>
 </html>

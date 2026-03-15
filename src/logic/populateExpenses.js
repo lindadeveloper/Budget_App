@@ -13,7 +13,7 @@ export default function populateExpenses(objName) {
   }
 
   expenseList.innerHTML = "";
-  categoryTitle.textContent = objName;
+  categoryTitle.textContent = titleCase(objName);
 
   categoriesData.forEach((itemObj) => {
     if (objName === itemObj.category) {
