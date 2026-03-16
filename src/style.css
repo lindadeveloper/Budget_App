@@ -98,12 +98,6 @@ html {
   background-color: #0a5b69;
 }
 
-.nav-top-inner-container {
-  display: flex;
-  justify-content: end;
-  align-items: center;
-}
-
 .nav-list-top {
   display: flex;
   padding: 1.5rem;
