@@ -29,7 +29,7 @@ html {
 
   --black: #222222;
   --white: #fafafa;
-  --green: #307c8a;
+  --green: #a2c3c9;
   --green-hover: #000000;
 }
 
@@ -98,10 +98,6 @@ html {
   background-color: #0a5b69;
 }
 
-.nav-top-container {
-  background-color: var(--green);
-}
-
 .nav-top-inner-container {
   display: flex;
   justify-content: end;
@@ -110,7 +106,7 @@ html {
 
 .nav-list-top {
   display: flex;
-  justify-content: center;
+  padding: 1.5rem;
 }
 
 .sidebar > ul > li > a {
@@ -121,11 +117,6 @@ html {
   color: black;
   border: 1px solid black;
 }
-
-.nav-list-top {
-  padding: 1.5rem;
-}
-
 /*to remove the dot in the list*/
 .sidebar > ul > li,
 .nav-list-top {
@@ -140,7 +131,20 @@ html {
   padding: 2rem;
   text-align: center;
   color: white;
-  background-color: black;
+  background-color: #0a5b69;
+}
+
+.account-icon,
+.light-mode-icon,
+.gear-icon,
+.category-icon {
+  border: none;
+  border-radius: 50%;
+  background-color: lightgray;
+}
+
+.category-icon-container {
+  background-color: #0a5b69;
 }
 
 @media (min-width: 1200px) {
@@ -151,8 +155,10 @@ html {
   button {
     cursor: pointer;
   }
-
-  .nav-list-top > button:hover {
-    background-color: var(--green-hover);
+  .account-icon:hover,
+  .light-mode-icon:hover,
+  .gear-icon:hover,
+  .category-icon:hover {
+    background-color: #a2c3c9;
   }
 }

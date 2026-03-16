@@ -2,27 +2,27 @@ import iconsData from "../data/iconsData.js";
 import populateExpenses from "./populateExpenses.js";
 
 export default function populateIcons() {
-  const gearIcon = document.getElementById("gear-icon");
   const categoryIcons = document.getElementById("category-icon-container");
-  const categoryDetails = document.getElementById("category-details");
 
   let id = 0;
 
   //populates the icons that will immediately reference the clicked button the moment it's being created.
   iconsData.forEach((iconObj) => {
-    const span = document.createElement("span");
-    span.classList.add("material-symbols-outlined");
-    span.textContent = iconObj.icon;
-
     if (iconObj.type === "edit") {
-      gearIcon.appendChild(span);
+      const btn = document.createElement("button");
+      btn.id = "gear-icon";
+      btn.classList.add("material-symbols-outlined");
+      btn.classList.add("gear-icon");
+      btn.textContent = iconObj.icon;
+      categoryIcons.appendChild(btn);
     }
 
     if (iconObj.type === "category") {
       const button = document.createElement("button");
       button.id = `category-btn-${id}`;
-      button.classList.add("category-btn");
-      button.appendChild(span);
+      button.classList.add("material-symbols-outlined");
+      button.classList.add("category-icon");
+      button.textContent = iconObj.icon;
       categoryIcons.appendChild(button);
 
       button.addEventListener("click", () => {
