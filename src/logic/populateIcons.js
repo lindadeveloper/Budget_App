@@ -8,23 +8,20 @@ export default function populateIcons() {
 
   //populates the icons that will immediately reference the clicked button the moment it's being created.
   iconsData.forEach((iconObj) => {
+    const button = document.createElement("button");
+    button.classList.add("material-symbols-outlined");
+    button.classList.add("category-icon");
+    button.textContent = iconObj.icon;
+
     if (iconObj.type === "edit") {
-      const btn = document.createElement("button");
-      btn.id = "gear-icon";
-      btn.classList.add("material-symbols-outlined");
-      btn.classList.add("gear-icon");
-      btn.textContent = iconObj.icon;
-      categoryIcons.appendChild(btn);
+      button.id = "gear-icon";
+      button.classList.add("gear-icon");
+      categoryIcons.appendChild(button);
     }
 
     if (iconObj.type === "category") {
-      const button = document.createElement("button");
       button.id = `category-btn-${id}`;
-      button.classList.add("material-symbols-outlined");
-      button.classList.add("category-icon");
-      button.textContent = iconObj.icon;
       categoryIcons.appendChild(button);
-
       button.addEventListener("click", () => {
         populateExpenses(iconObj.name);
       });

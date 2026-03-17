@@ -1,3 +1,5 @@
+//category icons section
+
 const iconsData = [
   { name: "edit", icon: "manufacturing", type: "edit" },
   { name: "gym", icon: "exercise", type: "category" },
