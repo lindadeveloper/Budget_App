@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap"
       rel="stylesheet"
     />
     <!-- IMPORTANT Google material icon's names need to be in alphabetical order -->
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle,apparel,beach_access,business_center,child_care,close,construction,credit_score,desktop_windows,directions_car,exercise,featured_seasonal_and_gifts,home,local_cafe,local_gas_station,manufacturing,menu,pet_supplies,pets,potted_plant,school,shopping_cart,spa,sports_tennis,stadia_controller,stethoscope,subscriptions,theater_comedy,toys_fan,travel,wb_sunny"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle,apparel,beach_access,business_center,child_care,close,construction,credit_score,desktop_windows,directions_car,edit_note,exercise,featured_seasonal_and_gifts,home,local_cafe,local_gas_station,manufacturing,menu,pet_supplies,pets,potted_plant,school,shopping_cart,spa,sports_tennis,stadia_controller,stethoscope,subscriptions,theater_comedy,toys_fan,travel,wb_sunny"
     />
     <link rel="stylesheet" href="./src/style.css" />
     <title>Budget App</title>
@@ -29,7 +29,7 @@
       </ul>
     </nav>
     <!-- top nav bar -->
-    <div class="content-wrapper">
+    <div class="site-content-wrapper">
       <header id="site-header" class="site-header" role="banner">
         <div class="nav-list-top">
           <button id="menuBtn" class="material-symbols-outlined menu-icon">menu</button>
@@ -40,9 +40,11 @@
         <section>
           <div id="category-icon-container" class="category-icon-container"></div>
         </section>
-        <section>
-          <h2 id="category-title"></h2>
-          <div id="expense-list"></div>
+        <section class="category-details">
+          <div class="category-wrapper">
+            <h2 id="category-title" class="category-title"></h2>
+            <div id="expense-list"></div>
+          </div>
         </section>
       </main>
       <footer id="site-footer"></footer>
