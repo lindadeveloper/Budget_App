@@ -18,16 +18,16 @@ const iconsData = [
   { name: "entertainment", icon: "theater_comedy", type: "category" },
   { name: "apparel", icon: "apparel", type: "category" },
   { name: "electronics", icon: "desktop_windows", type: "category" },
-  { name: "student loans", icon: "school", type: "category" },
   { name: "vacation", icon: "beach_access", type: "category" },
   { name: "coffee", icon: "local_cafe", type: "category" },
-  { name: "car loans", icon: "directions_car", type: "category" },
-  { name: "gas", icon: "local_gas_station", type: "category" },
-  { name: "rent", icon: "home", type: "category" },
+  { name: "baby care", icon: "child_care", type: "category" },
   { name: "pet care", icon: "pets", type: "category" },
   { name: "business", icon: "business_center", type: "category" },
+  { name: "gas", icon: "local_gas_station", type: "category" },
+  { name: "car loans", icon: "directions_car", type: "category" },
   { name: "plants", icon: "potted_plant", type: "category" },
-  { name: "baby care", icon: "child_care", type: "category" },
+  { name: "rent", icon: "home", type: "category" },
+  { name: "student loans", icon: "school", type: "category" },
 ];
 
 export default iconsData;
