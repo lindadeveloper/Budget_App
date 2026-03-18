@@ -4,7 +4,7 @@
   padding: 0;
 }
 
-/* by default the markers are positioned outside of the content flow of the list item due to universal no margin and no padding. So, I'm making the ul and ol visible by positioning it to inside just in case if needed in the future. */
+/* by default the markers are positioned outside of the content flow of the list item due to universal no margin and no padding. So, I'm making the ul and ol visible by positioning it to inside just in case if the dots are needed in the future. */
 
 ul,
 ol {
@@ -19,7 +19,6 @@ ol {
 body,
 html {
   height: 100vh;
-  width: 100vw;
   overflow-x: hidden;
 }
 
@@ -75,7 +74,7 @@ html {
 }
 
 .logo {
-  width: 100%;
+  width: 90%;
   max-width: 150px;
   border-radius: 50%;
   padding: 2rem 0;
@@ -85,6 +84,7 @@ html {
 }
 
 .sidebar {
+  z-index: 1000;
   position: fixed;
   text-align: center;
   width: 100%;
@@ -99,12 +99,13 @@ html {
 .site-content-wrapper {
   width: 100%;
   display: flex;
+  /*min-width: 0 is important. It prevents flex blowout*/
+  min-width: 0;
   flex-direction: column;
 }
 
 .site-header {
   padding: 0 1rem;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -128,7 +129,8 @@ html {
 
 /*to remove the dot in the list*/
 .sidebar > ul > li,
-.nav-list-top {
+.nav-list-top,
+.category-list {
   list-style-type: none;
 }
 
@@ -158,11 +160,12 @@ html {
 .menu-icon,
 .account-icon,
 .light-mode-icon {
+  margin-right: 1rem;
   background-color: transparent;
   color: black;
 }
 
-.category-wrapper {
+.category-detail-wrapper {
   padding: 1rem 0;
 }
 
@@ -193,24 +196,54 @@ html {
   background-color: #a0d4d6;
 }
 
+.category-icon-container {
+  position: relative;
+  display: flex;
+  background-color: #a0d4d6;
+}
+
+.track-icons {
+  display: flex;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/*for other web compatibility*/
+.track-icons::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.slide-left-btn,
+.slide-right-btn {
+  background-color: #3d94a3;
+  color: white;
+  z-index: 1;
+}
+
+.slide-left-btn {
+  box-shadow: 2px 0 5px 0 #064550;
+}
+
+.slide-right-btn {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  box-shadow: 0 0 5px 2px #064550;
+}
+
 /*paddings for better user experience*/
 .category-details,
 .category-icon-container {
   margin: 0 1.5rem;
 }
 
-.category-icon-container {
-  display: flex;
-  flex-wrap: wrap;
-  max-height: 18rem;
-  padding: 1rem;
-  overflow: hidden;
-  background-color: #a0d4d6;
-}
-
 .expense-wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 2rem 0;
 }
 
@@ -256,6 +289,7 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
   font-family: "Inter", sans-serif;
   padding: 0.5rem 0 0.5rem 0.5rem;
   font-size: 1rem;
@@ -263,8 +297,10 @@ html {
   background-color: transparent;
 }
 
+.light-mode-icon,
+.account-icon,
 .edit-btn > .material-symbols-outlined {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 
 .footer-p {
@@ -282,12 +318,12 @@ html {
     width: var(--target-width);
   }
 }
-
+/* 
 @media (prefers-reduced-motion: reduce) {
   .progress-bar {
     animation: none;
   }
-}
+} */
 
 @media screen and (min-width: 1000px) {
   .x-icon {
@@ -298,6 +334,7 @@ html {
     position: unset;
     width: 15%;
   }
+
   /*to keep the footer at the bottom*/
   .main-content {
     height: 100%;
@@ -309,15 +346,18 @@ html {
   .account-icon,
   .gear-icon,
   .category-icon,
-  .edit-btn {
+  .edit-btn,
+  .slide-right-btn,
+  .slide-left-btn {
     cursor: pointer;
   }
 
-  .gear-icon:hover,
   .category-icon:hover {
+    box-shadow: 0 3px 5px 0 #064550;
     transition: all 0.2s ease-in;
   }
-
+  .slide-right-btn:hover,
+  .slide-left-btn:hover,
   .g-icon:hover {
     background-color: #0a5b69;
   }

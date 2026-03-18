@@ -1,5 +1,6 @@
 import populateIcons from "./logic/populateIcons.js";
 import menuToggle from "./logic/menuToggle.js";
+import viewMoreIcons from "./logic/viewMoreIcons.js";
 
 async function loadComponent(id, url) {
   const element = document.getElementById(id);
@@ -20,6 +21,7 @@ async function loadComponent(id, url) {
 
 populateIcons();
 menuToggle();
+viewMoreIcons();
 
 loadComponent("site-header", "/src/components/header.html");
 loadComponent("site-footer", "/src/components/footer.html");

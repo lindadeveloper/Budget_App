@@ -53,12 +53,6 @@ export default function populateExpenses(objName) {
       document.querySelectorAll(".progress-bar").forEach((bar) => {
         bar.style.setProperty("--target-width", bar.dataset.width);
       });
-
-      // requestAnimationFrame(() => {
-      //   requestAnimationFrame(() => {
-      //     expenseList.querySelector(".progress-bar").style.width = `${progress}%`;
-      //   });
-      // });
     }
   });
 }
