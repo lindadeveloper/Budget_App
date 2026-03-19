@@ -74,13 +74,14 @@ html {
 }
 
 .logo {
-  width: 90%;
-  max-width: 150px;
+  width: 100%;
+  max-width: 100px;
   border-radius: 50%;
-  padding: 2rem 0;
+  margin: 2rem 0;
 }
 .brand-name {
   color: black;
+  margin-left: 1rem;
 }
 
 .sidebar {
@@ -118,13 +119,12 @@ html {
   padding: 1.5rem 0;
 }
 
-.sidebar > ul > li > a {
-  text-align: center;
-  padding: 1.5rem;
+.menu-link {
+  padding: 1.5rem 0;
+  width: 100%;
   display: block;
   text-decoration: none;
   color: black;
-  border: 1px solid black;
 }
 
 /*to remove the dot in the list*/
@@ -158,9 +158,7 @@ html {
   padding: 1rem;
 }
 .menu-icon,
-.account-icon,
 .light-mode-icon {
-  margin-right: 1rem;
   background-color: transparent;
   color: black;
 }
@@ -170,14 +168,18 @@ html {
 }
 
 .category-title {
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   background-color: #0a5b69;
   color: white;
 }
 
 .category-title,
-.category-icon-container {
-  border-radius: 0.5rem;
+.category-icon-container,
+.progress-bar {
+  border-radius: 0.2rem;
+  border-bottom: 1px solid #55b2c0;
+  border-right: 1px solid #55b2c0;
+  box-shadow: 0 2px 5px 0 #064550;
 }
 
 .icon-label {
@@ -186,14 +188,31 @@ html {
   font-family: "Inter", sans-serif;
 }
 
+.menu-link,
+.log-out {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.log-out {
+  padding: 1rem 2rem;
+  background-color: #a0d4d6;
+  border: none;
+  font-size: 1rem;
+  padding: 1.5rem 0;
+  width: 100%;
+}
+
 .gear-icon,
 .category-icon {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 5%;
-  margin: 0.5rem;
+  border-radius: 0.5rem;
+  margin: 1rem 0.5rem;
   background-color: #a0d4d6;
+  opacity: 95%;
 }
 
 .category-icon-container {
@@ -216,22 +235,29 @@ html {
   height: 0;
 }
 
+.category-icon,
+.slide-left-btn,
+.slide-right-btn {
+  border: 1px solid #55b2c0;
+}
+
 .slide-left-btn,
 .slide-right-btn {
   background-color: #3d94a3;
+  opacity: 95%;
   color: white;
   z-index: 1;
 }
 
 .slide-left-btn {
-  box-shadow: 2px 0 5px 0 #064550;
+  box-shadow: 3px 1px 5px 0 #064550;
 }
 
 .slide-right-btn {
   position: absolute;
   right: 0;
   height: 100%;
-  box-shadow: 0 0 5px 2px #064550;
+  box-shadow: -3px 1px 5px 0 #064550;
 }
 
 /*paddings for better user experience*/
@@ -297,8 +323,9 @@ html {
   background-color: transparent;
 }
 
+.log-out > .material-symbols-outlined,
+.menu-link > .material-symbols-outlined,
 .light-mode-icon,
-.account-icon,
 .edit-btn > .material-symbols-outlined {
   font-size: 1.5rem;
 }
@@ -318,6 +345,21 @@ html {
     width: var(--target-width);
   }
 }
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(0.8);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 /* 
 @media (prefers-reduced-motion: reduce) {
   .progress-bar {
@@ -332,7 +374,8 @@ html {
 
   .sidebar {
     position: unset;
-    width: 15%;
+    width: 250px;
+    border-right: 1px solid #55b2c0;
   }
 
   /*to keep the footer at the bottom*/
@@ -340,30 +383,51 @@ html {
     height: 100%;
   }
 
-  li > a,
+  .menu-link,
   .menu-icon,
   .light-mode-icon,
-  .account-icon,
   .gear-icon,
   .category-icon,
   .edit-btn,
   .slide-right-btn,
-  .slide-left-btn {
+  .slide-left-btn,
+  .log-out {
     cursor: pointer;
   }
 
-  .category-icon:hover {
-    box-shadow: 0 3px 5px 0 #064550;
-    transition: all 0.2s ease-in;
-  }
   .slide-right-btn:hover,
   .slide-left-btn:hover,
   .g-icon:hover {
     background-color: #0a5b69;
   }
 
+  .slide-left-btn:active,
+  .slide-right-btn:active {
+    animation: bounce 0.35s ease;
+  }
+
+  .sidebar {
+    box-shadow: 0 10px 10px 1px #064550;
+  }
+
+  .settings {
+    border-bottom: 1px solid #55b2c0;
+  }
+
+  .menu-link:hover,
   .category-icon:hover {
     background-color: #3d94a3;
+  }
+
+  .log-out:hover {
+    background-color: black;
+    color: white;
+  }
+
+  .menu-link:hover,
+  .category-icon:hover {
+    box-shadow: 0 2px 5px 0 #064550;
+    transition: all 0.2s ease-in;
     color: white;
   }
 

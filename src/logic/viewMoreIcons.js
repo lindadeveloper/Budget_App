@@ -6,11 +6,11 @@ export default function viewMoreIcons() {
 
   nextBtn.addEventListener("click", () => {
     const slideWidth = categoryIcon.clientWidth;
-    iconContainer.scrollLeft += slideWidth;
+    iconContainer.scrollLeft += slideWidth * 5;
   });
 
   prevBtn.addEventListener("click", () => {
     const slideWidth = categoryIcon.clientWidth;
-    iconContainer.scrollLeft -= slideWidth;
+    iconContainer.scrollLeft -= slideWidth * 5;
   });
 }

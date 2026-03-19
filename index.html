@@ -10,7 +10,7 @@
     <!-- IMPORTANT Google material icon's names need to be in alphabetical order -->
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle,apparel,arrow_left,arrow_right,beach_access,business_center,child_care,close,construction,credit_score,desktop_windows,directions_car,edit_note,exercise,featured_seasonal_and_gifts,home,local_cafe,local_gas_station,manufacturing,menu,pet_supplies,pets,potted_plant,school,shopping_cart,spa,sports_tennis,stadia_controller,stethoscope,subscriptions,theater_comedy,toys_fan,travel,wb_sunny"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=apparel,arrow_left,arrow_right,beach_access,business_center,child_care,close,construction,credit_score,desktop_windows,directions_car,edit_note,exercise,featured_seasonal_and_gifts,finance,home,local_cafe,local_gas_station,logout,manage_accounts,manufacturing,menu,pet_supplies,pets,potted_plant,receipt,school,shopping_cart,spa,sports_tennis,stadia_controller,stethoscope,subscriptions,theater_comedy,toys_fan,travel,wb_sunny"
     />
     <link rel="stylesheet" href="./src/style.css" />
     <title>Budget App</title>
@@ -21,12 +21,29 @@
       <button id="x-icon" class="material-symbols-outlined x-icon">close</button>
       <img src="/assets/budget-logo.png" alt="logo" class="logo" />
       <ul>
-        <li><a href="#">Budget</a></li>
-        <li><a href="#">Expenses</a></li>
-        <li><a href="#">Income</a></li>
-        <li><a href="#">Receipts</a></li>
-        <li><a href="#">Settings</a></li>
+        <li>
+          <a href="#" class="menu-link">
+            <i class="material-symbols-outlined">finance</i>
+            Budget
+          </a>
+        </li>
+        <li>
+          <a href="#" class="menu-link">
+            <i class="material-symbols-outlined">receipt</i>
+            Receipts
+          </a>
+        </li>
+        <li>
+          <a href="#" class="menu-link settings"
+            ><i class="material-symbols-outlined">manage_accounts</i>
+            Settings
+          </a>
+        </li>
       </ul>
+      <button id="logOut" class="log-out">
+        <i class="material-symbols-outlined">logout</i>
+        Log Out
+      </button>
     </nav>
     <!-- top nav bar -->
     <div class="site-content-wrapper">
