@@ -6,6 +6,7 @@ export default function populateIcons() {
   const trackIcons = document.getElementById("trackIcons");
 
   let id = 0;
+  let isFirst = true;
 
   iconsData.forEach((iconObj) => {
     if (iconObj.type === "edit") {
@@ -21,19 +22,33 @@ export default function populateIcons() {
     }
 
     if (iconObj.type === "category") {
+      const isActive = isFirst;
+
       trackIcons.insertAdjacentHTML(
         "beforeend",
         `
-        <li class="category-list">
-          <button id="category-btn-${id}" class="material-symbols-outlined category-icon">
-            <span class="icon">${iconObj.icon}</span>
+        <li id="category-icon-${id}" class="category-icon">
+          <button class="category-icon-wrapper ${isActive ? "active" : ""}">
+            <span class="material-symbols-outlined icon">${iconObj.icon}</span>
             <span class="icon-label">${iconObj.name}</span>
           </button>
         </li>
         `,
       );
-      const viewCategoryBtn = document.getElementById(`category-btn-${id}`);
-      viewCategoryBtn.addEventListener("click", () => {
+      if (isFirst) {
+        populateExpenses(iconObj.name);
+        isFirst = !isFirst;
+      }
+
+      const categoryIcon = document.getElementById(`category-icon-${id}`);
+      const categoryBtn = categoryIcon.querySelector(".category-icon-wrapper");
+
+      categoryBtn.addEventListener("click", () => {
+        const activeBtn = document.querySelector(".category-icon-wrapper.active");
+        if (activeBtn) {
+          activeBtn.classList.remove("active");
+        }
+        categoryBtn.classList.add("active");
         populateExpenses(iconObj.name);
       });
       id++;

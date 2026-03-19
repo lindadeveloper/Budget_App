@@ -67,10 +67,31 @@ html {
   font-feature-settings: "liga";
 }
 
+.hidden {
+  display: none;
+}
+
+/*to remove the dot in the list*/
+.sidebar > ul > li,
+.nav-list-top,
+.category-icon {
+  list-style-type: none;
+}
+
 /*for the side nav-side-container and the right main-container*/
 .site-wrapper {
   display: flex;
   height: 100vh;
+}
+
+/*sidebar menu*/
+
+.x-icon {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  color: #222222;
 }
 
 .logo {
@@ -78,10 +99,6 @@ html {
   max-width: 100px;
   border-radius: 50%;
   margin: 2rem 0;
-}
-.brand-name {
-  color: black;
-  margin-left: 1rem;
 }
 
 .sidebar {
@@ -93,99 +110,12 @@ html {
   background-color: #a0d4d6;
 }
 
-.hidden {
-  display: none;
-}
-
-.site-content-wrapper {
-  width: 100%;
-  display: flex;
-  /*min-width: 0 is important. It prevents flex blowout*/
-  min-width: 0;
-  flex-direction: column;
-}
-
-.site-header {
-  padding: 0 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: white;
-}
-
-.nav-list-top {
-  display: flex;
-  align-items: center;
-  padding: 1.5rem 0;
-}
-
 .menu-link {
   padding: 1.5rem 0;
   width: 100%;
   display: block;
   text-decoration: none;
   color: black;
-}
-
-/*to remove the dot in the list*/
-.sidebar > ul > li,
-.nav-list-top,
-.category-list {
-  list-style-type: none;
-}
-
-.x-icon {
-  position: fixed;
-  top: 0;
-  right: 0;
-  background-color: transparent;
-  color: #222222;
-}
-
-.g-icon {
-  background-color: black;
-  color: white;
-}
-
-.icon {
-  background-color: #a0d4d6;
-  color: black;
-}
-
-.g-icon,
-.icon {
-  border-radius: 50%;
-  padding: 1rem;
-}
-.menu-icon,
-.light-mode-icon {
-  background-color: transparent;
-  color: black;
-}
-
-.category-detail-wrapper {
-  padding: 1rem 0;
-}
-
-.category-title {
-  padding: 0.5rem 1rem;
-  background-color: #0a5b69;
-  color: white;
-}
-
-.category-title,
-.category-icon-container,
-.progress-bar {
-  border-radius: 0.2rem;
-  border-bottom: 1px solid #55b2c0;
-  border-right: 1px solid #55b2c0;
-  box-shadow: 0 2px 5px 0 #064550;
-}
-
-.icon-label {
-  margin-top: 0.5rem;
-  font-size: 1rem;
-  font-family: "Inter", sans-serif;
 }
 
 .menu-link,
@@ -204,21 +134,105 @@ html {
   width: 100%;
 }
 
-.gear-icon,
-.category-icon {
+/*site content*/
+.site-content-wrapper {
+  width: 100%;
   display: flex;
+  /*min-width: 0 is important. It prevents flex blowout*/
+  min-width: 0;
   flex-direction: column;
+}
+
+.brand-name {
+  color: black;
+  margin-left: 1rem;
+}
+
+.site-header {
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  border-radius: 0.5rem;
-  margin: 1rem 0.5rem;
-  background-color: #a0d4d6;
-  opacity: 95%;
+  background-color: white;
+}
+
+.nav-list-top {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+
+.menu-icon,
+.light-mode-icon {
+  background-color: transparent;
+  color: black;
+}
+
+/*to make the icons smaller*/
+.log-out > .material-symbols-outlined,
+.menu-link > .material-symbols-outlined,
+.light-mode-icon,
+.edit-btn > .material-symbols-outlined {
+  font-size: 1.5rem;
+}
+
+/*gear icon and category icons*/
+
+.category-icon-wrapper.active {
+  background-color: #3d94a3;
+  box-shadow: 0 2px 5px 0 #064550;
+  color: white;
 }
 
 .category-icon-container {
   position: relative;
   display: flex;
   background-color: #a0d4d6;
+}
+
+.gear-icon-wrapper,
+.category-icon {
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+}
+
+.g-icon {
+  background-color: black;
+  color: white;
+}
+
+.g-icon,
+.icon {
+  border-radius: 50%;
+  padding: 1rem;
+}
+
+.icon {
+  background-color: #a0d4d6;
+  color: black;
+}
+
+.icon-label {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
+}
+
+.category-icon-wrapper {
+  padding: 1rem 0;
+}
+
+.gear-icon,
+.category-icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1rem;
+  margin: 1rem 0.5rem;
+  min-width: 130px;
+  background-color: #a0d4d6;
+  opacity: 95%;
 }
 
 .track-icons {
@@ -229,13 +243,9 @@ html {
   -ms-overflow-style: none;
 }
 
-/*for other web compatibility*/
-.track-icons::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
-
-.category-icon,
+/*to give a glass effect on icons*/
+.g-icon,
+.category-icon-wrapper,
 .slide-left-btn,
 .slide-right-btn {
   border: 1px solid #55b2c0;
@@ -260,10 +270,37 @@ html {
   box-shadow: -3px 1px 5px 0 #064550;
 }
 
+/*for other web compatibility*/
+.track-icons::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
 /*paddings for better user experience*/
 .category-details,
 .category-icon-container {
   margin: 0 1.5rem;
+}
+
+/*category details section*/
+.category-detail-wrapper {
+  padding: 1rem 0;
+}
+
+.category-title {
+  padding: 0.5rem 1rem;
+  background-color: #0a5b69;
+  color: white;
+}
+
+/*to give a glass effect on category container and progress bar*/
+.category-title,
+.category-icon-container,
+.progress-bar {
+  border-radius: 0.2rem;
+  border-bottom: 1px solid #55b2c0;
+  border-right: 1px solid #55b2c0;
+  box-shadow: 0 2px 5px 0 #064550;
 }
 
 .expense-wrapper {
@@ -323,13 +360,7 @@ html {
   background-color: transparent;
 }
 
-.log-out > .material-symbols-outlined,
-.menu-link > .material-symbols-outlined,
-.light-mode-icon,
-.edit-btn > .material-symbols-outlined {
-  font-size: 1.5rem;
-}
-
+/*footer section*/
 .footer-p {
   padding: 2rem;
   text-align: center;
@@ -351,7 +382,7 @@ html {
     transform: scale(1);
   }
   30% {
-    transform: scale(0.8);
+    transform: scale(0.9);
   }
   60% {
     transform: scale(1.1);
@@ -360,6 +391,7 @@ html {
     transform: scale(1);
   }
 }
+
 /* 
 @media (prefers-reduced-motion: reduce) {
   .progress-bar {
@@ -368,6 +400,7 @@ html {
 } */
 
 @media screen and (min-width: 1000px) {
+  /*sidebar menu*/
   .x-icon {
     display: none;
   }
@@ -376,6 +409,30 @@ html {
     position: unset;
     width: 250px;
     border-right: 1px solid #55b2c0;
+    box-shadow: 0 10px 10px 1px #064550;
+  }
+
+  /*For better accessibility by separating the primary navigation elements from the 
+  log out button to prevent accidental clicks*/
+  .settings {
+    border-bottom: 1px solid #55b2c0;
+  }
+
+  .log-out:hover {
+    background-color: black;
+    color: white;
+  }
+  /*category icons*/
+  .track-icons {
+    /*adds extra space at the end of the carousel*/
+    padding-right: 150px;
+  }
+
+  /*category details section*/
+  .date-goal-wrap {
+    display: flex;
+    flex-direction: unset;
+    justify-content: space-between;
   }
 
   /*to keep the footer at the bottom*/
@@ -383,11 +440,12 @@ html {
     height: 100%;
   }
 
+  /*animation and hover effect*/
   .menu-link,
   .menu-icon,
   .light-mode-icon,
   .gear-icon,
-  .category-icon,
+  .category-icon-wrapper,
   .edit-btn,
   .slide-right-btn,
   .slide-left-btn,
@@ -406,34 +464,21 @@ html {
     animation: bounce 0.35s ease;
   }
 
-  .sidebar {
-    box-shadow: 0 10px 10px 1px #064550;
-  }
-
-  .settings {
-    border-bottom: 1px solid #55b2c0;
-  }
-
   .menu-link:hover,
-  .category-icon:hover {
+  .category-icon-wrapper:hover {
     background-color: #3d94a3;
   }
 
-  .log-out:hover {
-    background-color: black;
-    color: white;
-  }
-
+  .g-icon:hover,
   .menu-link:hover,
-  .category-icon:hover {
-    box-shadow: 0 2px 5px 0 #064550;
-    transition: all 0.2s ease-in;
-    color: white;
+  .category-icon-wrapper:hover {
+    transition: all 0.2s ease;
   }
 
-  .date-goal-wrap {
-    display: flex;
-    flex-direction: unset;
-    justify-content: space-between;
+  .g-icon:hover,
+  .menu-link:hover,
+  .category-icon-wrapper:hover {
+    box-shadow: 0 2px 5px 0 #064550;
+    color: white;
   }
 }
