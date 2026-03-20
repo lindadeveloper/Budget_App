@@ -21,13 +21,13 @@ export default function populateIcons() {
       );
     }
 
-    if (iconObj.type === "view") {
+    if (iconObj.type === "viewAll") {
       gearSettingIcon.insertAdjacentHTML(
         "afterbegin",
         `
-          <button id="viewAllIcon" class="material-symbols-outlined view-all-icon">
-            <span class="view-all">${iconObj.icon}</span>
-            <span class="icon-label">${iconObj.name}</span>
+          <button id="viewAllIcons" class="material-symbols-outlined view-all-icons">
+            <span id="viewIcon" class="view-all">${iconObj.icon}</span>
+            <span id="viewTextLabel" class="icon-label">${iconObj.name}</span>
           </button>
         `,
       );
