@@ -2,8 +2,10 @@ import iconsData from "../data/iconsData.js";
 import populateExpenses from "./populateExpenses.js";
 
 export default function populateIcons() {
+  const mobileQuery = window.matchMedia("(max-width: 799px)");
   const gearSettingIcon = document.getElementById("gearSettingIcon");
   const trackIcons = document.getElementById("trackIcons");
+  const categoryIconContainer = document.querySelector(".category-icon-container");
 
   let id = 0;
   let isFirst = true;
@@ -21,7 +23,18 @@ export default function populateIcons() {
       );
     }
 
+    function handleMobileChange(e) {
+      if (e.matches) {
+        categoryIconContainer.classList.add("reveal-mobile");
+        trackIcons.classList.add("reveal-mobile");
+      } else {
+        categoryIconContainer.classList.remove("reveal-mobile");
+        trackIcons.classList.remove("reveal-mobile");
+      }
+    }
+
     if (iconObj.type === "viewAll") {
+      handleMobileChange(mobileQuery);
       gearSettingIcon.insertAdjacentHTML(
         "afterbegin",
         `
@@ -31,6 +44,7 @@ export default function populateIcons() {
           </button>
         `,
       );
+      mobileQuery.addEventListener("change", handleMobileChange);
     }
 
     if (iconObj.type === "category") {

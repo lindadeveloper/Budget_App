@@ -395,7 +395,21 @@ html {
   }
 } */
 
-@media (min-width: 1000px) {
+@media screen and (max-width: 799px) {
+  .track-icons.reveal-mobile {
+    max-height: 20rem;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    border-top: 0 10px 10px 1px #064550;
+  }
+  .category-icon-container.reveal-mobile {
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 800px) {
   /*sidebar menu*/
   .x-icon {
     display: none;
