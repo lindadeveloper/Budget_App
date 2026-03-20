@@ -21,6 +21,18 @@ export default function populateIcons() {
       );
     }
 
+    if (iconObj.type === "view") {
+      gearSettingIcon.insertAdjacentHTML(
+        "afterbegin",
+        `
+          <button id="viewAllIcon" class="material-symbols-outlined view-all-icon">
+            <span class="view-all">${iconObj.icon}</span>
+            <span class="icon-label">${iconObj.name}</span>
+          </button>
+        `,
+      );
+    }
+
     if (iconObj.type === "category") {
       const isActive = isFirst;
 

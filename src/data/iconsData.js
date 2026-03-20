@@ -2,6 +2,7 @@
 
 const iconsData = [
   { name: "edit category", icon: "manufacturing", type: "edit" },
+  { name: "view all", icon: "view_cozy", type: "view" },
   { name: "gym", icon: "exercise", type: "category" },
   { name: "groceries", icon: "shopping_cart", type: "category" },
   { name: "gifts", icon: "featured_seasonal_and_gifts", type: "category" },
