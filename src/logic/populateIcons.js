@@ -5,65 +5,94 @@ export default function populateIcons() {
   const mobileQuery = window.matchMedia("(max-width: 799px)");
   const gearSettingIcon = document.getElementById("gearSettingIcon");
   const trackIcons = document.getElementById("trackIcons");
+  const categoryDialog = document.getElementById("categoryDialog");
   const categoryIconContainer = document.querySelector(".category-icon-container");
   const gearSettingWrapper = document.querySelector(".gear-setting-wrapper");
 
   let id = 0;
   let isFirst = true;
 
-  iconsData.forEach((iconObj) => {
-    function renderEditBtn() {
-      if (iconObj.type === "edit") {
-        gearSettingIcon.insertAdjacentHTML(
-          "afterbegin",
-          `
+  iconsData.forEach(processIcons);
+
+  //to pass down the icon's data to each function
+  function processIcons(item) {
+    renderEditBtn(item);
+    renderPlusBtn(item);
+    renderViewAllBtn(item);
+    renderIconBtns(item);
+    manageCategory(item);
+  }
+
+  //to create the edit category button
+  function renderEditBtn(iconObj) {
+    if (iconObj.type === "edit") {
+      gearSettingIcon.insertAdjacentHTML(
+        "afterbegin",
+        `
             <button 
             id="gearEditBtn" 
             class="material-symbols-outlined gear-icon" 
-            onClick="categoryDialog.showModal()">
+            onClick="categoryDialogWrapper.showModal()">
               <span class="g-icon">${iconObj.icon}</span>
               <span class="icon-label">${iconObj.name}</span>
             </button>
           `,
-        );
-      }
+      );
     }
-
-    function handleMobileChange(e) {
-      if (e.matches) {
-        categoryIconContainer.classList.add("reveal-mobile");
-        trackIcons.classList.add("reveal-mobile");
-        gearSettingWrapper.classList.add("reveal-mobile");
-      } else {
-        categoryIconContainer.classList.remove("reveal-mobile");
-        trackIcons.classList.remove("reveal-mobile");
-        gearSettingWrapper.classList.remove("reveal-mobile");
-      }
+  }
+  //to create the add button inside the edit category
+  function renderPlusBtn(iconObj) {
+    if (iconObj.type === "add") {
+      categoryDialog.insertAdjacentHTML(
+        "afterbegin",
+        `
+        <button id="plusIcon" class="material-symbols-outlined plus-wrap">
+            <span class="plus-icon">${iconObj.icon}</span>
+            <span class="plus-label">${iconObj.name}</span>
+        </button>
+      `,
+      );
     }
+  }
 
-    function renderViewAllBtn() {
-      if (iconObj.type === "viewAll") {
-        handleMobileChange(mobileQuery);
-        gearSettingIcon.insertAdjacentHTML(
-          "afterbegin",
-          `
+  //to crop and hide the overflow icons on smaller devices
+  function handleMobileChange(e) {
+    if (e.matches) {
+      categoryIconContainer.classList.add("reveal-mobile");
+      trackIcons.classList.add("reveal-mobile");
+      gearSettingWrapper.classList.add("reveal-mobile");
+    } else {
+      categoryIconContainer.classList.remove("reveal-mobile");
+      trackIcons.classList.remove("reveal-mobile");
+      gearSettingWrapper.classList.remove("reveal-mobile");
+    }
+  }
+
+  //to create the view all button
+  function renderViewAllBtn(iconObj) {
+    if (iconObj.type === "viewAll") {
+      handleMobileChange(mobileQuery);
+      gearSettingIcon.insertAdjacentHTML(
+        "afterbegin",
+        `
             <button id="viewAllIcons" class="material-symbols-outlined view-all-icons">
               <span id="viewIcon" class="view-all">${iconObj.icon}</span>
               <span id="viewTextLabel" class="icon-label">${iconObj.name}</span>
             </button>
           `,
-        );
-        mobileQuery.addEventListener("change", handleMobileChange);
-      }
+      );
+      mobileQuery.addEventListener("change", handleMobileChange);
     }
+  }
 
-    function renderIconBtns() {
-      if (iconObj.type === "category") {
-        const isActive = isFirst;
+  //to create the category icons
+  function renderIconBtns(iconObj) {
+    if (iconObj.type === "category") {
+      const isActive = isFirst;
 
-        trackIcons.insertAdjacentHTML(
-          "beforeend",
-          `
+      trackIcons.insertAdjacentHTML(
+        "beforeend",
+        `
           <li id="category-icon-${id}" class="category-icon">
             <button class="category-icon-wrapper ${isActive ? "active" : ""}">
               <span class="material-symbols-outlined icon">${iconObj.icon}</span>
@@ -71,47 +100,45 @@ export default function populateIcons() {
             </button>
           </li>
           `,
-        );
-        if (isFirst) {
-          populateExpenses(iconObj.name);
-          isFirst = !isFirst;
+      );
+      //to only show the first icon rendered as active, so that the main content isn't empty
+      if (isFirst) {
+        populateExpenses(iconObj.name);
+        isFirst = !isFirst;
+      }
+
+      const categoryIcon = document.getElementById(`category-icon-${id}`);
+      const categoryBtn = categoryIcon.querySelector(".category-icon-wrapper");
+
+      //to show the icon as active when pressed
+      categoryBtn.addEventListener("click", () => {
+        const activeBtn = document.querySelector(".category-icon-wrapper.active");
+        if (activeBtn) {
+          activeBtn.classList.remove("active");
         }
-
-        const categoryIcon = document.getElementById(`category-icon-${id}`);
-        const categoryBtn = categoryIcon.querySelector(".category-icon-wrapper");
-
-        categoryBtn.addEventListener("click", () => {
-          const activeBtn = document.querySelector(".category-icon-wrapper.active");
-          if (activeBtn) {
-            activeBtn.classList.remove("active");
-          }
-          categoryBtn.classList.add("active");
-          populateExpenses(iconObj.name);
-        });
-        id++;
-      }
+        categoryBtn.classList.add("active");
+        populateExpenses(iconObj.name);
+        manageCategory(iconObj, id);
+      });
+      id++;
     }
+  }
 
-    function manageCategory() {
-      const categoryIcons = document.getElementById("categoryIcons");
-      if (iconObj.type === "category") {
-        categoryIcons.insertAdjacentHTML(
-          "beforeend",
-          `          
-        <li id="category-icon-${id}" class="category-icon">
-            <button class="category-icon-wrapper">
-              <span class="material-symbols-outlined icon">${iconObj.icon}</span>
-              <span class="icon-label">${iconObj.name}</span>
-            </button>
-          </li>
+  //to show the edit category modal on click
+  function manageCategory(icon, currentId) {
+    const categoryIcons = document.getElementById("categoryIcons");
+    if (icon.type === "category") {
+      categoryIcons.insertAdjacentHTML(
+        "beforeend",
+        `          
+        <li id="category-icon-${currentId}" class="modal-icon">
+          <button class="modal-icon-wrapper">
+            <span class="material-symbols-outlined">${icon.icon}</span>
+            <span class="icon-label">${icon.name}</span>
+          </button>
+        </li>
         `,
-        );
-      }
+      );
     }
-
-    renderEditBtn();
-    renderViewAllBtn();
-    renderIconBtns();
-    manageCategory();
-  });
+  }
 }

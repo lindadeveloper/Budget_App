@@ -10,7 +10,7 @@
     <!-- IMPORTANT Google material icon's names need to be in alphabetical order -->
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add,apparel,arrow_left,arrow_right,beach_access,business_center,child_care,close,construction,credit_score,desktop_windows,directions_car,edit_note,exercise,featured_seasonal_and_gifts,finance,home,local_cafe,local_gas_station,logout,manage_accounts,manufacturing,menu,pet_supplies,pets,potted_plant,remove,school,shopping_cart,spa,sports_tennis,stadia_controller,stethoscope,subscriptions,theater_comedy,toys_fan,travel,view_array,view_carousel,view_cozy,wb_sunny"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add_2,apparel,arrow_left,arrow_right,beach_access,business_center,child_care,close,construction,credit_score,desktop_windows,directions_car,edit_note,exercise,featured_seasonal_and_gifts,finance,home,local_cafe,local_gas_station,logout,manage_accounts,manufacturing,menu,pet_supplies,pets,potted_plant,remove,school,shopping_cart,spa,sports_tennis,stadia_controller,stethoscope,subscriptions,theater_comedy,toys_fan,travel,view_array,view_carousel,view_cozy,wb_sunny"
     />
     <link rel="stylesheet" href="./src/style.css" />
     <title>Budget App</title>
@@ -49,13 +49,11 @@
       </header>
       <!-- main content -->
       <main id="mainContent" class="main-content">
-        <dialog id="categoryDialog" class="category-dialog">
-          <button id="plusIcon" class="material-symbols-outlined">
-            <span class="plus-icon">add</span>
-          </button>
-          <span class="plus-label">add</span>
-          <ul id="categoryIcons"></ul>
-          <button onClick="categoryDialog.close()">Close</button>
+        <dialog id="categoryDialogWrapper" class="category-dialog-wrapper">
+          <div id="categoryDialog" class="category-dialog">
+            <ul id="categoryIcons" class="category-modal-icons"></ul>
+            <button onClick="categoryDialogWrapper.close()" class="close-btn">Save</button>
+          </div>
         </dialog>
 
         <section class="category-icon-container">
