@@ -223,9 +223,12 @@ html {
 
 .gear-setting-wrapper {
   display: flex;
+  justify-content: center;
   align-items: center;
-  margin: 1rem 0;
+  padding: 1rem 0;
   gap: 1rem;
+  width: 100%;
+  z-index: 2;
 }
 
 .category-icon-wrapper {
@@ -356,6 +359,22 @@ html {
   background-color: transparent;
 }
 
+/*edit category modal section*/
+.category-dialog {
+  z-index: 2000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #c4c2c2;
+  width: 800px;
+  height: 800px;
+}
+
+dialog::backdrop {
+  background-color: black;
+  opacity: 50%;
+}
+
 /*footer section*/
 .footer-p {
   padding: 2rem;
@@ -406,6 +425,9 @@ html {
   }
   .category-icon-container.reveal-mobile {
     overflow: hidden;
+  }
+  .gear-setting-wrapper.reveal-mobile {
+    box-shadow: 0 2px 5px 0 #064550;
   }
 }
 

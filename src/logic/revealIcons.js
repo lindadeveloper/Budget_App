@@ -1,5 +1,6 @@
 export default function revealIcons() {
   const viewAllBtn = document.getElementById("viewAllIcons");
+
   const viewIcon = document.getElementById("viewIcon");
   const viewTextLabel = document.getElementById("viewTextLabel");
 
@@ -8,6 +9,7 @@ export default function revealIcons() {
   const mainContent = document.querySelector(".main-content");
   const trackIcons = document.querySelector(".track-icons");
   const categoryIconContainer = document.querySelector(".category-icon-container");
+  const gearSettingWrapper = document.querySelector(".gear-setting-wrapper");
 
   let viewedAll = false;
   viewAllBtn.addEventListener("click", () => {
@@ -19,6 +21,7 @@ export default function revealIcons() {
       categoryIconContainer.classList.add("reveal-icons");
       trackIcons.classList.remove("reveal-mobile");
       categoryIconContainer.classList.remove("reveal-mobile");
+      gearSettingWrapper.classList.remove("reveal-mobile");
       viewIcon.textContent = "view_array";
       viewTextLabel.textContent = "view less";
       viewedAll = true;
@@ -30,6 +33,7 @@ export default function revealIcons() {
       categoryIconContainer.classList.remove("reveal-icons");
       trackIcons.classList.add("reveal-mobile");
       categoryIconContainer.classList.add("reveal-mobile");
+      gearSettingWrapper.classList.add("reveal-mobile");
       viewIcon.textContent = "view_cozy";
       viewTextLabel.textContent = "view all";
       viewedAll = false;

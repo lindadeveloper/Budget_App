@@ -10,7 +10,7 @@
     <!-- IMPORTANT Google material icon's names need to be in alphabetical order -->
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=apparel,arrow_left,arrow_right,beach_access,business_center,child_care,close,construction,credit_score,desktop_windows,directions_car,edit_note,exercise,featured_seasonal_and_gifts,finance,home,local_cafe,local_gas_station,logout,manage_accounts,manufacturing,menu,pet_supplies,pets,potted_plant,receipt,school,shopping_cart,spa,sports_tennis,stadia_controller,stethoscope,subscriptions,theater_comedy,toys_fan,travel,view_array,view_carousel,view_cozy,wb_sunny"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add,apparel,arrow_left,arrow_right,beach_access,business_center,child_care,close,construction,credit_score,desktop_windows,directions_car,edit_note,exercise,featured_seasonal_and_gifts,finance,home,local_cafe,local_gas_station,logout,manage_accounts,manufacturing,menu,pet_supplies,pets,potted_plant,remove,school,shopping_cart,spa,sports_tennis,stadia_controller,stethoscope,subscriptions,theater_comedy,toys_fan,travel,view_array,view_carousel,view_cozy,wb_sunny"
     />
     <link rel="stylesheet" href="./src/style.css" />
     <title>Budget App</title>
@@ -22,15 +22,9 @@
       <img src="/assets/budget-logo.png" alt="logo" class="logo" />
       <ul>
         <li>
-          <a href="/index.html" class="menu-link">
+          <a href="/" class="menu-link">
             <i class="material-symbols-outlined">finance</i>
             Budget
-          </a>
-        </li>
-        <li>
-          <a href="#" class="menu-link">
-            <i class="material-symbols-outlined">receipt</i>
-            Receipts
           </a>
         </li>
         <li>
@@ -53,7 +47,17 @@
           <h1 class="brand-name">Budgeting</h1>
         </div>
       </header>
-      <main class="main-content">
+      <!-- main content -->
+      <main id="mainContent" class="main-content">
+        <dialog id="categoryDialog" class="category-dialog">
+          <button id="plusIcon" class="material-symbols-outlined">
+            <span class="plus-icon">add</span>
+          </button>
+          <span class="plus-label">add</span>
+          <ul id="categoryIcons"></ul>
+          <button onClick="categoryDialog.close()">Close</button>
+        </dialog>
+
         <section class="category-icon-container">
           <div id="gearSettingIcon" class="gear-setting-wrapper"></div>
           <button id="slideLeft" class="material-symbols-outlined slide-left-btn">
@@ -64,6 +68,7 @@
             arrow_right
           </button>
         </section>
+
         <section class="category-details">
           <div class="category-detail-wrapper">
             <h2 id="category-title" class="category-title"></h2>
