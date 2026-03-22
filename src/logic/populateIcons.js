@@ -20,7 +20,6 @@ export default function populateIcons() {
     renderPlusBtn(item);
     renderViewAllBtn(item);
     renderIconBtns(item);
-    manageCategory(item);
   }
 
   //to create the edit category button
@@ -46,10 +45,10 @@ export default function populateIcons() {
       categoryDialog.insertAdjacentHTML(
         "afterbegin",
         `
-        <button id="plusIcon" class="material-symbols-outlined plus-wrap">
-            <span class="plus-icon">${iconObj.icon}</span>
-            <span class="plus-label">${iconObj.name}</span>
-        </button>
+          <button id="plusIcon" class="material-symbols-outlined plus-wrap">
+              <span class="plus-icon">${iconObj.icon}</span>
+              <span class="plus-label">${iconObj.name}</span>
+          </button>
       `,
       );
     }
@@ -110,6 +109,8 @@ export default function populateIcons() {
       const categoryIcon = document.getElementById(`category-icon-${id}`);
       const categoryBtn = categoryIcon.querySelector(".category-icon-wrapper");
 
+      let currentId = id;
+
       //to show the icon as active when pressed
       categoryBtn.addEventListener("click", () => {
         const activeBtn = document.querySelector(".category-icon-wrapper.active");
@@ -118,14 +119,15 @@ export default function populateIcons() {
         }
         categoryBtn.classList.add("active");
         populateExpenses(iconObj.name);
-        manageCategory(iconObj, id);
       });
       id++;
+      manageCategory(iconObj, currentId);
     }
   }
 
   //to show the edit category modal on click
   function manageCategory(icon, currentId) {
+    console.log(currentId);
     const categoryIcons = document.getElementById("categoryIcons");
     if (icon.type === "category") {
       categoryIcons.insertAdjacentHTML(
@@ -133,12 +135,24 @@ export default function populateIcons() {
         `          
         <li id="category-icon-${currentId}" class="modal-icon">
           <button class="modal-icon-wrapper">
-            <span class="material-symbols-outlined">${icon.icon}</span>
+            <button title="remove"class="material-symbols-outlined remove-btn">remove</button>
+            <span class="material-symbols-outlined icon-img">${icon.icon}</span>
             <span class="icon-label">${icon.name}</span>
           </button>
         </li>
         `,
+        // removeIconCategory(`category-icon-${currentId}`),
       );
     }
   }
+
+  // function removeIconCategory(currentIcon) {
+  //   const icon = document.getElementById(currentIcon);
+  //   const removeBtn = icon.querySelector(".remove-btn");
+
+  //   removeBtn.addEventListener("click", () => {
+  //     console.log(icon);
+  //     icons.remove();
+  //   });
+  // }
 }

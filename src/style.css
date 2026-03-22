@@ -220,6 +220,11 @@ html {
   font-family: "Inter", sans-serif;
 }
 
+.icon-img,
+.icon-label {
+  grid-column: span 4;
+}
+
 .gear-setting-wrapper {
   display: flex;
   justify-content: center;
@@ -230,10 +235,18 @@ html {
   z-index: 2;
 }
 
-.category-icon-wrapper,
-.modal-icon-wrapper {
+.category-icon-wrapper {
   padding: 1rem 0;
+}
+
+.modal-icon-wrapper,
+.category-icon-wrapper {
   margin: 0.5rem 0.5rem;
+}
+
+.modal-icon-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .plus-wrap,
@@ -241,13 +254,18 @@ html {
 .gear-icon,
 .category-icon-wrapper,
 .modal-icon-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   border-radius: 1rem;
   min-width: 130px;
   background-color: transparent;
   opacity: 95%;
+}
+.plus-wrap,
+.view-all-icons,
+.gear-icon,
+.category-icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .track-icons {
@@ -257,7 +275,7 @@ html {
 }
 
 /*to give a glass effect on icons*/
-.close-btn,
+.save-btn,
 .view-all,
 .g-icon,
 .category-icon-wrapper,
@@ -370,6 +388,7 @@ html {
   max-width: 80%;
   border: none;
   border-radius: 10px;
+  overflow-x: hidden;
 }
 
 .category-dialog {
@@ -387,13 +406,26 @@ dialog::backdrop {
 .plus-icon {
   margin-top: 1rem;
 }
-.close-btn {
+.save-btn {
   font-size: 1.5rem;
   font-family: "Inter", sans-serif;
   background-color: #3d94a3;
   border: none;
   color: white;
   padding: 1rem 0;
+}
+.remove-btn {
+  grid-column: -1;
+  font-size: 1rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px 0 #064550;
+}
+
+.close-btn {
+  position: absolute;
+  right: 0;
+  padding: 1rem;
+  background-color: transparent;
 }
 
 .category-modal-icons {
@@ -404,6 +436,7 @@ dialog::backdrop {
 }
 
 .modal-icon-wrapper {
+  padding: 0 0 1rem 0;
   background-color: #a0d4d6;
   box-shadow: 0 2px 5px 0 #064550;
 }
@@ -585,9 +618,10 @@ dialog::backdrop {
   .gear-icon,
   .view-all,
   .plus-icon,
+  .save-btn,
   .close-btn,
+  .remove-btn,
   .category-icon-wrapper,
-  .modal-icon-wrapper,
   .edit-btn,
   .slide-right-btn,
   .slide-left-btn,
@@ -595,7 +629,9 @@ dialog::backdrop {
     cursor: pointer;
   }
 
-  .close-btn:hover,
+  .save-btn:hover {
+    background-color: black;
+  }
   .slide-right-btn:hover,
   .slide-left-btn:hover,
   .plus-icon:hover,
@@ -614,7 +650,7 @@ dialog::backdrop {
     background-color: #3d94a3;
   }
 
-  .close-btn:hover,
+  .save-btn:hover,
   .plus-icon:hover,
   .view-all:hover,
   .g-icon:hover,

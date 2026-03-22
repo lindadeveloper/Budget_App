@@ -51,8 +51,15 @@
       <main id="mainContent" class="main-content">
         <dialog id="categoryDialogWrapper" class="category-dialog-wrapper">
           <div id="categoryDialog" class="category-dialog">
+            <button
+              title="close"
+              onClick="categoryDialogWrapper.close()"
+              class="material-symbols-outlined close-btn"
+            >
+              close
+            </button>
             <ul id="categoryIcons" class="category-modal-icons"></ul>
-            <button onClick="categoryDialogWrapper.close()" class="close-btn">Save</button>
+            <button onClick="categoryDialogWrapper.close()" class="save-btn">Save</button>
           </div>
         </dialog>
 
