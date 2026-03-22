@@ -121,38 +121,45 @@ export default function populateIcons() {
         populateExpenses(iconObj.name);
       });
       id++;
-      manageCategory(iconObj, currentId);
+      renderModalIcons(iconObj, currentId);
     }
   }
 
   //to show the edit category modal on click
-  function manageCategory(icon, currentId) {
-    console.log(currentId);
+  function renderModalIcons(icon, currentId) {
     const categoryIcons = document.getElementById("categoryIcons");
     if (icon.type === "category") {
       categoryIcons.insertAdjacentHTML(
         "beforeend",
         `          
         <li id="category-icon-${currentId}" class="modal-icon">
-          <button class="modal-icon-wrapper">
-            <button title="remove"class="material-symbols-outlined remove-btn">remove</button>
+          <div class="modal-icon-wrapper">
+            <button data-action="remove" title="remove"class="material-symbols-outlined remove-btn">remove</button>
             <span class="material-symbols-outlined icon-img">${icon.icon}</span>
             <span class="icon-label">${icon.name}</span>
-          </button>
+          </div>
         </li>
         `,
-        // removeIconCategory(`category-icon-${currentId}`),
       );
+      removeIconCategory(currentId);
     }
   }
 
-  // function removeIconCategory(currentIcon) {
-  //   const icon = document.getElementById(currentIcon);
-  //   const removeBtn = icon.querySelector(".remove-btn");
+  function removeIconCategory(currentIcon) {
+    const removeBtn = document.querySelector(
+      `#category-icon-${currentIcon} [data-action="remove"]`,
+    );
 
-  //   removeBtn.addEventListener("click", () => {
-  //     console.log(icon);
-  //     icons.remove();
-  //   });
-  // }
+    if (!removeBtn) return;
+
+    removeBtn.addEventListener(
+      "click",
+      () => {
+        const carouselIcon = document.getElementById(`category-icon-${currentIcon}`);
+        carouselIcon?.remove();
+        removeBtn.closest(".modal-icon")?.remove();
+      },
+      { once: true },
+    );
+  }
 }

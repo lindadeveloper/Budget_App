@@ -1,10 +1,16 @@
 What I learned:
-insertAdjacentHTML have higher performance than innerHTML and safer.
-createElement have higher performance than innerHTMl and insertAdjacentHTML. This is the safest option if creating inputs.
+
+1. insertAdjacentHTML have higher performance and safer than innerHTML.
+2. createElement have higher performance than innerHTMl and insertAdjacentHTML. This is the safest option if creating inputs.
+3. The `<dialog>` tag is excellent for accessibility. It is considered best practice for creating modal dialogs, alerts, and popups. It also comes with many perks that are already implemented in it.
 
 Problems I faced:
-The menu was overflowing when I used width for logic.
-Solution: Instead of using width, I used the "displayed: none" method in CSS to fix this problem.
 
-I have trouble finding a solution for active button.
-Solution: I console log every step to see where goes wrong. I fixed the issue by separating the first render of the icons to determine which one is first active and create another active state inside the re-render.
+1. The menu was overflowing when I used width for logic.
+   Solution: Instead of using width, I used the "displayed: none" method in CSS to fix this problem.
+
+2. I have trouble finding a solution for active button.
+   Solution: I console log every step to see where goes wrong. I fixed the issue by separating the first render of the icons to determine which one is first active and create another active state inside the re-render.
+
+3. I had trouble creating the remove icon function.
+   Solution: I console.logged on let id = 0 to check if it was valid or null whenever it's being passed down to a new function. I made sure the id was passed down successfully to every function.

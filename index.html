@@ -49,20 +49,6 @@
       </header>
       <!-- main content -->
       <main id="mainContent" class="main-content">
-        <dialog id="categoryDialogWrapper" class="category-dialog-wrapper">
-          <div id="categoryDialog" class="category-dialog">
-            <button
-              title="close"
-              onClick="categoryDialogWrapper.close()"
-              class="material-symbols-outlined close-btn"
-            >
-              close
-            </button>
-            <ul id="categoryIcons" class="category-modal-icons"></ul>
-            <button onClick="categoryDialogWrapper.close()" class="save-btn">Save</button>
-          </div>
-        </dialog>
-
         <section class="category-icon-container">
           <div id="gearSettingIcon" class="gear-setting-wrapper"></div>
           <button id="slideLeft" class="material-symbols-outlined slide-left-btn">
@@ -82,6 +68,20 @@
         </section>
       </main>
       <footer id="site-footer"></footer>
+
+      <dialog id="categoryDialogWrapper" class="category-dialog-wrapper">
+        <div id="categoryDialog" class="category-dialog">
+          <button
+            title="close"
+            onClick="categoryDialogWrapper.close()"
+            class="material-symbols-outlined close-btn"
+          >
+            close
+          </button>
+          <ul id="categoryIcons" class="category-modal-icons"></ul>
+          <button onClick="categoryDialogWrapper.close()" class="save-btn">Save</button>
+        </div>
+      </dialog>
     </div>
     <script src="/src/index.js" type="module"></script>
   </body>

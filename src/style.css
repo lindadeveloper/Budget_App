@@ -223,6 +223,7 @@ html {
 .icon-img,
 .icon-label {
   grid-column: span 4;
+  text-align: center;
 }
 
 .gear-setting-wrapper {
@@ -386,6 +387,7 @@ html {
   margin: auto;
   z-index: 2000;
   max-width: 80%;
+  min-width: 80%;
   border: none;
   border-radius: 10px;
   overflow-x: hidden;
@@ -608,7 +610,7 @@ dialog::backdrop {
 
   /*modal section*/
   .category-dialog-wrapper {
-    max-width: 1000px;
+    min-width: 30%;
   }
 
   /*animation and hover effect*/
