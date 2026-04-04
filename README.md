@@ -14,3 +14,9 @@ Problems I faced:
 
 3. I had trouble creating the remove icon function.
    Solution: I console.logged on let id = 0 to check if it was valid or null whenever it's being passed down to a new function. I made sure the id was passed down successfully to every function.
+
+4. I had trouble with the confirmation modal. It kept deleting the entire carousel icons and the modal icons.
+
+Analyze: I console.log the icon's id being passed to the removeIconCategory file and realized it was populating the entire icon's id which caused the entire icons to be deleted on click.
+
+Solution: I added unique ids to each removeBtn to make sure it only delete one icon at a time.

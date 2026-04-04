@@ -1,6 +1,6 @@
-import categoriesData from "../data/categoriesData.js";
+import { categoriesData } from "../data/categoriesData.js";
 
-export default function populateExpenses(objName) {
+export function populateExpenses(objName) {
   const expenseList = document.getElementById("expense-list");
   const categoryTitle = document.getElementById("category-title");
 

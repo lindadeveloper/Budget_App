@@ -1,7 +1,8 @@
-import iconsData from "../data/iconsData.js";
-import populateExpenses from "./populateExpenses.js";
+import { iconsData } from "../data/iconsData.js";
+import { populateExpenses } from "./populateExpenses.js";
+import { openRemoveCategoryConfirmation } from "./removeIconCategory.js";
 
-export default function populateIcons() {
+export function populateIcons() {
   const mobileQuery = window.matchMedia("(max-width: 799px)");
   const gearSettingIcon = document.getElementById("gearSettingIcon");
   const trackIcons = document.getElementById("trackIcons");
@@ -22,16 +23,16 @@ export default function populateIcons() {
     renderIconBtns(item);
   }
 
-  //to create the edit category button
+  //to create the edit category button & to show the edit category modal
   function renderEditBtn(iconObj) {
     if (iconObj.type === "edit") {
       gearSettingIcon.insertAdjacentHTML(
         "afterbegin",
         `
             <button 
-            id="gearEditBtn" 
-            class="material-symbols-outlined gear-icon" 
-            onClick="categoryDialogWrapper.showModal()">
+              id="gearEditBtn" 
+              class="material-symbols-outlined gear-icon" 
+              onClick="categoryDialogWrapper.showModal()">
               <span class="g-icon">${iconObj.icon}</span>
               <span class="icon-label">${iconObj.name}</span>
             </button>
@@ -125,41 +126,47 @@ export default function populateIcons() {
     }
   }
 
-  //to show the edit category modal on click
-  function renderModalIcons(icon, currentId) {
+  //to render category modal Icons (icon image, remove -, and icon label) inside the edit category
+  function renderModalIcons(iconObj, currentId) {
     const categoryIcons = document.getElementById("categoryIcons");
-    if (icon.type === "category") {
+    if (iconObj.type === "category") {
       categoryIcons.insertAdjacentHTML(
         "beforeend",
         `          
         <li id="category-icon-${currentId}" class="modal-icon">
           <div class="modal-icon-wrapper">
-            <button data-action="remove" title="remove"class="material-symbols-outlined remove-btn">remove</button>
-            <span class="material-symbols-outlined icon-img">${icon.icon}</span>
-            <span class="icon-label">${icon.name}</span>
+            <button
+              id="removeBtn-${currentId}"
+              data-action="remove" 
+              title="remove"class="material-symbols-outlined 
+              remove-btn">
+              remove
+            </button>
+            <span class="material-symbols-outlined icon-img">${iconObj.icon}</span>
+            <span class="icon-label">${iconObj.name}</span>
           </div>
         </li>
         `,
       );
-      removeIconCategory(currentId);
+      openRemoveCategoryConfirmation(currentId);
     }
   }
 
-  function removeIconCategory(currentIcon) {
-    const removeBtn = document.querySelector(
-      `#category-icon-${currentIcon} [data-action="remove"]`,
-    );
+  //things to consider: the setup will be calling per icon, Dom queries is on every function call, Dynamic items will need re-calling, code maintenance is more
+  //How to improve? Use the delegation method: only setup once on page load, only on click, auto-covers new items, less maintenance
+  //  code example from claude:
+  // // ✅ Set this up once, never touch it again
+  // document.querySelector('.modal').addEventListener('click', (e) => {
+  //   const removeBtn = e.target.closest('[data-action="remove"]');
+  //   if (!removeBtn) return;
 
-    if (!removeBtn) return;
+  //   const modalItem = removeBtn.closest('.modal-icon');
+  //   const id = modalItem.id; // "category-icon-1"
 
-    removeBtn.addEventListener(
-      "click",
-      () => {
-        const carouselIcon = document.getElementById(`category-icon-${currentIcon}`);
-        carouselIcon?.remove();
-        removeBtn.closest(".modal-icon")?.remove();
-      },
-      { once: true },
-    );
-  }
+  //   // Remove from modal
+  //   modalItem.remove();
+
+  //   // Remove from carousel using the same id
+  //   document.getElementById(id)?.remove();
+  // });
 }

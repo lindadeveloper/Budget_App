@@ -1,4 +1,4 @@
-export default function revealIcons() {
+export function revealIcons() {
   const viewAllBtn = document.getElementById("viewAllIcons");
 
   const viewIcon = document.getElementById("viewIcon");

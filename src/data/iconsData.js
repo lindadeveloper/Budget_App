@@ -1,6 +1,6 @@
 //category icons section
 
-const iconsData = [
+export const iconsData = [
   { name: "edit category", icon: "manufacturing", type: "edit" },
   { name: "add category", icon: "add_2", type: "add" },
   { name: "view all", icon: "view_cozy", type: "viewAll" },
@@ -31,5 +31,3 @@ const iconsData = [
   { name: "rent", icon: "home", type: "category" },
   { name: "student loans", icon: "school", type: "category" },
 ];
-
-export default iconsData;

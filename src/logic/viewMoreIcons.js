@@ -1,4 +1,4 @@
-export default function viewMoreIcons() {
+export function viewMoreIcons() {
   const nextBtn = document.getElementById("slideRight");
   const prevBtn = document.getElementById("slideLeft");
   const iconContainer = document.getElementById("trackIcons");

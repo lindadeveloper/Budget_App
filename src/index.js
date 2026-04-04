@@ -1,7 +1,7 @@
-import populateIcons from "./logic/populateIcons.js";
-import menuToggle from "./logic/menuToggle.js";
-import viewMoreIcons from "./logic/viewMoreIcons.js";
-import revealIcons from "./logic/revealIcons.js";
+import { populateIcons } from "./logic/populateIcons.js";
+import { menuToggle } from "./logic/menuToggle.js";
+import { viewMoreIcons } from "./logic/viewMoreIcons.js";
+import { revealIcons } from "./logic/revealIcons.js";
 
 async function loadComponent(id, url) {
   const element = document.getElementById(id);

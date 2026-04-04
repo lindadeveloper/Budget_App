@@ -4,7 +4,7 @@ const xIcon = document.getElementById("x-icon");
 
 let menuOpen = false;
 
-export default function menuToggle() {
+export function menuToggle() {
   xIcon.addEventListener("click", menuState);
   menuBtn.addEventListener("click", menuState);
 }
