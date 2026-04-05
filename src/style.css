@@ -81,7 +81,8 @@ html {
 
 /*for the side nav-side-container and the right main-container*/
 .site-wrapper {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
   height: 100vh;
 }
 
