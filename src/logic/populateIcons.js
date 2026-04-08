@@ -17,14 +17,14 @@ export function populateIcons() {
 
   //to pass down the icon's data to each function
   function processIcons(item) {
-    renderEditBtn(item);
+    renderGearEditBtn(item);
     renderPlusBtn(item);
     renderViewAllBtn(item);
     renderIconBtns(item);
   }
 
   //to create the edit category button & to show the edit category modal
-  function renderEditBtn(iconObj) {
+  function renderGearEditBtn(iconObj) {
     if (iconObj.type === "edit") {
       gearSettingIcon.insertAdjacentHTML(
         "afterbegin",

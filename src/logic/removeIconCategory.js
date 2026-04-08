@@ -26,24 +26,3 @@ export function openRemoveCategoryConfirmation(currentId) {
     confirmationDialog.close();
   }
 }
-//   const removeBtn = document.querySelector(`#category-icon-${currentId} [data-action="remove"]`);
-
-// deleteCategoryBtn.addEventListener("click", removeCategories, { once: true });
-
-// const carouselIcon = document.getElementById(`category-icon-${currentId}`);
-// carouselIcon.remove();
-// removeBtn.closest(".modal-icon").remove();
-// removeBtn.addEventListener(
-//   "click",
-//   () => {
-//     const carouselIcon = document.getElementById(`category-icon-${currentIcon}`);
-//     carouselIcon?.remove();
-//     removeBtn.closest(".modal-icon")?.remove();
-//   },
-//   { once: true },
-// );
-
-// function removeCategories() {
-//   carouselIcon.remove();
-//   removeBtn.closest(".modal-icon").remove();
-// }

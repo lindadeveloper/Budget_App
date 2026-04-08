@@ -1,4 +1,5 @@
 import { categoriesData } from "../data/categoriesData.js";
+import { editBudget } from "./editBudget.js";
 
 export function populateExpenses(objName) {
   const expenseList = document.getElementById("expense-list");
@@ -43,7 +44,7 @@ export function populateExpenses(objName) {
               </div>
             </div>
           </div>
-          <button class="edit-btn">
+          <button id="editBudgetBtn"class="edit-budget-btn">
             <span class="material-symbols-outlined">edit_note</span>
             <span>Edit</span>
           </button>
@@ -53,6 +54,7 @@ export function populateExpenses(objName) {
       document.querySelectorAll(".progress-bar").forEach((bar) => {
         bar.style.setProperty("--target-width", bar.dataset.width);
       });
+      editBudget();
     }
   });
 }

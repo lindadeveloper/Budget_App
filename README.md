@@ -22,6 +22,7 @@ Analyze: I console.log the icon's id being passed to the removeIconCategory file
 Solution: I added unique ids to each removeBtn to make sure it only delete one icon at a time.
 
 5. I had trouble making the side bar go all the way to the bottom.
-   Analyze: I used the dev tool to figure out what I could do to fix this. This allowed me to experiment the CSS without breaking the site permenantly.
+
+Analyze: I used the dev tool to figure out what I could do to fix this. This allowed me to experiment the CSS without breaking the site permenantly.
 
 solution: Instead of display flex, I switched the site wrapper to grid template to fix this problem.

@@ -174,7 +174,7 @@ html {
 .log-out > .material-symbols-outlined,
 .menu-link > .material-symbols-outlined,
 .light-mode-icon,
-.edit-btn > .material-symbols-outlined {
+.edit-budget-btn > .material-symbols-outlined {
   font-size: 1.5rem;
 }
 
@@ -370,7 +370,7 @@ html {
   animation: grow 0.6s ease forwards;
 }
 
-.edit-btn {
+.edit-budget-btn {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -461,6 +461,24 @@ dialog::backdrop {
   padding: 1.5rem;
 }
 
+.edit-budget-dialog-wrapper {
+  margin: auto;
+  z-index: 3000;
+  border-radius: 10px;
+  border: none;
+  overflow-x: hidden;
+  max-width: 300px;
+}
+
+.edit-budget-dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
 .deleteCatIconBtn,
 .cancelCatIconBtn {
   width: 100%;
@@ -478,6 +496,86 @@ dialog::backdrop {
 
 .cancelCatIconBtn {
   background-color: black;
+}
+
+.edit-budget-save,
+.edit-budget-cancel,
+.edit-budget-category-detail,
+.edit-budget-category {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.edit-budget-category,
+.edit-budget-save,
+.edit-budget-cancel,
+.edit-budget-category-detail {
+  height: 3rem;
+}
+
+.edit-budget-save,
+.edit-budget-cancel,
+.edit-budget-category-detail,
+.edit-budget-category,
+.edit-budget-title,
+.edit-budget-amount {
+  width: 100%;
+}
+
+.edit-budget-title {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.edit-budget-date-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.edit-budget-amount,
+.edit-budget-category-detail,
+.edit-budget-date,
+.edit-budget-save,
+.edit-budget-cancel,
+.edit-budget-category {
+  border-radius: 5px;
+}
+
+.edit-budget-save {
+  background-color: #3d94a3;
+  color: white;
+  border: none;
+}
+
+.edit-budget-cancel {
+  background-color: black;
+  color: white;
+  border: none;
+}
+
+.edit-budget-amount,
+.edit-budget-category-detail,
+.edit-budget-category,
+.edit-budget-date {
+  border: 1px solid #acacac;
+}
+
+.edit-budget-date {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.edit-budget-amount {
+  font-size: 3rem;
+  text-align: center;
 }
 
 /*footer section*/
@@ -607,6 +705,10 @@ dialog::backdrop {
     flex-wrap: unset;
   }
 
+  .edit-budget-dialog-wrapper {
+    max-width: 450px;
+  }
+
   .gear-setting-wrapper {
     width: unset;
     gap: 0;
@@ -659,6 +761,10 @@ dialog::backdrop {
     padding: 2rem;
   }
   /*animation and hover effect*/
+  .edit-budget-category,
+  .edit-budget-date,
+  .edit-budget-save,
+  .edit-budget-cancel,
   .deleteCatIconBtn,
   .cancelCatIconBtn,
   .menu-link,
@@ -671,7 +777,7 @@ dialog::backdrop {
   .close-btn,
   .remove-btn,
   .category-icon-wrapper,
-  .edit-btn,
+  .edit-budget-btn,
   .slide-right-btn,
   .slide-left-btn,
   .log-out {

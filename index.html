@@ -90,6 +90,24 @@
           <button id="cancelCatIconBtn" class="cancelCatIconBtn">Cancel</button>
         </div>
       </dialog>
+
+      <dialog id="editBudgetDialog" class="edit-budget-dialog-wrapper">
+        <div class="edit-budget-dialog">
+          <p class="edit-budget-title">Edit Budget</p>
+          <input type="text" class="edit-budget-amount" />
+          <div class="edit-budget-date-wrapper">
+            <p>End Date</p>
+            <input type="date" class="edit-budget-date" />
+          </div>
+          <select id="category" class="edit-budget-category" name="Category">
+            <option value="gym">Gym</option>
+            <option value="gas">Gas</option>
+          </select>
+          <p class="edit-budget-category-detail" contenteditable="true">Anytime Fitness</p>
+          <button class="edit-budget-save" onClick="editBudgetDialog.close()">Save</button>
+          <button class="edit-budget-cancel" onClick="editBudgetDialog.close()">Cancel</button>
+        </div>
+      </dialog>
     </div>
     <script src="/src/index.js" type="module"></script>
   </body>
