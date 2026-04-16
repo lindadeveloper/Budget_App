@@ -5,6 +5,8 @@ export function populateExpenses(objName) {
   const expenseList = document.getElementById("expense-list");
   const categoryTitle = document.getElementById("category-title");
 
+  let editIconId = 0;
+
   //to make the first letter uppercased on every word
   function titleCase(str) {
     return str
@@ -18,6 +20,10 @@ export function populateExpenses(objName) {
 
   categoriesData.forEach((itemObj) => {
     let goalLimit = itemObj.price + 100;
+    let totalSpent = itemObj.price;
+    let endDate = itemObj.date;
+    let expenseName = itemObj.name;
+    let category = itemObj.category;
 
     if (objName === itemObj.category) {
       const progress = Math.round((itemObj.price / goalLimit) * 100);
@@ -25,13 +31,13 @@ export function populateExpenses(objName) {
         "beforeend",
         `<div class="expense-wrapper">
           <div id="expense-details" class="expense-details">
-            <span class="item-name">${itemObj.name}</span>
+            <span class="item-name">${expenseName}</span>
             <div class="date-goal-wrap">
-              <span>End date: ${itemObj.date}</span>
+              <span>End date: ${endDate}</span>
               <span>Goal limit: $${goalLimit}</span>
             </div>
             <div class="progress">
-              <p class="total-spent">Total spent: $${itemObj.price}</p>
+              <p class="total-spent">Total spent: $${totalSpent}</p>
               <div 
                 id="progressBar"
                 class="progress-bar"
@@ -44,7 +50,7 @@ export function populateExpenses(objName) {
               </div>
             </div>
           </div>
-          <button id="editBudgetBtn"class="edit-budget-btn">
+          <button id="${editIconId}"class="edit-budget-btn">
             <span class="material-symbols-outlined">edit_note</span>
             <span>Edit</span>
           </button>
@@ -54,8 +60,9 @@ export function populateExpenses(objName) {
       document.querySelectorAll(".progress-bar").forEach((bar) => {
         bar.style.setProperty("--target-width", bar.dataset.width);
       });
-      editBudget();
+      editBudget(editIconId, goalLimit, category, endDate, expenseName);
     }
+    editIconId++;
   });
 }
 // For more security, use this method instead, but it's more verbose:

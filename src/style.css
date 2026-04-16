@@ -467,7 +467,6 @@ dialog::backdrop {
   border-radius: 10px;
   border: none;
   overflow-x: hidden;
-  max-width: 300px;
 }
 
 .edit-budget-dialog {
@@ -520,9 +519,19 @@ dialog::backdrop {
 .edit-budget-cancel,
 .edit-budget-category-detail,
 .edit-budget-category,
-.edit-budget-title,
+.edit-budget-title {
+  width: 100%;
+}
+
 .edit-budget-amount {
   width: 100%;
+  text-align: center;
+}
+
+.dollar {
+  gap: 0.5rem;
+  display: flex;
+  align-items: center;
 }
 
 .edit-budget-title {
@@ -573,9 +582,9 @@ dialog::backdrop {
   text-transform: uppercase;
 }
 
+.dollar,
 .edit-budget-amount {
-  font-size: 3rem;
-  text-align: center;
+  font-size: 2.5rem;
 }
 
 /*footer section*/
