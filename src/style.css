@@ -461,7 +461,9 @@ dialog::backdrop {
   padding: 1.5rem;
 }
 
-.edit-budget-dialog-wrapper {
+.add-category-dialog,
+.edit-budget-dialog-wrapper,
+.add-category-wrapper {
   margin: auto;
   z-index: 3000;
   border-radius: 10px;
@@ -469,7 +471,8 @@ dialog::backdrop {
   overflow-x: hidden;
 }
 
-.edit-budget-dialog {
+.edit-budget-dialog,
+.add-category-dialog {
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -497,8 +500,8 @@ dialog::backdrop {
   background-color: black;
 }
 
-.edit-budget-save,
-.edit-budget-cancel,
+.save,
+.cancel,
 .edit-budget-category-detail,
 .edit-budget-category {
   display: flex;
@@ -509,14 +512,14 @@ dialog::backdrop {
 }
 
 .edit-budget-category,
-.edit-budget-save,
-.edit-budget-cancel,
+.save,
+.cancel,
 .edit-budget-category-detail {
   height: 3rem;
 }
 
-.edit-budget-save,
-.edit-budget-cancel,
+.save,
+.cancel,
 .edit-budget-category-detail,
 .edit-budget-category,
 .edit-budget-title {
@@ -550,19 +553,19 @@ dialog::backdrop {
 .edit-budget-amount,
 .edit-budget-category-detail,
 .edit-budget-date,
-.edit-budget-save,
-.edit-budget-cancel,
+.save,
+.cancel,
 .edit-budget-category {
   border-radius: 5px;
 }
 
-.edit-budget-save {
+.save {
   background-color: #3d94a3;
   color: white;
   border: none;
 }
 
-.edit-budget-cancel {
+.cancel {
   background-color: black;
   color: white;
   border: none;
@@ -714,6 +717,7 @@ dialog::backdrop {
     flex-wrap: unset;
   }
 
+  .add-category-wrapper,
   .edit-budget-dialog-wrapper {
     max-width: 450px;
   }
@@ -772,8 +776,8 @@ dialog::backdrop {
   /*animation and hover effect*/
   .edit-budget-category,
   .edit-budget-date,
-  .edit-budget-save,
-  .edit-budget-cancel,
+  .save,
+  .cancel,
   .deleteCatIconBtn,
   .cancelCatIconBtn,
   .menu-link,

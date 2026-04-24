@@ -1,6 +1,5 @@
 //to remove categories from the category modal
-export function openRemoveCategoryConfirmation(currentId) {
-  console.log(currentId);
+export function addRemoveCategory(currentId) {
   const deleteCategoryBtn = document.getElementById("deleteCatIconBtn");
   const cancelCategoryBtn = document.getElementById("cancelCatIconBtn");
   const confirmationDialog = document.getElementById("confirmationDialog");

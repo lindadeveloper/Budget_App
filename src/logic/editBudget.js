@@ -1,3 +1,5 @@
+import { categoriesData } from "../data/categoriesData.js";
+
 export function editBudget(editIconId, goalLimit, category, endDate, expenseName) {
   const editBudgetBtn = document.getElementById(editIconId);
   const editBudgetDialog = document.getElementById("editBudgetDialog");
@@ -12,24 +14,40 @@ export function editBudget(editIconId, goalLimit, category, endDate, expenseName
       <p>End Date</p>
       <input type="date" class="edit-budget-date" value="${endDate}"/>
       </div>
-      <select id="category" class="edit-budget-category" name="Category">
-      <option value="${category}">${category.toUpperCase()}</option>
+      <select id="categoryBudgetOption" class="edit-budget-category" name="Category">
       </select>
-      <p class="edit-budget-category-detail" contenteditable="true">${expenseName}</p>
-      <button id="saveBtn" class="edit-budget-save">Save</button>
-      <button id="closeBtn" class="edit-budget-cancel">Cancel</button>
+      <input type="text" class="edit-budget-category-detail" value="${expenseName}"></input>
+      <button id="budgetSaveBtn" class="save">Save</button>
+      <button id="budgetCloseBtn" class="cancel">Cancel</button>
       </div>`,
     );
+
+    //to edit category
+    const categoryBudgetOption = document.getElementById("categoryBudgetOption");
+    let categoryArr = [];
+    categoriesData.forEach((itemObj) => {
+      if (!categoryArr.includes(itemObj.category)) {
+        categoryArr.push(itemObj.category);
+      }
+    });
+
+    categoryArr.map((categoryItem) => {
+      categoryBudgetOption.innerHTML += `<option value="${categoryItem}" ${category === categoryItem ? "selected" : ""}>${categoryItem.toUpperCase()}</option>`;
+    });
+
     editBudgetDialog.showModal();
 
-    const saveBtn = document.getElementById("saveBtn");
-    const closeBtn = document.getElementById("closeBtn");
+    const saveBtn = document.getElementById("budgetSaveBtn");
+    const closeBtn = document.getElementById("budgetCloseBtn");
 
+    //to save
     saveBtn.addEventListener("click", saved);
     function saved() {
       editBudgetDialog.close();
       editBudgetDialog.innerHTML = "";
     }
+
+    //to cancel
     closeBtn.addEventListener("click", closed);
     function closed() {
       editBudgetDialog.close();

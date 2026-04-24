@@ -1,6 +1,7 @@
 import { iconsData } from "../data/iconsData.js";
 import { populateExpenses } from "./populateExpenses.js";
-import { openRemoveCategoryConfirmation } from "./removeIconCategory.js";
+import { addRemoveCategory } from "./addRemoveCategory.js";
+import { addCategoryBudget } from "./addCategoryBudget.js";
 
 export function populateIcons() {
   const mobileQuery = window.matchMedia("(max-width: 799px)");
@@ -46,12 +47,13 @@ export function populateIcons() {
       categoryDialog.insertAdjacentHTML(
         "afterbegin",
         `
-          <button id="plusIcon" class="material-symbols-outlined plus-wrap">
-              <span class="plus-icon">${iconObj.icon}</span>
+          <div class="plus-wrap">
+              <button id="addCategoryBtn" class="material-symbols-outlined plus-icon">${iconObj.icon}</button>
               <span class="plus-label">${iconObj.name}</span>
-          </button>
+          </div>
       `,
       );
+      addCategoryBudget();
     }
   }
 
@@ -148,7 +150,7 @@ export function populateIcons() {
         </li>
         `,
       );
-      openRemoveCategoryConfirmation(currentId);
+      addRemoveCategory(currentId);
     }
   }
 
