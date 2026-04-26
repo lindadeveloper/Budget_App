@@ -1,7 +1,7 @@
 import { iconsData } from "../data/iconsData.js";
 import { populateExpenses } from "./populateExpenses.js";
-import { addRemoveCategory } from "./addRemoveCategory.js";
-import { addCategoryBudget } from "./addCategoryBudget.js";
+import { editCategory } from "./editCategory.js";
+import { addCategory } from "./addCategory.js";
 
 export function populateIcons() {
   const mobileQuery = window.matchMedia("(max-width: 799px)");
@@ -53,7 +53,7 @@ export function populateIcons() {
           </div>
       `,
       );
-      addCategoryBudget();
+      addCategory();
     }
   }
 
@@ -150,7 +150,7 @@ export function populateIcons() {
         </li>
         `,
       );
-      addRemoveCategory(currentId);
+      editCategory(currentId);
     }
   }
 

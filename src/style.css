@@ -301,6 +301,7 @@ html {
 
 /*paddings for better user experience*/
 .category-details,
+.util-btn-wrapper,
 .category-icon-container {
   margin: 0 1.5rem;
 }
@@ -381,6 +382,21 @@ html {
   font-size: 1rem;
   border: none;
   background-color: transparent;
+}
+
+.util-btn-wrapper {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.util-btns {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: #1a8699;
+  color: white;
+  font-size: 1rem;
 }
 
 /*edit category modal section*/
@@ -774,6 +790,7 @@ dialog::backdrop {
     padding: 2rem;
   }
   /*animation and hover effect*/
+  .util-btns,
   .edit-budget-category,
   .edit-budget-date,
   .save,

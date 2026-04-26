@@ -3,6 +3,7 @@ import { categoriesData } from "../data/categoriesData.js";
 export function editBudget(editIconId, goalLimit, category, endDate, expenseName) {
   const editBudgetBtn = document.getElementById(editIconId);
   const editBudgetDialog = document.getElementById("editBudgetDialog");
+
   editBudgetBtn.addEventListener("click", () => {
     editBudgetDialog.innerHTML = "";
     editBudgetDialog.insertAdjacentHTML(
