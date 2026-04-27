@@ -2,7 +2,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  -webkit-tap-highlight-color: transparent;
 }
 
 /* by default the markers are positioned outside of the content flow of the list item due to universal no margin and no padding. So, I'm making the ul and ol visible by positioning it to inside just in case if the dots are needed in the future. */
@@ -45,6 +44,7 @@ html {
   --color-site-header: var(--white);
   --color-icon-bg: var(--green-100);
   --color-icon: var(--black);
+  --color-icon-text: var(--black);
   --color-category-text: var(--white);
   --color-category-icon-bg: var(--green-300);
   --color-category-bg: var(--green-100);
@@ -94,6 +94,7 @@ html {
   --color-site-header: var(--black);
   --color-icon-bg: var(--green-100);
   --color-icon: var(--white);
+  --color-icon-text: var(--black);
   --color-category-text: var(--white);
   --color-category-icon-bg: var(--green-300);
   --color-category-bg: var(--green-100);
@@ -324,6 +325,7 @@ html {
 
 .category-icon-wrapper {
   padding: 1rem 0;
+  color: var(--color-icon-text);
 }
 
 .modal-icon-wrapper,
@@ -467,6 +469,7 @@ html {
   font-size: 1rem;
   border: none;
   background-color: transparent;
+  color: var(--color-primary-text);
 }
 
 .util-btn-wrapper {
