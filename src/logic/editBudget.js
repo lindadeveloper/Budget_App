@@ -9,7 +9,16 @@ export function editBudget(editIconId, goalLimit, category, endDate, expenseName
     editBudgetDialog.insertAdjacentHTML(
       "afterbegin",
       `<div id="${editIconId}" class="edit-budget-dialog">
-      <p class="edit-budget-title">Edit Budget</p>
+      <div class="modal-header">
+        <button
+            title="close"
+            onClick="editBudgetDialog.close()"
+            class="material-symbols-outlined close-btn"
+        >
+          close
+        </button>
+        <p class="edit-budget-title">Edit Budget</p>
+      </div>
       <span class="dollar">$<input autofocus type="number" class="edit-budget-amount" onfocus="this.value=${goalLimit}"/></span>
       <div class="edit-budget-date-wrapper">
       <p>End Date</p>
@@ -18,9 +27,9 @@ export function editBudget(editIconId, goalLimit, category, endDate, expenseName
       <select id="categoryBudgetOption" class="edit-budget-category" name="Category">
       </select>
       <input type="text" class="edit-budget-category-detail" value="${expenseName}"></input>
+      </div>
       <button id="budgetSaveBtn" class="save">Save</button>
-      <button id="budgetCloseBtn" class="cancel">Cancel</button>
-      </div>`,
+      <button id="budgetCloseBtn" class="delete">Delete</button>`,
     );
 
     //to edit category

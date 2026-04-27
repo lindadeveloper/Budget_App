@@ -7,18 +7,26 @@ export function openModal(modalTitle) {
   addCategoryBudget.insertAdjacentHTML(
     "afterbegin",
     `<div class="add-category-dialog">
+     <div class="modal-header">
+        <button
+            title="close"
+            onClick="addCategoryBudget.close()"
+            class="material-symbols-outlined close-btn"
+        >
+          close
+        </button>
       <p class="edit-budget-title">${modalTitle}</p>
+      </div>
       <span class="dollar">$<input autofocus type="number" class="edit-budget-amount"/></span>
       <div class="edit-budget-date-wrapper">
       <p>End Date</p>
-      <input type="date" class="edit-budget-date" value="${new Date()}"/>
+      <input type="date" class="edit-budget-date" placeholder="MM/DD/YYYY"/>
       </div>
       <select id="categoryOptions" class="edit-budget-category" name="Category">
       </select>
       <input type="text" class="edit-budget-category-detail" placeholder="Input Expense Name"></input>
-      <button id="saveCategoryBtn" class="save">Save</button>
-      <button id="closeCategoryBtn" class="cancel">Cancel</button>
-      </div>`,
+      </div>
+      <button id="saveCategoryBtn" class="save">Save</button>`,
   );
 
   //to edit category
@@ -36,7 +44,6 @@ export function openModal(modalTitle) {
   addCategoryBudget.showModal();
 
   const saveBtn = document.getElementById("saveCategoryBtn");
-  const closeBtn = document.getElementById("closeCategoryBtn");
 
   //to save
   saveBtn.addEventListener("click", saved);
