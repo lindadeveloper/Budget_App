@@ -11,39 +11,123 @@ ol {
   list-style-position: inside;
 }
 
-:root {
-  color-scheme: light dark;
-  font-family: "Inter", sans-serif;
-}
-
 body,
 html {
   height: 100vh;
   overflow-x: hidden;
 }
 
-[data-theme="light"] {
-  color-scheme: light;
-  --primary-bg-color: var(--white);
-  --primary-text-color: var(--black);
-  --h1: var(--white);
-
+:root {
+  font-family: "Inter", sans-serif;
   --black: #222222;
   --white: #fafafa;
-  --green: #a2c3c9;
-  --green-hover: #000000;
+  --green-100: #a0d4d6;
+  --green-200: #55b2c0;
+  --green-300: #3d94a3;
+  --green-500: #1a8699;
+  --green-600: #0a5b69;
+  --green-700: #064550;
+  --grey-100: #eeeeee;
+  --grey-300: #acacac;
+}
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+  --color-primary-bg: var(--white);
+  --color-primary-text: var(--black);
+  --color-x-icon: var(--black);
+  --color-side-bg: var(--green-100);
+  --color-logout-bg: var(--green-100);
+  --color-brand-text: var(--black);
+  --color-link-text: var(--black);
+  --color-site-header: var(--white);
+  --color-icon-bg: var(--green-100);
+  --color-icon: var(--black);
+  --color-category-text: var(--white);
+  --color-category-icon-bg: var(--green-300);
+  --color-category-bg: var(--green-100);
+  --color-shadow-box: var(--green-700);
+  --color-round-icon-bg: var(--black);
+  --color-round-icon-img: var(--white);
+  --color-glass-border: var(--green-200);
+  --color-category-h1-bg: var(--green-600);
+  --color-category-h1-text: var(--white);
+  --color-progress-bar-bg: var(--grey-100);
+  --color-progress-bar: var(--green-300);
+  --color-progress-bar-text: var(--white);
+  --color-utils-btn-bg: var(--green-500);
+  --color-utils-btn-text: var(--white);
+  --color-delete-btn-bg: var(--green-300);
+  --color-save-btn-bg: var(--green-300);
+  --color-save-btn-bg-hover: var(--black);
+  --color-save-btn-text: var(--white);
+  --color-cancel-btn-bg: var(--black);
+  --color-cancel-btn-text: var(--white);
+  --color-category-modal: var(--white);
+  --color-modal-backdrop: var(--black);
+  --color-category-icon-modal-bg: var(--green-100);
+  --color-input-border: var(--grey-300);
+  --color-footer-text: var(--white);
+  --color-footer-bg: var(--green-600);
+  --color-category-icon-border: var(--green-700);
+  --color-sidebar-border: var(--green-200);
+  --color-sidebar-link-border: var(--green-200);
+  --color-link-hover: var(--green-300);
+  --color-logout-bg-hover: var(--black);
+  --color-logout-text-hover: var(--white);
+  --color-slide-btn-bg: var(--green-300);
+  --color-slide-btn-arrow: var(--white);
+  --color-dark-green-hover: var(--green-600);
 }
 
 [data-theme="dark"] {
   color-scheme: dark;
-  --primary-bg-color: var(--black);
-  --primary-text-color: var(--white);
-  --h1: var(--white);
-
-  --black: #1a1b22;
-  --white: #fafafa;
-  --green: #1a8699;
-  --green-hover: #ffffff;
+  --color-primary-bg: var(--black);
+  --color-primary-text: var(--white);
+  --color-x-icon: var(--white);
+  --color-side-bg: var(--green-100);
+  --color-logout-bg: var(--green-100);
+  --color-brand-text: var(--white);
+  --color-link-text: var(--white);
+  --color-site-header: var(--black);
+  --color-icon-bg: var(--green-100);
+  --color-icon: var(--white);
+  --color-category-text: var(--white);
+  --color-category-icon-bg: var(--green-300);
+  --color-category-bg: var(--green-100);
+  --color-shadow-box: var(--green-700);
+  --color-round-icon-bg: var(--black);
+  --color-round-icon-img: var(--white);
+  --color-glass-border: var(--green-200);
+  --color-category-h1-bg: var(--green-600);
+  --color-category-h1-text: var(--white);
+  --color-progress-bar-bg: var(--grey-100);
+  --color-progress-bar: var(--green-300);
+  --color-progress-bar-text: var(--white);
+  --color-utils-btn-bg: var(--green-500);
+  --color-utils-btn-text: var(--white);
+  --color-delete-btn-bg: var(--green-300);
+  --color-save-btn-bg: var(--green-300);
+  --color-save-btn-bg-hover: var(--black);
+  --color-save-btn-text: var(--white);
+  --color-cancel-btn-bg: var(--black);
+  --color-cancel-btn-text: var(--white);
+  --color-category-modal: var(--white);
+  --color-modal-backdrop: var(--black);
+  --color-category-icon-modal-bg: var(--green-100);
+  --color-input-border: var(--grey-300);
+  --color-footer-text: var(--white);
+  --color-footer-bg: var(--green-600);
+  --color-category-icon-border: var(--green-700);
+  --color-sidebar-border: var(--green-200);
+  --color-sidebar-link-border: var(--green-200);
+  --color-link-hover: var(--green-300);
+  --color-logout-bg-hover: var(--black);
+  --color-logout-text-hover: var(--white);
+  --color-slide-btn-bg: var(--green-300);
+  --color-slide-btn-arrow: var(--white);
+  --color-dark-green-hover: var(--green-600);
 }
 
 /*changes the google material icons styles*/
@@ -93,7 +177,7 @@ html {
   top: 0;
   right: 0;
   background-color: transparent;
-  color: #222222;
+  color: var(--color-x-icon);
 }
 
 .logo {
@@ -109,7 +193,7 @@ html {
   text-align: center;
   width: 100%;
   height: 100%;
-  background-color: #a0d4d6;
+  background-color: var(--color-side-bg);
 }
 
 .menu-link {
@@ -117,7 +201,7 @@ html {
   width: 100%;
   display: block;
   text-decoration: none;
-  color: black;
+  color: var(--color-link-text);
 }
 
 .menu-link,
@@ -129,7 +213,7 @@ html {
 
 .log-out {
   padding: 1rem 2rem;
-  background-color: #a0d4d6;
+  background-color: var(--color-logout-hover);
   border: none;
   font-size: 1rem;
   padding: 1.5rem 0;
@@ -146,7 +230,7 @@ html {
 }
 
 .brand-name {
-  color: black;
+  color: var(--color-brand-text);
   margin-left: 1rem;
 }
 
@@ -155,7 +239,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
+  background-color: var(--color-site-header);
 }
 
 .nav-list-top {
@@ -167,7 +251,7 @@ html {
 .menu-icon,
 .light-mode-icon {
   background-color: transparent;
-  color: black;
+  color: var(--color-icon);
 }
 
 /*to make the icons smaller*/
@@ -181,14 +265,14 @@ html {
 /*gear icon and category icons*/
 
 .icon {
-  background-color: #a0d4d6;
-  color: black;
+  background-color: var(--color-icon-bg);
+  color: var(--color-icon);
 }
 
 .category-icon-wrapper.active {
-  background-color: #3d94a3;
-  box-shadow: 0 2px 5px 0 #064550;
-  color: white;
+  background-color: var(--color-category-icon-bg);
+  box-shadow: 0 2px 5px 0 var(--color-shadow-box);
+  color: var(--color-category-text);
 }
 
 .category-icon-container {
@@ -196,19 +280,19 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #a0d4d6;
+  background-color: var(--color-category-bg);
 }
 
 .plus-icon,
 .view-all,
-.g-icon {
-  background-color: black;
-  color: white;
+.gear-icon {
+  background-color: var(--color-round-icon-bg);
+  color: var(--color-round-icon-img);
 }
 
 .plus-icon,
 .view-all,
-.g-icon,
+.gear-icon,
 .icon {
   border-radius: 50%;
   padding: 1rem;
@@ -253,7 +337,7 @@ html {
 
 .plus-wrap,
 .view-all-icons,
-.gear-icon,
+.gear-icon-wrapper,
 .category-icon-wrapper,
 .modal-icon-wrapper {
   border-radius: 1rem;
@@ -263,7 +347,7 @@ html {
 }
 .plus-wrap,
 .view-all-icons,
-.gear-icon,
+.gear-icon-wrapper,
 .category-icon-wrapper {
   display: flex;
   flex-direction: column;
@@ -279,10 +363,10 @@ html {
 /*to give a glass effect on icons*/
 .save-btn,
 .view-all,
-.g-icon,
+.gear-icon,
 .category-icon-wrapper,
 .modal-icon-wrapper {
-  border: 1px solid #55b2c0;
+  border: 1px solid var(--color-glass-border);
 }
 
 .slide-left-btn {
@@ -313,8 +397,8 @@ html {
 
 .category-title {
   padding: 0.5rem 1rem;
-  background-color: #0a5b69;
-  color: white;
+  background-color: var(--color-category-h1-bg);
+  color: var(--color-category-h1-text);
 }
 
 /*to give a glass effect on category container and progress bar*/
@@ -322,9 +406,9 @@ html {
 .category-icon-container,
 .progress-bar {
   border-radius: 0.2rem;
-  border-bottom: 1px solid #55b2c0;
-  border-right: 1px solid #55b2c0;
-  box-shadow: 0 2px 5px 0 #064550;
+  border-bottom: 1px solid var(--color-glass-border);
+  border-right: 1px solid var(--color-glass-border);
+  box-shadow: 0 2px 5px 0 var(--color-shadow-box);
 }
 
 .expense-wrapper {
@@ -356,7 +440,7 @@ html {
 
 .progress {
   width: 100%;
-  background-color: #eeeeee;
+  background-color: var(--color-progress-bar-bg);
 }
 
 .progress-bar {
@@ -365,8 +449,8 @@ html {
   padding: 0.5rem 0.5rem;
   width: var(--target-width, 0%);
   min-width: 3rem;
-  background-color: #3d94a3;
-  color: white;
+  background-color: var(--color-progress-bar);
+  color: var(--color-progress-bar-text);
   transition: width 0.5s ease;
   animation: grow 0.6s ease forwards;
 }
@@ -394,8 +478,8 @@ html {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   border: none;
-  background-color: #1a8699;
-  color: white;
+  background-color: var(--color-utils-btn-bg);
+  color: var(--color-utils-btn-text);
   font-size: 1rem;
 }
 
@@ -411,14 +495,14 @@ html {
 }
 
 .category-dialog {
-  background-color: white;
+  background-color: var(--color-category-modal);
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
 dialog::backdrop {
-  background-color: black;
+  background-color: var(--color-modal-backdrop);
   opacity: 50%;
 }
 
@@ -428,16 +512,16 @@ dialog::backdrop {
 .save-btn {
   font-size: 1.5rem;
   font-family: "Inter", sans-serif;
-  background-color: #3d94a3;
+  background-color: var(--color-save-btn-bg);
   border: none;
-  color: white;
+  color: var(--color-save-btn-text);
   padding: 1rem 0;
 }
 .remove-btn {
   grid-column: -1;
   font-size: 1rem;
   border-radius: 50%;
-  box-shadow: 0 2px 5px 0 #064550;
+  box-shadow: 0 2px 5px 0 var(--color-shadow-box);
 }
 
 .close-btn {
@@ -456,8 +540,8 @@ dialog::backdrop {
 
 .modal-icon-wrapper {
   padding: 0 0 1rem 0;
-  background-color: #a0d4d6;
-  box-shadow: 0 2px 5px 0 #064550;
+  background-color: var(--color-category-icon-modal-bg);
+  box-shadow: 0 2px 5px 0 var(--color-shadow-box);
 }
 
 .confirmation-dialog-wrapper {
@@ -502,18 +586,18 @@ dialog::backdrop {
   width: 100%;
   height: 2.5rem;
   border: none;
-  color: white;
+  color: var(--color-cancel-btn-text);
   border-radius: 0.5rem;
   font-size: 1rem;
 }
 
 .deleteCatIconBtn {
   margin-top: 1rem;
-  background-color: #3d94a3;
+  background-color: var(--color-delete-btn-bg);
 }
 
 .cancelCatIconBtn {
-  background-color: black;
+  background-color: var(--color-cancel-btn-bg);
 }
 
 .save,
@@ -576,14 +660,14 @@ dialog::backdrop {
 }
 
 .save {
-  background-color: #3d94a3;
-  color: white;
+  background-color: var(--color-save-btn-bg);
+  color: var(--color-save-btn-text);
   border: none;
 }
 
 .cancel {
-  background-color: black;
-  color: white;
+  background-color: var(--color-cancel-btn-bg);
+  color: var(--color-cancel-btn-text);
   border: none;
 }
 
@@ -591,7 +675,7 @@ dialog::backdrop {
 .edit-budget-category-detail,
 .edit-budget-category,
 .edit-budget-date {
-  border: 1px solid #acacac;
+  border: 1px solid var(--color-input-border);
 }
 
 .edit-budget-date {
@@ -610,8 +694,8 @@ dialog::backdrop {
 .footer-p {
   padding: 2rem;
   text-align: center;
-  color: white;
-  background-color: #0a5b69;
+  color: var(--color-footer-text);
+  background-color: var(--color-footer-bg);
 }
 
 @keyframes grow {
@@ -652,13 +736,13 @@ dialog::backdrop {
     scroll-behavior: smooth;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    border-top: 0 10px 10px 1px #064550;
+    border-top: 0 10px 10px 1px var(--color-category-icon-border);
   }
   .category-icon-container.reveal-mobile {
     overflow: hidden;
   }
   .gear-setting-wrapper.reveal-mobile {
-    box-shadow: 0 2px 5px 0 #064550;
+    box-shadow: 0 2px 5px 0 var(--color-shadow-box);
   }
 }
 
@@ -671,19 +755,19 @@ dialog::backdrop {
   .sidebar {
     position: unset;
     width: 250px;
-    border-right: 1px solid #55b2c0;
-    box-shadow: 0 10px 10px 1px #064550;
+    border-right: 1px solid var(--color-sidebar-border);
+    box-shadow: 0 10px 10px 1px var(--color-shadow-box);
   }
 
   /*For better accessibility by separating the primary navigation elements from the 
   log out button to prevent accidental clicks*/
   .settings {
-    border-bottom: 1px solid #55b2c0;
+    border-bottom: 1px solid var(--color-sidebar-link-border);
   }
 
   .log-out:hover {
-    background-color: black;
-    color: white;
+    background-color: var(--color-logout-bg-hover);
+    color: var(--color-logout-text-hover);
   }
   /*category icons*/
   .track-icons {
@@ -746,22 +830,22 @@ dialog::backdrop {
   .slide-left-btn,
   .slide-right-btn {
     display: unset;
-    background-color: #3d94a3;
-    border: 1px solid #55b2c0;
+    background-color: var(--color-slide-btn-bg);
+    border: 1px solid var(--color-glass-border);
     opacity: 95%;
-    color: white;
+    color: var(--color-slide-btn-arrow);
     z-index: 1;
   }
 
   .slide-left-btn {
-    box-shadow: 3px 1px 5px 0 #064550;
+    box-shadow: 3px 1px 5px 0 var(--color-shadow-box);
   }
 
   .slide-right-btn {
     position: absolute;
     right: 0;
     height: 100%;
-    box-shadow: -3px 1px 5px 0 #064550;
+    box-shadow: -3px 1px 5px 0 var(--color-shadow-box);
   }
 
   /*category details section*/
@@ -800,7 +884,7 @@ dialog::backdrop {
   .menu-link,
   .menu-icon,
   .light-mode-icon,
-  .gear-icon,
+  .gear-icon-wrapper,
   .view-all,
   .plus-icon,
   .save-btn,
@@ -815,14 +899,14 @@ dialog::backdrop {
   }
 
   .save-btn:hover {
-    background-color: black;
+    background-color: var(--color-save-btn-bg-hover);
   }
   .slide-right-btn:hover,
   .slide-left-btn:hover,
   .plus-icon:hover,
   .view-all:hover,
-  .g-icon:hover {
-    background-color: #0a5b69;
+  .gear-icon:hover {
+    background-color: var(--color-dark-green-hover);
   }
 
   .slide-left-btn:active,
@@ -832,13 +916,13 @@ dialog::backdrop {
 
   .menu-link:hover,
   .category-icon-wrapper:hover {
-    background-color: #3d94a3;
+    background-color: var(--color-link-hover);
   }
 
   .save-btn:hover,
   .plus-icon:hover,
   .view-all:hover,
-  .g-icon:hover,
+  .gear-icon:hover,
   .menu-link:hover,
   .category-icon-wrapper:hover {
     transition: all 0.2s ease;
@@ -846,10 +930,10 @@ dialog::backdrop {
 
   .plus-icon,
   .view-all:hover,
-  .g-icon:hover,
+  .gear-icon:hover,
   .menu-link:hover,
   .category-icon-wrapper:hover {
-    box-shadow: 0 2px 5px 0 #064550;
-    color: white;
+    box-shadow: 0 2px 5px 0 var(--color-shadow-box);
+    color: var(--color-round-icon-img);
   }
 }

@@ -32,9 +32,9 @@ export function populateIcons() {
         `
             <button 
               id="gearEditBtn" 
-              class="material-symbols-outlined gear-icon" 
+              class="material-symbols-outlined gear-icon-wrapper" 
               onClick="categoryDialogWrapper.showModal()">
-              <span class="g-icon">${iconObj.icon}</span>
+              <span class="gear-icon">${iconObj.icon}</span>
               <span class="icon-label">${iconObj.name}</span>
             </button>
           `,
