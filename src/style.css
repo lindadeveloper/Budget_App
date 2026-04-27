@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* by default the markers are positioned outside of the content flow of the list item due to universal no margin and no padding. So, I'm making the ul and ol visible by positioning it to inside just in case if the dots are needed in the future. */
