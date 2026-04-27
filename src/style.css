@@ -37,6 +37,7 @@ html {
   --color-primary-bg: var(--white);
   --color-primary-text: var(--black);
   --color-x-icon: var(--black);
+  --color-remove-icon: var(--black);
   --color-side-bg: var(--green-100);
   --color-logout-bg: var(--green-100);
   --color-brand-text: var(--black);
@@ -69,6 +70,7 @@ html {
   --color-modal-backdrop: var(--black);
   --color-category-icon-modal-bg: var(--green-100);
   --color-input-border: var(--grey-300);
+  --color-input-bg: white;
   --color-footer-text: var(--white);
   --color-footer-bg: var(--green-600);
   --color-category-icon-border: var(--green-700);
@@ -87,6 +89,7 @@ html {
   --color-primary-bg: var(--black);
   --color-primary-text: var(--white);
   --color-x-icon: var(--white);
+  --color-remove-icon: var(--black);
   --color-side-bg: var(--green-100);
   --color-logout-bg: var(--green-100);
   --color-brand-text: var(--white);
@@ -119,6 +122,7 @@ html {
   --color-modal-backdrop: var(--black);
   --color-category-icon-modal-bg: var(--green-100);
   --color-input-border: var(--grey-300);
+  --color-input-bg: white;
   --color-footer-text: var(--white);
   --color-footer-bg: var(--green-600);
   --color-category-icon-border: var(--green-700);
@@ -274,7 +278,6 @@ html {
 .category-icon-wrapper.active {
   background-color: var(--color-category-icon-bg);
   box-shadow: 0 2px 5px 0 var(--color-shadow-box);
-  color: var(--color-category-text);
 }
 
 .category-icon-container {
@@ -307,6 +310,14 @@ html {
   font-family: "Inter", sans-serif;
 }
 
+.icon-label.active {
+  color: var(--color-category-text);
+}
+
+.icon-label {
+  color: var(--color-primary-text);
+}
+
 .icon-img,
 .icon-label {
   grid-column: span 4;
@@ -325,7 +336,6 @@ html {
 
 .category-icon-wrapper {
   padding: 1rem 0;
-  color: var(--color-icon-text);
 }
 
 .modal-icon-wrapper,
@@ -469,7 +479,6 @@ html {
   font-size: 1rem;
   border: none;
   background-color: transparent;
-  color: var(--color-primary-text);
 }
 
 .util-btn-wrapper {
@@ -526,6 +535,7 @@ dialog::backdrop {
   font-size: 1rem;
   border-radius: 50%;
   box-shadow: 0 2px 5px 0 var(--color-shadow-box);
+  color: var(--color-remove-icon);
 }
 
 .close-btn {
@@ -533,6 +543,7 @@ dialog::backdrop {
   right: 0;
   padding: 1rem;
   background-color: transparent;
+  color: var(--color-x-icon);
 }
 
 .category-modal-icons {
@@ -602,6 +613,11 @@ dialog::backdrop {
 
 .cancelCatIconBtn {
   background-color: var(--color-cancel-btn-bg);
+}
+
+.edit-budget-category,
+.edit-budget-date {
+  background-color: var(--color-input-bg);
 }
 
 .save,

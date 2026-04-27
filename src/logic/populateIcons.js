@@ -98,7 +98,7 @@ export function populateIcons() {
           <li id="category-icon-${id}" class="category-icon">
             <button class="category-icon-wrapper ${isActive ? "active" : ""}">
               <span class="material-symbols-outlined icon">${iconObj.icon}</span>
-              <span class="icon-label">${iconObj.name}</span>
+              <span class="icon-label ${isActive ? "active" : ""}">${iconObj.name}</span>
             </button>
           </li>
           `,
