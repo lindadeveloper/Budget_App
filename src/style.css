@@ -617,6 +617,12 @@ dialog::backdrop {
   background-color: var(--color-cancel-btn-bg);
 }
 
+.edit-budget-category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .edit-budget-category,
 .edit-budget-date {
   background-color: var(--color-input-bg);
