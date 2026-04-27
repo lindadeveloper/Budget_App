@@ -46,7 +46,8 @@ html {
   --color-icon-bg: var(--green-100);
   --color-icon: var(--black);
   --color-icon-text: var(--black);
-  --color-category-text: var(--white);
+  --color-category-text: var(--black);
+  --color-category-text-active: var(--white);
   --color-category-icon-bg: var(--green-300);
   --color-category-bg: var(--green-100);
   --color-shadow-box: var(--green-700);
@@ -98,7 +99,8 @@ html {
   --color-icon-bg: var(--green-100);
   --color-icon: var(--white);
   --color-icon-text: var(--black);
-  --color-category-text: var(--white);
+  --color-category-text: var(--black);
+  --color-category-text-active: var(--white);
   --color-category-icon-bg: var(--green-300);
   --color-category-bg: var(--green-100);
   --color-shadow-box: var(--green-700);
@@ -220,6 +222,7 @@ html {
 .log-out {
   padding: 1rem 2rem;
   background-color: var(--color-logout-hover);
+  color: var(--color-primary-text);
   border: none;
   font-size: 1rem;
   padding: 1.5rem 0;
@@ -278,6 +281,7 @@ html {
 .category-icon-wrapper.active {
   background-color: var(--color-category-icon-bg);
   box-shadow: 0 2px 5px 0 var(--color-shadow-box);
+  color: var(--color-category-text-active);
 }
 
 .category-icon-container {
@@ -303,6 +307,7 @@ html {
   padding: 1rem;
 }
 
+.category-icon-label,
 .plus-label,
 .icon-label {
   margin-top: 0.5rem;
@@ -310,12 +315,8 @@ html {
   font-family: "Inter", sans-serif;
 }
 
-.icon-label.active {
-  color: var(--color-category-text);
-}
-
 .icon-label {
-  color: var(--color-primary-text);
+  color: var(--color-category-text);
 }
 
 .icon-img,
@@ -336,6 +337,7 @@ html {
 
 .category-icon-wrapper {
   padding: 1rem 0;
+  color: var(--color-category-text);
 }
 
 .modal-icon-wrapper,

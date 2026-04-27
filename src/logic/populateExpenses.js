@@ -51,7 +51,7 @@ export function populateExpenses(objName) {
             </div>
           </div>
           <button id="${editIconId}"class="edit-budget-btn">
-            <span class="material-symbols-outlined">edit_note</span>
+            <i class="material-symbols-outlined">edit_note</i>
             <span class="icon-label">Edit</span>
           </button>
         </div>

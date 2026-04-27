@@ -98,7 +98,7 @@ export function populateIcons() {
           <li id="category-icon-${id}" class="category-icon">
             <button class="category-icon-wrapper ${isActive ? "active" : ""}">
               <span class="material-symbols-outlined icon">${iconObj.icon}</span>
-              <span class="icon-label ${isActive ? "active" : ""}">${iconObj.name}</span>
+              <span class="category-icon-label">${iconObj.name}</span>
             </button>
           </li>
           `,
@@ -111,6 +111,7 @@ export function populateIcons() {
 
       const categoryIcon = document.getElementById(`category-icon-${id}`);
       const categoryBtn = categoryIcon.querySelector(".category-icon-wrapper");
+      const iconLabel = categoryIcon.querySelector(".icon-label");
 
       let currentId = id;
 
