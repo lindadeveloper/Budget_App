@@ -33,6 +33,13 @@ select {
   --green-500: #1a8699;
   --green-600: #0a5b69;
   --green-700: #064550;
+  --blue-100: #8cbbda;
+  --blue-200: #7da9c7;
+  --blue-300: #407294;
+  --blue-500: #285f83;
+  --blue-600: #18425e;
+  --blue-700: #112c3f;
+  --blue-900: #0f1a22;
   --grey-100: #eeeeee;
   --grey-300: #acacac;
 }
@@ -43,19 +50,25 @@ select {
   --color-primary-bg: var(--white);
   --color-primary-text: var(--black);
   --color-x-icon: var(--black);
-  --color-remove-icon: var(--black);
+  --plus-icon: var(--white);
+  --plus-icon-bg: var(--green-600);
+  --color-remove-icon: var(--white);
+  --color-remove-icon-bg: var(--green-600);
   --color-side-bg: var(--green-100);
   --color-logout-bg: var(--green-100);
   --color-brand-text: var(--black);
   --color-link-text: var(--black);
-  --color-site-header: var(--white);
+  --color-site-bg: var(--white);
   --color-icon-bg: var(--green-100);
   --color-icon: var(--black);
+  --color-icon-header: var(--black);
   --color-icon-text: var(--black);
+  --color-total-spent: var(--black);
   --color-category-text: var(--black);
   --color-category-text-active: var(--white);
   --color-category-icon-bg: var(--green-300);
   --color-category-bg: var(--green-100);
+  --color-dialog-bg: var(--white);
   --color-shadow-box: var(--green-700);
   --color-round-icon-bg: var(--black);
   --color-round-icon-img: var(--white);
@@ -75,11 +88,14 @@ select {
   --color-delete-btn-text: var(--white);
   --color-cancel-btn-bg: var(--black);
   --color-cancel-btn-text: var(--white);
-  --color-category-modal: var(--white);
+  --color-category-modal-bg: var(--white);
   --color-modal-backdrop: var(--black);
+  --color-dialog-border: none;
+  --color-dialog-shadow: var(--black);
   --color-category-icon-modal-bg: var(--green-100);
   --color-input-border: var(--grey-300);
   --color-input-bg: white;
+  --color-input-text: var(--black);
   --color-footer-text: var(--white);
   --color-footer-bg: var(--green-600);
   --color-category-icon-border: var(--green-700);
@@ -90,7 +106,7 @@ select {
   --color-logout-text-hover: var(--white);
   --color-slide-btn-bg: var(--green-300);
   --color-slide-btn-arrow: var(--white);
-  --color-dark-green-hover: var(--green-600);
+  --color-dark-hover: var(--green-600);
 }
 
 [data-theme="dark"] {
@@ -98,29 +114,35 @@ select {
   --color-primary-bg: var(--black);
   --color-primary-text: var(--white);
   --color-x-icon: var(--white);
-  --color-remove-icon: var(--black);
-  --color-side-bg: var(--green-100);
-  --color-logout-bg: var(--green-100);
+  --plus-icon: var(--black);
+  --plus-icon-bg: var(--blue-200);
+  --color-remove-icon: var(--white);
+  --color-remove-icon-bg: var(--blue-900);
+  --color-side-bg: var(--blue-200);
+  --color-logout-bg: var(--blue-100);
   --color-brand-text: var(--white);
-  --color-link-text: var(--white);
-  --color-site-header: var(--black);
-  --color-icon-bg: var(--green-100);
-  --color-icon: var(--white);
+  --color-link-text: var(--black);
+  --color-site-bg: var(--blue-900);
+  --color-icon-bg: var(--blue-200);
+  --color-icon: var(--black);
+  --color-icon-header: var(--white);
   --color-icon-text: var(--black);
+  --color-total-spent: var(--black);
   --color-category-text: var(--black);
   --color-category-text-active: var(--white);
-  --color-category-icon-bg: var(--green-300);
-  --color-category-bg: var(--green-100);
-  --color-shadow-box: var(--green-700);
+  --color-category-icon-bg: var(--blue-600);
+  --color-category-bg: var(--blue-200);
+  --color-dialog-bg: var(--blue-700);
+  --color-shadow-box: var(--blue-700);
   --color-round-icon-bg: var(--black);
   --color-round-icon-img: var(--white);
-  --color-glass-border: var(--green-200);
-  --color-category-h1-bg: var(--green-600);
+  --color-glass-border: var(--blue-300);
+  --color-category-h1-bg: var(--blue-600);
   --color-category-h1-text: var(--white);
-  --color-progress-bar-bg: var(--grey-100);
-  --color-progress-bar: var(--green-300);
+  --color-progress-bar-bg: var(--blue-200);
+  --color-progress-bar: var(--blue-600);
   --color-progress-bar-text: var(--white);
-  --color-utils-btn-bg: var(--green-500);
+  --color-utils-btn-bg: var(--blue-600);
   --color-utils-btn-text: var(--white);
   --color-save-btn-bg: var(--green-300);
   --color-save-btn-bg-hover: var(--green-600);
@@ -130,22 +152,25 @@ select {
   --color-delete-btn-text: var(--white);
   --color-cancel-btn-bg: var(--black);
   --color-cancel-btn-text: var(--white);
-  --color-category-modal: var(--white);
+  --color-category-modal-bg: var(--blue-700);
   --color-modal-backdrop: var(--black);
-  --color-category-icon-modal-bg: var(--green-100);
+  --color-dialog-border: var(--black);
+  --color-dialog-shadow: var(--black);
+  --color-category-icon-modal-bg: var(--blue-200);
   --color-input-border: var(--grey-300);
-  --color-input-bg: white;
+  --color-input-bg: var(--blue-900);
+  --color-input-text: var(--white);
   --color-footer-text: var(--white);
-  --color-footer-bg: var(--green-600);
-  --color-category-icon-border: var(--green-700);
-  --color-sidebar-border: var(--green-200);
-  --color-sidebar-link-border: var(--green-200);
-  --color-link-hover: var(--green-300);
+  --color-footer-bg: var(--blue-600);
+  --color-category-icon-border: var(--blue-700);
+  --color-sidebar-border: var(--blue-200);
+  --color-sidebar-link-border: var(--blue-200);
+  --color-link-hover: var(--blue-600);
   --color-logout-bg-hover: var(--black);
   --color-logout-text-hover: var(--white);
-  --color-slide-btn-bg: var(--green-300);
+  --color-slide-btn-bg: var(--blue-600);
   --color-slide-btn-arrow: var(--white);
-  --color-dark-green-hover: var(--green-600);
+  --color-dark-hover: var(--blue-600);
 }
 
 /*changes the google material icons styles*/
@@ -232,7 +257,7 @@ select {
 .log-out {
   padding: 1rem 2rem;
   background-color: var(--color-logout-hover);
-  color: var(--color-primary-text);
+  color: var(--color-link-text);
   border: none;
   font-size: 1rem;
   padding: 1.5rem 0;
@@ -252,13 +277,16 @@ select {
   color: var(--color-brand-text);
   margin-left: 1rem;
 }
+.site-header,
+.main-content {
+  background-color: var(--color-site-bg);
+}
 
 .site-header {
   padding: 0 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--color-site-header);
 }
 
 .nav-list-top {
@@ -270,7 +298,7 @@ select {
 .menu-icon,
 .light-mode-icon {
   background-color: transparent;
-  color: var(--color-icon);
+  color: var(--color-icon-header);
 }
 
 /*to make the icons smaller*/
@@ -283,9 +311,11 @@ select {
 
 /*gear icon and category icons*/
 
+.icon-img,
 .icon {
   background-color: var(--color-icon-bg);
   color: var(--color-icon);
+  border-radius: 100%;
 }
 
 .category-icon-wrapper.active {
@@ -302,7 +332,11 @@ select {
   background-color: var(--color-category-bg);
 }
 
-.plus-icon,
+.plus-icon {
+  background-color: var(--plus-icon-bg);
+  color: var(--plus-icon);
+}
+
 .view-all,
 .gear-icon {
   background-color: var(--color-round-icon-bg);
@@ -455,6 +489,11 @@ select {
   font-weight: bold;
 }
 
+.total-spent {
+  padding: 0.3rem;
+  color: var(--color-total-spent);
+}
+
 .date-goal-wrap {
   display: flex;
   flex-direction: column;
@@ -527,7 +566,7 @@ select {
 }
 
 .category-dialog {
-  background-color: var(--color-category-modal);
+  background-color: var(--color-category-modal-bg);
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -535,7 +574,7 @@ select {
 
 dialog::backdrop {
   background-color: var(--color-modal-backdrop);
-  opacity: 50%;
+  opacity: 70%;
 }
 
 .plus-icon {
@@ -554,6 +593,7 @@ dialog::backdrop {
   font-size: 1rem;
   border-radius: 50%;
   box-shadow: 0 2px 5px 0 var(--color-shadow-box);
+  background-color: var(--color-remove-icon-bg);
   color: var(--color-remove-icon);
 }
 
@@ -575,7 +615,8 @@ dialog::backdrop {
 .modal-icon-wrapper {
   padding: 0 0 1rem 0;
   background-color: var(--color-category-icon-modal-bg);
-  box-shadow: 0 2px 5px 0 var(--color-shadow-box);
+  border: 1px solid var(--color-dialog-border);
+  box-shadow: 0 2px 5px 0 var(--color-dialog-shadow);
 }
 
 .confirmation-dialog-wrapper {
@@ -593,6 +634,11 @@ dialog::backdrop {
   width: 100%;
   gap: 0.5rem;
   padding: 1.5rem;
+}
+
+.add-category-dialog,
+.edit-budget-dialog {
+  background-color: var(--color-dialog-bg);
 }
 
 .add-category-dialog,
@@ -634,6 +680,15 @@ dialog::backdrop {
   background-color: var(--color-cancel-btn-bg);
 }
 
+.edit-budget-category-detail,
+.edit-budget-amount,
+.edit-budget-date,
+.edit-budget-category {
+  color: var(--color-input-text);
+}
+
+.edit-budget-category-detail,
+.edit-budget-amount,
 .edit-budget-category,
 .edit-budget-date {
   background-color: var(--color-input-bg);
@@ -956,12 +1011,18 @@ dialog::backdrop {
   .save-btn:hover {
     background-color: var(--color-save-btn-bg-hover);
   }
+
+  .plus-icon:hover {
+    background-color: var(--black);
+    box-shadow: 0 2px 10px 0 var(--blue-200);
+    color: var(--white);
+  }
+
   .slide-right-btn:hover,
   .slide-left-btn:hover,
-  .plus-icon:hover,
   .view-all:hover,
   .gear-icon:hover {
-    background-color: var(--color-dark-green-hover);
+    background-color: var(--color-dark-hover);
   }
 
   .slide-left-btn:active,
@@ -985,7 +1046,6 @@ dialog::backdrop {
     transition: all 0.2s ease;
   }
 
-  .plus-icon,
   .view-all:hover,
   .gear-icon:hover,
   .menu-link:hover,
