@@ -23,7 +23,7 @@ select {
 
 :root {
   font-family: "Inter", sans-serif;
-  --black: #222222;
+  --black: #1a1a1a;
   --white: #fafafa;
   --red-200: #ad1111;
   --red-600: #850909;
@@ -95,14 +95,14 @@ select {
   --color-dialog-shadow: var(--black);
   --color-category-icon-modal-bg: var(--green-100);
   --color-input-border: var(--grey-300);
-  --color-input-bg: white;
+  --color-input-bg: var(--white);
   --color-input-text: var(--black);
   --color-footer-text: var(--white);
   --color-footer-bg: var(--green-600);
   --color-category-icon-border: var(--green-700);
   --color-sidebar-border: var(--green-200);
   --color-sidebar-link-border: var(--green-100);
-  --color-link-hover: var(--green-300);
+  --color-category-hover: var(--green-300);
   --color-logout-bg-hover: var(--black);
   --color-logout-text-hover: var(--white);
   --color-slide-btn-bg: var(--green-300);
@@ -120,37 +120,37 @@ select {
   --color-theme-btn-bg: var(--color-site-bg);
   --color-remove-icon: var(--white);
   --color-remove-icon-bg: var(--blue-900);
-  --color-side-bg: var(--blue-200);
+  --color-side-bg: var(--blue-700);
   --color-logout-bg: var(--blue-100);
   --color-brand-text: var(--white);
-  --color-link-text: var(--black);
+  --color-link-text: var(--white);
   --color-site-bg: var(--blue-900);
-  --color-icon-bg: var(--blue-200);
-  --color-icon: var(--black);
+  --color-icon-bg: var(--blue-700);
+  --color-icon: var(--white);
   --color-icon-header: var(--white);
-  --color-icon-text: var(--black);
-  --color-total-spent: var(--black);
-  --color-category-text: var(--black);
+  --color-icon-text: var(--white);
+  --color-total-spent: var(--white);
+  --color-category-text: var(--white);
   --color-category-text-active: var(--white);
-  --color-category-icon-bg: var(--blue-600);
-  --color-category-bg: var(--blue-200);
-  --color-dialog-bg: var(--blue-700);
+  --color-category-icon-bg: var(--blue-500);
+  --color-category-bg: var(--blue-700);
+  --color-dialog-bg: var(--blue-600);
   --color-shadow-box: var(--blue-700);
   --color-round-icon-bg: var(--black);
   --color-round-icon-img: var(--white);
   --color-glass-border: var(--blue-300);
   --color-category-h1-bg: var(--blue-600);
   --color-category-h1-text: var(--white);
-  --color-progress-bar-bg: var(--blue-200);
-  --color-progress-bar: var(--blue-600);
+  --color-progress-bar-bg: var(--blue-700);
+  --color-progress-bar: var(--blue-500);
   --color-progress-bar-text: var(--white);
   --color-utils-btn-bg: var(--blue-600);
   --color-utils-btn-text: var(--white);
-  --color-save-btn-bg: var(--blue-300);
-  --color-save-btn-bg-hover: var(--blue-600);
-  --color-save-btn-text: var(--white);
-  --color-delete-btn-bg: var(--red-200);
-  --color-delete-btn-bg-hover: var(--red-600);
+  --color-save-btn-bg: var(--green-300);
+  --color-save-btn-bg-hover: var(--green-100);
+  --color-save-btn-text: var(--black);
+  --color-delete-btn-bg: var(--red-600);
+  --color-delete-btn-bg-hover: var(--red-200);
   --color-delete-btn-text: var(--white);
   --color-cancel-btn-bg: var(--black);
   --color-cancel-btn-text: var(--white);
@@ -158,7 +158,7 @@ select {
   --color-modal-backdrop: var(--black);
   --color-dialog-border: var(--black);
   --color-dialog-shadow: var(--black);
-  --color-category-icon-modal-bg: var(--blue-200);
+  --color-category-icon-modal-bg: var(--blue-500);
   --color-input-border: var(--grey-300);
   --color-input-bg: var(--blue-900);
   --color-input-text: var(--white);
@@ -167,10 +167,10 @@ select {
   --color-category-icon-border: var(--blue-700);
   --color-sidebar-border: var(--blue-200);
   --color-sidebar-link-border: var(--blue-200);
-  --color-link-hover: var(--blue-600);
+  --color-category-hover: var(--blue-500);
   --color-logout-bg-hover: var(--black);
   --color-logout-text-hover: var(--white);
-  --color-slide-btn-bg: var(--blue-600);
+  --color-slide-btn-bg: var(--blue-500);
   --color-slide-btn-arrow: var(--white);
   --color-dark-hover: var(--blue-600);
 }
@@ -323,7 +323,6 @@ select {
 
 /*gear icon and category icons*/
 
-.icon-img,
 .icon {
   background-color: var(--color-icon-bg);
   color: var(--color-icon);
@@ -372,7 +371,7 @@ select {
 }
 
 .icon-label {
-  color: var(--color-category-text);
+  color: var(--color-icon-text);
 }
 
 .icon-img,
@@ -592,9 +591,16 @@ dialog::backdrop {
 .plus-icon {
   margin-top: 1rem;
 }
-.save-btn {
+
+.save,
+.save-btn,
+.delete {
+  font-weight: bold;
   font-size: 1.5rem;
   font-family: "Inter", sans-serif;
+}
+
+.save-btn {
   background-color: var(--color-save-btn-bg);
   border: none;
   color: var(--color-save-btn-text);
@@ -656,9 +662,9 @@ dialog::backdrop {
 .add-category-dialog,
 .edit-budget-dialog-wrapper,
 .add-category-wrapper {
+  border-radius: 10px;
   margin: auto;
   z-index: 3000;
-  border-radius: 10px;
   border: none;
   overflow-x: hidden;
 }
@@ -1050,7 +1056,7 @@ dialog::backdrop {
 
   .menu-link:hover,
   .category-icon-wrapper:hover {
-    background-color: var(--color-link-hover);
+    background-color: var(--color-category-hover);
   }
 
   .save,
