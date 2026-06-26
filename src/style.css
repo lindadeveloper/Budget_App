@@ -88,7 +88,9 @@ select {
   --color-delete-btn-bg-hover: var(--red-600);
   --color-delete-btn-text: var(--white);
   --color-cancel-btn-bg: var(--black);
+  --color-cancel-btn-bg-hover: var(--blue-700);
   --color-cancel-btn-text: var(--white);
+  --color-cancel-btn-text-hover: var(--white);
   --color-category-modal-bg: var(--white);
   --color-modal-backdrop: var(--black);
   --color-dialog-border: none;
@@ -135,7 +137,7 @@ select {
   --color-category-icon-bg: var(--blue-500);
   --color-category-bg: var(--blue-700);
   --color-dialog-bg: var(--blue-600);
-  --color-shadow-box: var(--blue-700);
+  --color-shadow-box: var(--blue-900);
   --color-round-icon-bg: var(--black);
   --color-round-icon-img: var(--white);
   --color-glass-border: var(--blue-300);
@@ -152,8 +154,10 @@ select {
   --color-delete-btn-bg: var(--red-600);
   --color-delete-btn-bg-hover: var(--red-200);
   --color-delete-btn-text: var(--white);
-  --color-cancel-btn-bg: var(--black);
-  --color-cancel-btn-text: var(--white);
+  --color-cancel-btn-bg: var(--white);
+  --color-cancel-btn-bg-hover: var(--blue-700);
+  --color-cancel-btn-text: var(--black);
+  --color-cancel-btn-text-hover: var(--white);
   --color-category-modal-bg: var(--blue-700);
   --color-modal-backdrop: var(--black);
   --color-dialog-border: var(--black);
@@ -166,7 +170,7 @@ select {
   --color-footer-bg: var(--blue-600);
   --color-category-icon-border: var(--blue-700);
   --color-sidebar-border: var(--blue-200);
-  --color-sidebar-link-border: var(--blue-200);
+  --color-sidebar-link-border: var(--blue-700);
   --color-category-hover: var(--blue-500);
   --color-logout-bg-hover: var(--black);
   --color-logout-text-hover: var(--white);
@@ -654,6 +658,7 @@ dialog::backdrop {
   padding: 1.5rem;
 }
 
+.confirmation-dialog,
 .add-category-dialog,
 .edit-budget-dialog {
   background-color: var(--color-dialog-bg);
@@ -684,7 +689,6 @@ dialog::backdrop {
   width: 100%;
   height: 2.5rem;
   border: none;
-  color: var(--color-cancel-btn-text);
   border-radius: 0.5rem;
   font-size: 1rem;
 }
@@ -692,10 +696,12 @@ dialog::backdrop {
 .deleteCatIconBtn {
   margin-top: 1rem;
   background-color: var(--color-delete-btn-bg);
+  color: var(--color-delete-btn-text);
 }
 
 .cancelCatIconBtn {
   background-color: var(--color-cancel-btn-bg);
+  color: var(--color-cancel-btn-text);
 }
 
 .edit-budget-category-detail,
@@ -781,15 +787,16 @@ dialog::backdrop {
 
 .cancel {
   background-color: var(--color-cancel-btn-bg);
+  color: var(--color-cancel-btn-text);
 }
 
 .delete {
   background-color: var(--color-delete-btn-bg);
+  color: var(--color-delete-btn-text);
 }
 
 .delete,
 .cancel {
-  color: var(--color-cancel-btn-text);
   border: none;
 }
 
@@ -1027,10 +1034,15 @@ dialog::backdrop {
     cursor: pointer;
   }
 
+  .deleteCatIconBtn:hover,
   .delete:hover {
     background-color: var(--color-delete-btn-bg-hover);
   }
 
+  .cancelCatIconBtn:hover {
+    background-color: var(--color-cancel-btn-bg-hover);
+    color: var(--color-cancel-btn-text-hover);
+  }
   .save:hover,
   .save-btn:hover {
     background-color: var(--color-save-btn-bg-hover);
