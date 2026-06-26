@@ -3,6 +3,7 @@ import { menuToggle } from "./logic/menuToggle.js";
 import { viewMoreIcons } from "./logic/viewMoreIcons.js";
 import { revealIcons } from "./logic/revealIcons.js";
 import { addBudget } from "./logic/addBudget.js";
+import { theme } from "./logic/theme.js";
 
 async function loadComponent(id, url) {
   const element = document.getElementById(id);
@@ -19,6 +20,7 @@ async function loadComponent(id, url) {
   } catch (error) {
     element.insertAdjacentHTML("afterbegin", `<p>Component failed to load</p>`);
   }
+  theme();
 }
 
 populateIcons();
@@ -27,5 +29,4 @@ viewMoreIcons();
 revealIcons();
 addBudget();
 
-loadComponent("site-header", "/src/components/header.html");
 loadComponent("site-footer", "/src/components/footer.html");

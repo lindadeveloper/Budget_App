@@ -28,8 +28,8 @@ export function editBudget(editIconId, goalLimit, category, endDate, expenseName
       </select>
       <input type="text" class="edit-budget-category-detail" value="${expenseName}"></input>
       </div>
-      <button id="budgetSaveBtn" class="save">Save</button>
-      <button id="budgetCloseBtn" class="delete">Delete</button>`,
+      <button id="budgetSaveBtn" class="save">SAVE</button>
+      <button id="budgetCloseBtn" class="delete">DELETE</button>`,
     );
 
     //to edit category

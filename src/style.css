@@ -52,6 +52,7 @@ select {
   --color-x-icon: var(--black);
   --plus-icon: var(--white);
   --plus-icon-bg: var(--green-600);
+  --color-theme-btn-bg: var(--color-site-bg);
   --color-remove-icon: var(--white);
   --color-remove-icon-bg: var(--green-600);
   --color-side-bg: var(--green-100);
@@ -100,7 +101,7 @@ select {
   --color-footer-bg: var(--green-600);
   --color-category-icon-border: var(--green-700);
   --color-sidebar-border: var(--green-200);
-  --color-sidebar-link-border: var(--green-200);
+  --color-sidebar-link-border: var(--green-100);
   --color-link-hover: var(--green-300);
   --color-logout-bg-hover: var(--black);
   --color-logout-text-hover: var(--white);
@@ -116,6 +117,7 @@ select {
   --color-x-icon: var(--white);
   --plus-icon: var(--black);
   --plus-icon-bg: var(--blue-200);
+  --color-theme-btn-bg: var(--color-site-bg);
   --color-remove-icon: var(--white);
   --color-remove-icon-bg: var(--blue-900);
   --color-side-bg: var(--blue-200);
@@ -144,8 +146,8 @@ select {
   --color-progress-bar-text: var(--white);
   --color-utils-btn-bg: var(--blue-600);
   --color-utils-btn-text: var(--white);
-  --color-save-btn-bg: var(--green-300);
-  --color-save-btn-bg-hover: var(--green-600);
+  --color-save-btn-bg: var(--blue-300);
+  --color-save-btn-bg-hover: var(--blue-600);
   --color-save-btn-text: var(--white);
   --color-delete-btn-bg: var(--red-200);
   --color-delete-btn-bg-hover: var(--red-600);
@@ -221,6 +223,16 @@ select {
   right: 0;
   background-color: transparent;
   color: var(--color-x-icon);
+}
+
+.theme-mode-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: var(--color-theme-btn-bg);
 }
 
 .logo {
@@ -856,6 +868,11 @@ dialog::backdrop {
     display: none;
   }
 
+  .theme-mode-btn {
+    flex-direction: row-reverse;
+    padding: 0.5rem 0.4rem 0.5rem 1rem;
+  }
+
   .sidebar {
     position: unset;
     width: 250px;
@@ -999,7 +1016,8 @@ dialog::backdrop {
   .edit-budget-btn,
   .slide-right-btn,
   .slide-left-btn,
-  .log-out {
+  .log-out,
+  .theme-mode-btn {
     cursor: pointer;
   }
 

@@ -26,7 +26,7 @@ export function openModal(modalTitle) {
       </select>
       <input type="text" class="edit-budget-category-detail" placeholder="Input Expense Name"></input>
       </div>
-      <button id="saveCategoryBtn" class="save">Save</button>`,
+      <button id="saveCategoryBtn" class="save">SAVE</button>`,
   );
 
   //to edit category

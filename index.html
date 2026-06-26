@@ -10,7 +10,7 @@
     <!-- IMPORTANT Google material icon's names need to be in alphabetical order -->
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add_2,apparel,arrow_left,arrow_right,beach_access,business_center,child_care,close,construction,credit_score,desktop_windows,directions_car,edit_note,exercise,featured_seasonal_and_gifts,finance,home,local_cafe,local_gas_station,logout,manage_accounts,manufacturing,menu,pet_supplies,pets,potted_plant,remove,school,shopping_cart,spa,sports_tennis,stadia_controller,stethoscope,subscriptions,theater_comedy,toys_fan,travel,view_array,view_carousel,view_cozy,wb_sunny"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add_2,apparel,arrow_left,arrow_right,beach_access,business_center,child_care,close,construction,credit_score,dark_mode,desktop_windows,directions_car,edit_note,exercise,featured_seasonal_and_gifts,finance,home,local_cafe,local_gas_station,logout,manage_accounts,manufacturing,menu,pet_supplies,pets,potted_plant,remove,school,shopping_cart,spa,sports_tennis,stadia_controller,stethoscope,subscriptions,theater_comedy,toys_fan,travel,view_array,view_carousel,view_cozy,wb_sunny"
     />
     <link rel="stylesheet" href="./src/style.css" />
     <title>Budget App</title>
@@ -46,6 +46,22 @@
           <button id="menuBtn" class="material-symbols-outlined menu-icon">menu</button>
           <h1 class="brand-name">Budgeting</h1>
         </div>
+        <nav>
+          <ul>
+            <li class="nav-list-top">
+              <div class="theme-mode-btn" id="themeIconBtn">
+                <button
+                  id="themeIconImg"
+                  title="Light mode"
+                  class="material-symbols-outlined light-mode-icon"
+                >
+                  wb_sunny
+                </button>
+                <span id="themeIconTxt">Light</span>
+              </div>
+            </li>
+          </ul>
+        </nav>
       </header>
       <!-- main content -->
       <main id="mainContent" class="main-content">
@@ -84,15 +100,15 @@
             close
           </button>
           <ul id="categoryIcons" class="category-modal-icons"></ul>
-          <button onClick="categoryDialogWrapper.close()" class="save-btn">Save</button>
+          <button onClick="categoryDialogWrapper.close()" class="save-btn">SAVE</button>
         </div>
       </dialog>
 
       <dialog id="confirmationDialog" class="confirmation-dialog-wrapper">
         <div id="confirmation" class="confirmation-dialog">
           <p>Remove Category?</p>
-          <button id="deleteCatIconBtn" class="deleteCatIconBtn">Delete</button>
-          <button id="cancelCatIconBtn" class="cancelCatIconBtn">Cancel</button>
+          <button id="deleteCatIconBtn" class="deleteCatIconBtn">DELETE</button>
+          <button id="cancelCatIconBtn" class="cancelCatIconBtn">CANCEL</button>
         </div>
       </dialog>
 
@@ -100,7 +116,7 @@
         <div id="category" class="add-category-dialog">
           <p>Add New Category</p>
           <button id="addCategoryBtn" class="add-category-btn">Add</button>
-          <button id="cancelAddCategory" class="cancel-add-category">Cancel</button>
+          <button id="cancelAddCategory" class="cancel-add-category">CANCEL</button>
         </div>
       </dialog>
 
