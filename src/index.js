@@ -4,7 +4,7 @@ import { viewMoreIcons } from "./logic/viewMoreIcons.js";
 import { revealIcons } from "./logic/revealIcons.js";
 import { addBudget } from "./logic/addBudget.js";
 import { theme } from "./logic/theme.js";
-import { multiSelect } from "./logic/multiSelect.js";
+import { multiSelect } from "./logic/multiSelectBox.js";
 
 async function loadComponent(id, url) {
   const element = document.getElementById(id);

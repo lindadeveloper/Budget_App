@@ -1,6 +1,6 @@
 import { categoriesData } from "../data/categoriesData.js";
 import { editBudget } from "./editBudget.js";
-import { multiSelect } from "./multiSelect.js";
+import { multiSelect } from "./multiSelectBox.js";
 
 export function populateExpenses(objName) {
   const expenseList = document.getElementById("expense-list");
