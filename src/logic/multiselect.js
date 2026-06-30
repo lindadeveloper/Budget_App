@@ -17,6 +17,7 @@ export function multiSelect(expenseId) {
     expenseCheckBox.classList.toggle("hidden");
   }
 
+  /*Need to improve this code*/
   function deleteExpenseItems(event) {
     const value = event.target.id;
     if (event.target.checked) {
