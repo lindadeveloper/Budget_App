@@ -4,6 +4,7 @@ import { viewMoreIcons } from "./logic/viewMoreIcons.js";
 import { revealIcons } from "./logic/revealIcons.js";
 import { addBudget } from "./logic/addBudget.js";
 import { theme } from "./logic/theme.js";
+import { multiselect } from "./logic/multiselect.js";
 
 async function loadComponent(id, url) {
   const element = document.getElementById(id);
@@ -28,5 +29,6 @@ menuToggle();
 viewMoreIcons();
 revealIcons();
 addBudget();
+multiselect();
 
 loadComponent("site-footer", "/src/components/footer.html");

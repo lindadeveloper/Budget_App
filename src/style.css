@@ -487,9 +487,14 @@ select {
 
 .expense-wrapper {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin: 2rem 0;
+}
+
+.expense-check-box {
+  width: 2rem;
+  height: 2rem;
+  margin: 0 1rem 0 0;
 }
 
 .expense-details {
@@ -1030,7 +1035,8 @@ dialog::backdrop {
   .slide-right-btn,
   .slide-left-btn,
   .log-out,
-  .theme-mode-btn {
+  .theme-mode-btn,
+  .expense-check-box {
     cursor: pointer;
   }
 

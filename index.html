@@ -43,6 +43,7 @@
     <div class="site-content-wrapper">
       <header id="site-header" class="site-header" role="banner">
         <div class="nav-list-top">
+          <!---This is where the close or menu icon-->
           <button id="menuBtn" class="material-symbols-outlined menu-icon">menu</button>
           <h1 class="brand-name">Budgeting</h1>
         </div>
@@ -76,8 +77,11 @@
           </button>
         </section>
 
-        <div class="util-btn-wrapper">
-          <button id="multislect" class="util-btns">Multiselect</button>
+        <div id="utilBtns" class="util-btn-wrapper">
+          <div>
+            <button id="deleteExpenseBtn" class="util-btns hidden">Delete</button>
+            <button id="multiselect" class="util-btns">Multiselect</button>
+          </div>
           <button id="addBudget" class="util-btns">+ Add Budget</button>
         </div>
 

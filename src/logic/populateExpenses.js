@@ -1,11 +1,12 @@
 import { categoriesData } from "../data/categoriesData.js";
 import { editBudget } from "./editBudget.js";
+import { multiselect } from "./multiselect.js";
 
 export function populateExpenses(objName) {
   const expenseList = document.getElementById("expense-list");
   const categoryTitle = document.getElementById("category-title");
 
-  let editIconId = 0;
+  let expenseItemId = 0;
 
   //to make the first letter uppercased on every word
   function titleCase(str) {
@@ -29,28 +30,30 @@ export function populateExpenses(objName) {
       const progress = Math.round((itemObj.price / goalLimit) * 100);
       expenseList.insertAdjacentHTML(
         "beforeend",
-        `<div class="expense-wrapper">
-          <div id="expense-details" class="expense-details">
-            <span class="item-name">${expenseName}</span>
-            <div class="date-goal-wrap">
-              <span>End date: ${endDate}</span>
-              <span>Goal limit: $${goalLimit}</span>
-            </div>
-            <div class="progress">
-              <p class="total-spent">Total spent: $${totalSpent}</p>
-              <div 
-                id="progressBar"
-                class="progress-bar"
-                data-width="${progress}%"
-                role="progressbar" 
-                aria-valuenow="${progress}" 
-                aria-valuemin="0"
-                aria-valuemax="100">
-                ${progress}%
+        `<div id="expenseItem${expenseItemId}" class="expense-wrapper">
+          <input type="checkbox" id="expenseCheckBox${expenseItemId}" class="expense-check-box hidden">
+            <div class="expense-details">
+              <span class="item-name">${expenseName}</span>
+              <div class="date-goal-wrap">
+                <span>End date: ${endDate}</span>
+                <span>Goal limit: $${goalLimit}</span>
+              </div>
+              <div class="progress">
+                <p class="total-spent">Total spent: $${totalSpent}</p>
+                <div 
+                  id="progressBar"
+                  class="progress-bar"
+                  data-width="${progress}%"
+                  role="progressbar" 
+                  aria-valuenow="${progress}" 
+                  aria-valuemin="0"
+                  aria-valuemax="100">
+                  ${progress}%
+                </div>
               </div>
             </div>
-          </div>
-          <button id="${editIconId}"class="edit-budget-btn color-primary-text">
+          </input>
+          <button id="${expenseItemId}"class="edit-budget-btn color-primary-text">
             <i class="material-symbols-outlined">edit_note</i>
             <span>Edit</span>
           </button>
@@ -60,9 +63,10 @@ export function populateExpenses(objName) {
       document.querySelectorAll(".progress-bar").forEach((bar) => {
         bar.style.setProperty("--target-width", bar.dataset.width);
       });
-      editBudget(editIconId, goalLimit, category, endDate, expenseName);
+      editBudget(expenseItemId, goalLimit, category, endDate, expenseName);
+      multiselect(expenseItemId);
     }
-    editIconId++;
+    expenseItemId++;
   });
 }
 // For more security, use this method instead, but it's more verbose:
