@@ -1,10 +1,10 @@
-let multiSelected = false;
-let selectedCheckBoxArr = [];
-
-const multiSelectBtn = document.getElementById("multiSelect");
-const deleteExpenseBtn = document.getElementById("deleteExpenseBtn");
-
 export function multiSelect(expenseId) {
+  let multiSelected = false;
+  let selectedCheckBoxArr = [];
+
+  const multiSelectBtn = document.getElementById("multiSelect");
+  const deleteExpenseBtn = document.getElementById("deleteExpenseBtn");
+
   const expenseCheckBox = document.getElementById(`expenseCheckBox${expenseId}`);
   multiSelectBtn.addEventListener("click", multiSelectState);
   expenseCheckBox.addEventListener("change", deleteExpenseItems);

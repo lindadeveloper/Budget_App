@@ -23,12 +23,12 @@ async function loadComponent(id, url) {
   }
 }
 
+theme();
 populateIcons();
 menuToggle();
 viewMoreIcons();
 revealIcons();
 addBudget();
-theme();
 multiSelect();
 
 loadComponent("site-footer", "/src/components/footer.html");
