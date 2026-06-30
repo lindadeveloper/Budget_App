@@ -1,18 +1,18 @@
 let multiSelected = false;
 let selectedCheckBoxArr = [];
 
-const multiselectBtn = document.getElementById("multiselect");
+const multiSelectBtn = document.getElementById("multiSelect");
 const deleteExpenseBtn = document.getElementById("deleteExpenseBtn");
 
-export function multiselect(expenseId) {
+export function multiSelect(expenseId) {
   const expenseCheckBox = document.getElementById(`expenseCheckBox${expenseId}`);
-  multiselectBtn.addEventListener("click", multiselectState);
+  multiSelectBtn.addEventListener("click", multiSelectState);
   expenseCheckBox.addEventListener("change", deleteExpenseItems);
   const expenseItem = document.getElementById(`expenseItem${expenseId}`);
 
-  function multiselectState() {
+  function multiSelectState() {
     multiSelected = !multiSelected;
-    multiselectBtn.textContent = multiSelected ? "Cancel" : "Multiselect";
+    multiSelectBtn.textContent = multiSelected ? "Cancel" : "Multiselect";
     deleteExpenseBtn.classList.toggle("hidden");
     expenseCheckBox.classList.toggle("hidden");
   }
@@ -22,14 +22,15 @@ export function multiselect(expenseId) {
     if (event.target.checked) {
       selectedCheckBoxArr.push(value);
     } else {
-      const idx = selectedCheckBoxArr.indexOf(value);
-      if (idx > -1) {
-        selectedCheckBoxArr.splice(idx, 1);
+      const selectedItemId = selectedCheckBoxArr.indexOf(value);
+      if (selectedItemId > -1) {
+        selectedCheckBoxArr.splice(selectedItemId, 1);
       }
     }
     deleteExpenseBtn.addEventListener("click", deleteConfirm);
     function deleteConfirm() {
       expenseItem.remove(selectedCheckBoxArr);
+      selectedCheckBoxArr.length = 0;
     }
   }
 }

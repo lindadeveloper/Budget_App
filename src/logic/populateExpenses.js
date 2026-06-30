@@ -1,6 +1,6 @@
 import { categoriesData } from "../data/categoriesData.js";
 import { editBudget } from "./editBudget.js";
-import { multiselect } from "./multiselect.js";
+import { multiSelect } from "./multiSelect.js";
 
 export function populateExpenses(objName) {
   const expenseList = document.getElementById("expense-list");
@@ -64,7 +64,7 @@ export function populateExpenses(objName) {
         bar.style.setProperty("--target-width", bar.dataset.width);
       });
       editBudget(expenseItemId, goalLimit, category, endDate, expenseName);
-      multiselect(expenseItemId);
+      multiSelect(expenseItemId);
     }
     expenseItemId++;
   });

@@ -4,7 +4,7 @@ import { viewMoreIcons } from "./logic/viewMoreIcons.js";
 import { revealIcons } from "./logic/revealIcons.js";
 import { addBudget } from "./logic/addBudget.js";
 import { theme } from "./logic/theme.js";
-import { multiselect } from "./logic/multiselect.js";
+import { multiSelect } from "./logic/multiSelect.js";
 
 async function loadComponent(id, url) {
   const element = document.getElementById(id);
@@ -21,14 +21,14 @@ async function loadComponent(id, url) {
   } catch (error) {
     element.insertAdjacentHTML("afterbegin", `<p>Component failed to load</p>`);
   }
-  theme();
 }
 
+theme();
 populateIcons();
 menuToggle();
 viewMoreIcons();
 revealIcons();
 addBudget();
-multiselect();
+multiSelect();
 
 loadComponent("site-footer", "/src/components/footer.html");
