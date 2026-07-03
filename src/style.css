@@ -1005,7 +1005,7 @@ dialog::backdrop {
   }
 
   .confirmation-dialog-wrapper {
-    height: 200px;
+    height: fit-content;
     width: 400px;
   }
 
@@ -1063,7 +1063,8 @@ dialog::backdrop {
   .slide-right-btn:hover,
   .slide-left-btn:hover,
   .view-all:hover,
-  .gear-icon:hover {
+  .gear-icon:hover,
+  .util-btns:hover {
     background-color: var(--color-dark-hover);
   }
 
