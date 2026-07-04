@@ -31,17 +31,13 @@ export function multiSelect(expenseId) {
         selectedCheckBoxArr.splice(selectedItemId, 1);
       }
     }
-    /*There is a bug. If you delete the first time and cancel the second time, the pop up shows*/
-    deleteExpenseBtn.addEventListener("click", deleteConfirm);
-    function deleteConfirm() {
-      if (selectedCheckBoxArr.length === 0) {
-        return;
-      } else if (selectedCheckBoxArr.length > 0) {
-        deleteExpense(expenseId, selectedCheckBoxArr);
-      } else {
-        deleteExpense(expenseId, selectedCheckBoxArr);
-        selectedCheckBoxArr.length = 0;
-      }
+  }
+  deleteExpenseBtn.addEventListener("click", deleteConfirm);
+  function deleteConfirm() {
+    if (selectedCheckBoxArr.length === 0) {
+      return;
+    } else if (selectedCheckBoxArr.length > 0) {
+      deleteExpense(expenseId, selectedCheckBoxArr);
     }
   }
 }
