@@ -19,6 +19,6 @@ export function deleteExpense(expenseId, selectedCheckBoxArr) {
   function removeExpense() {
     expenseItem.remove(selectedCheckBoxArr);
     confirmationDialog.close();
-    return (selectedCheckBoxArr.length = 0);
+    selectedCheckBoxArr.length = 0;
   }
 }

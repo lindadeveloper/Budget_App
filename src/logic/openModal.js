@@ -3,6 +3,7 @@ import { categoriesData } from "../data/categoriesData.js";
 export function openModal(modalTitle) {
   const addCategoryBudget = document.getElementById("addCategoryBudget");
 
+  /*Modal for adding new category and budget */
   addCategoryBudget.innerHTML = "";
   addCategoryBudget.insertAdjacentHTML(
     "afterbegin",

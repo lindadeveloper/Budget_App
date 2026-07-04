@@ -15,9 +15,17 @@ export function multiSelect(expenseId) {
   /*Changes the text and shows the delete and cancel button*/
   function multiSelectState() {
     multiSelected = !multiSelected;
-    multiSelectBtn.textContent = multiSelected ? "Cancel" : "Multiselect";
-    deleteExpenseBtn.classList.toggle("hidden");
-    expenseCheckBox.classList.toggle("hidden");
+    if (multiSelected) {
+      deleteExpenseBtn.classList.remove("hidden");
+      expenseCheckBox.classList.remove("hidden");
+      multiSelectBtn.textContent = "Cancel";
+    } else {
+      deleteExpenseBtn.classList.add("hidden");
+      expenseCheckBox.classList.add("hidden");
+      multiSelectBtn.textContent = "Multiselect";
+    }
+    expenseCheckBox.checked = false;
+    selectedCheckBoxArr.length = 0;
   }
 
   /*To delete the expense. Needs to improve this code*/
