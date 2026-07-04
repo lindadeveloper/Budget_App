@@ -1,15 +1,18 @@
+import { deleteExpense } from "./deleteExpense.js";
+
 export function multiSelect(expenseId) {
   let multiSelected = false;
   let selectedCheckBoxArr = [];
 
   const multiSelectBtn = document.getElementById("multiSelect");
   const deleteExpenseBtn = document.getElementById("deleteExpenseBtn");
-
   const expenseCheckBox = document.getElementById(`expenseCheckBox${expenseId}`);
-  multiSelectBtn.addEventListener("click", multiSelectState);
-  expenseCheckBox.addEventListener("change", deleteExpenseItems);
   const expenseItem = document.getElementById(`expenseItem${expenseId}`);
 
+  multiSelectBtn.addEventListener("click", multiSelectState);
+  expenseCheckBox.addEventListener("change", deleteExpenseItems);
+
+  /*Changes the text and shows the delete and cancel button*/
   function multiSelectState() {
     multiSelected = !multiSelected;
     multiSelectBtn.textContent = multiSelected ? "Cancel" : "Multiselect";
@@ -17,7 +20,7 @@ export function multiSelect(expenseId) {
     expenseCheckBox.classList.toggle("hidden");
   }
 
-  /*Need to improve this code*/
+  /*To delete the expense. Needs to improve this code*/
   function deleteExpenseItems(event) {
     const value = event.target.id;
     if (event.target.checked) {
@@ -28,10 +31,17 @@ export function multiSelect(expenseId) {
         selectedCheckBoxArr.splice(selectedItemId, 1);
       }
     }
+    /*There is a bug. If you delete the first time and cancel the second time, the pop up shows*/
     deleteExpenseBtn.addEventListener("click", deleteConfirm);
     function deleteConfirm() {
-      expenseItem.remove(selectedCheckBoxArr);
-      selectedCheckBoxArr.length = 0;
+      if (selectedCheckBoxArr.length === 0) {
+        return;
+      } else if (selectedCheckBoxArr.length > 0) {
+        deleteExpense(expenseId, selectedCheckBoxArr);
+      } else {
+        deleteExpense(expenseId, selectedCheckBoxArr);
+        selectedCheckBoxArr.length = 0;
+      }
     }
   }
 }

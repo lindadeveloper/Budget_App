@@ -689,6 +689,8 @@ dialog::backdrop {
   padding: 1.5rem;
 }
 
+.expenseDeleteBtn,
+.expenseCancelBtn,
 .deleteCatIconBtn,
 .cancelCatIconBtn {
   width: 100%;
@@ -698,12 +700,14 @@ dialog::backdrop {
   font-size: 1rem;
 }
 
+.expenseDeleteBtn,
 .deleteCatIconBtn {
   margin-top: 1rem;
   background-color: var(--color-delete-btn-bg);
   color: var(--color-delete-btn-text);
 }
 
+.expenseCancelBtn,
 .cancelCatIconBtn {
   background-color: var(--color-cancel-btn-bg);
   color: var(--color-cancel-btn-text);
@@ -1036,15 +1040,18 @@ dialog::backdrop {
   .slide-left-btn,
   .log-out,
   .theme-mode-btn,
-  .expense-check-box {
+  .expense-check-box,
+  .expenseDeleteBtn,
+  .expenseCancelBtn {
     cursor: pointer;
   }
 
+  .expenseDeleteBtn:hover,
   .deleteCatIconBtn:hover,
   .delete:hover {
     background-color: var(--color-delete-btn-bg-hover);
   }
-
+  .expenseCancelBtn:hover,
   .cancelCatIconBtn:hover {
     background-color: var(--color-cancel-btn-bg-hover);
     color: var(--color-cancel-btn-text-hover);
