@@ -1,6 +1,6 @@
 import { iconsData } from "../data/iconsData.js";
 import { populateExpenses } from "./populateExpenses.js";
-import { deleteConfirmation } from "./deleteConfirmation.js";
+import { deleteCategory } from "./deleteCategory.js";
 import { addCategory } from "./addCategory.js";
 
 export function populateIcons() {
@@ -151,7 +151,7 @@ export function populateIcons() {
         </li>
         `,
       );
-      deleteConfirmation(currentId);
+      deleteCategory(currentId);
     }
   }
 

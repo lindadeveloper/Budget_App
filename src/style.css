@@ -204,6 +204,10 @@ select {
   display: none;
 }
 
+.text-label {
+  font-size: 1rem;
+}
+
 /*to remove the dot in the list*/
 .sidebar > ul > li,
 .nav-list-top,

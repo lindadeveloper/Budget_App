@@ -3,7 +3,7 @@ import { editBudget } from "./editBudget.js";
 import { multiSelect } from "./multiSelectBox.js";
 
 export function populateExpenses(objName) {
-  const expenseList = document.getElementById("expense-list");
+  const expenseList = document.getElementById("expenseList");
   const categoryTitle = document.getElementById("category-title");
 
   let expenseItemId = 0;
@@ -33,15 +33,15 @@ export function populateExpenses(objName) {
         `<div id="expenseItem${expenseItemId}" class="expense-wrapper">
           <input type="checkbox" id="expenseCheckBox${expenseItemId}" class="expense-check-box hidden">
             <div class="expense-details">
-              <span class="item-name">${expenseName}</span>
+              <span id="budgetName${expenseItemId}"class="item-name">${expenseName}</span>
               <div class="date-goal-wrap">
-                <span>End date: ${endDate}</span>
-                <span>Goal limit: $${goalLimit}</span>
+                <span id="endDate${expenseItemId}">End date: ${endDate}</span>
+                <span id="goalLimit${expenseItemId}">Goal limit: $${goalLimit}</span>
               </div>
               <div class="progress">
-                <p class="total-spent">Total spent: $${totalSpent}</p>
+                <p id="totalSpending${expenseItemId}" class="total-spent">Total spent: $${totalSpent}</p>
                 <div 
-                  id="progressBar"
+                  id="progressBarUnused${expenseItemId}"
                   class="progress-bar"
                   data-width="${progress}%"
                   role="progressbar" 
@@ -63,7 +63,7 @@ export function populateExpenses(objName) {
       document.querySelectorAll(".progress-bar").forEach((bar) => {
         bar.style.setProperty("--target-width", bar.dataset.width);
       });
-      editBudget(expenseItemId, goalLimit, category, endDate, expenseName);
+      editBudget(expenseItemId, goalLimit, category, endDate, expenseName, totalSpent);
       multiSelect(expenseItemId);
     }
     expenseItemId++;

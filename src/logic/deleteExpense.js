@@ -1,7 +1,7 @@
 //to remove categories from the category modal
 import { multiSelect } from "./multiSelectBox.js";
 
-export function deleteExpense(expenseId, selectedCheckBoxArr) {
+export function deleteExpense(expenseId, selectedExpense) {
   const expenseDeleteBtn = document.getElementById("expenseDeleteBtn");
   const cancelCategoryBtn = document.getElementById("expenseCancelBtn");
   const confirmationDialog = document.getElementById("expenseConfirmationDialog");
@@ -17,8 +17,8 @@ export function deleteExpense(expenseId, selectedCheckBoxArr) {
   }
 
   function removeExpense() {
-    expenseItem.remove(selectedCheckBoxArr);
+    expenseItem.remove(selectedExpense);
     confirmationDialog.close();
-    selectedCheckBoxArr.length = 0;
+    selectedExpense.length = 0;
   }
 }
