@@ -1,14 +1,16 @@
 import { categoriesData } from "../data/categoriesData.js";
+// import { addNewExpense } from "./addNewExpense.js";
 
 export function openModal(modalTitle) {
   const addCategoryBudget = document.getElementById("addCategoryBudget");
+  let expenseNewItemId = 0;
 
   /*Modal for adding new category and budget */
   addCategoryBudget.innerHTML = "";
   addCategoryBudget.insertAdjacentHTML(
     "afterbegin",
     `<div class="add-category-dialog">
-     <div class="modal-header">
+      <div class="modal-header">
         <button
             title="close"
             onClick="addCategoryBudget.close()"
@@ -16,22 +18,33 @@ export function openModal(modalTitle) {
         >
           close
         </button>
-      <p class="edit-budget-title">${modalTitle}</p>
+        <p class="edit-budget-title">${modalTitle}</p>
       </div>
-      <span class="dollar">$<input autofocus type="number" class="edit-budget-amount"/></span>
-      <div class="edit-budget-date-wrapper">
-      <p>End Date</p>
-      <input type="date" class="edit-budget-date" placeholder="MM/DD/YYYY"/>
-      </div>
-      <select id="categoryOptions" class="edit-budget-category" name="Category">
-      </select>
-      <input type="text" class="edit-budget-category-detail" placeholder="Input Expense Name"></input>
-      </div>
-      <button id="saveCategoryBtn" class="save">SAVE</button>`,
+        <div class="dollar">
+          <span class="text-label">Total Spent</span>
+          $<input type="number" id="inputNewBudgetAmount" class="edit-budget-amount">
+        </div>
+        <div class="dollar">
+          <span class="text-label">Goal Limit</span>
+          $<input type="number" id="newGoalLimitAmount" class="edit-budget-amount">
+        </div>
+        <div class="edit-budget-date-wrapper">
+          <p>End Date</p>
+          <input type="date" id="newEndDate" class="edit-budget-date" placeholder="MM/DD/YYYY"/>
+        </div>
+        <select id="newCategoryOptions" class="edit-budget-category" name="Category">
+        </select>
+        <input type="text" 
+          id="newBudgetDetailText" 
+          class="edit-budget-category-detail" 
+          placeholder="Input Expense Name">
+        </input>
+    </div>
+    <button id="saveCategoryBtn" class="save">SAVE</button>`,
   );
 
   //to edit category
-  const categoryOptions = document.getElementById("categoryOptions");
+  const categoryOptions = document.getElementById("newCategoryOptions");
   let categoryArr = [];
   categoriesData.forEach((itemObj) => {
     if (!categoryArr.includes(itemObj.category)) {
@@ -49,6 +62,19 @@ export function openModal(modalTitle) {
   //to save
   saveBtn.addEventListener("click", saved);
   function saved() {
+    // const newTotalSpent = parseFloat(inputNewBudgetAmount.value);
+    // const newValueLimit = parseFloat(newGoalLimitAmount.value);
+    // const newValueEndDate = newEndDate.value;
+    // const newValueExpenseName = newBudgetDetailText.value;
+
+    // addNewExpense(
+    //   expenseNewItemId,
+    //   newValueLimit,
+    //   newCategory,
+    //   newValueEndDate,
+    //   newValueExpenseName,
+    //   newTotalSpent,
+    // );
     addCategoryBudget.close();
     addCategoryBudget.innerHTML = "";
   }
