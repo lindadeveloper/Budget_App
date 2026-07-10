@@ -3,6 +3,7 @@ export function deleteCategory(categoryCurrentId) {
   const deleteCategoryBtn = document.getElementById("deleteCatIconBtn");
   const cancelCategoryBtn = document.getElementById("cancelCatIconBtn");
   const confirmationDialog = document.getElementById("confirmationDialog");
+  const deleteCatPrompt = document.getElementById("deleteCatPrompt");
 
   const removeBtn = document.getElementById(`removeBtn-${categoryCurrentId}`);
   removeBtn.addEventListener("click", openConfirmation);
@@ -18,7 +19,9 @@ export function deleteCategory(categoryCurrentId) {
   }
 
   function removeCategory() {
-    const categoryIcon = document.getElementById(`category-icon-${categoryCurrentId}`);
+    const categoryIcon = document.getElementById(
+      `category-icon-${categoryCurrentId}`,
+    );
     categoryIcon.remove();
     removeBtn.closest(".modal-icon").remove();
     categoryCurrentId = null;

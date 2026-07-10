@@ -5,6 +5,10 @@ import { revealIcons } from "./logic/revealIcons.js";
 import { addBudget } from "./logic/addBudget.js";
 import { theme } from "./logic/theme.js";
 import { multiSelect } from "./logic/multiSelectBox.js";
+import {
+  resetCategoriesData,
+  showExamplesData,
+} from "./data/modifyCategoriesData.js";
 
 async function loadComponent(id, url) {
   const element = document.getElementById(id);
@@ -22,6 +26,19 @@ async function loadComponent(id, url) {
     element.insertAdjacentHTML("afterbegin", `<p>Component failed to load</p>`);
   }
 }
+
+const deleteAll = document.getElementById("resetBtn");
+const showExamples = document.getElementById("showExamples");
+
+deleteAll.addEventListener("click", () => {
+  resetCategoriesData();
+  location.reload(); // reloads the page so everything re-renders fresh
+});
+
+showExamples.addEventListener("click", () => {
+  showExamplesData();
+  location.reload(); // reloads the page so everything re-renders fresh
+});
 
 theme();
 populateIcons();

@@ -1,9 +1,9 @@
-import { categoriesData } from "../data/categoriesData.js";
-// import { addNewExpense } from "./addNewExpense.js";
+import { addCategoryItem } from "../data/modifyCategoriesData.js";
+import { populateExpenses } from "./populateExpenses.js";
+import { categoryList } from "../data/categoryList.js";
 
 export function openModal(modalTitle) {
   const addCategoryBudget = document.getElementById("addCategoryBudget");
-  let expenseNewItemId = 0;
 
   /*Modal for adding new category and budget */
   addCategoryBudget.innerHTML = "";
@@ -38,22 +38,18 @@ export function openModal(modalTitle) {
           id="newBudgetDetailText" 
           class="edit-budget-category-detail" 
           placeholder="Input Expense Name">
-        </input>
     </div>
     <button id="saveCategoryBtn" class="save">SAVE</button>`,
   );
 
   //to edit category
-  const categoryOptions = document.getElementById("newCategoryOptions");
-  let categoryArr = [];
-  categoriesData.forEach((itemObj) => {
-    if (!categoryArr.includes(itemObj.category)) {
-      categoryArr.push(itemObj.category);
-    }
-  });
 
-  categoryArr.map((categoryItem) => {
-    categoryOptions.innerHTML += `<option>${categoryItem.toUpperCase()}</option>`;
+  const categoryOptions = document.getElementById("newCategoryOptions");
+  categoryList.forEach((categoryItem) => {
+    categoryOptions.innerHTML += `
+    <option value="${categoryItem}">
+    ${categoryItem.toUpperCase()}
+    </option>`;
   });
   addCategoryBudget.showModal();
 
@@ -62,27 +58,29 @@ export function openModal(modalTitle) {
   //to save
   saveBtn.addEventListener("click", saved);
   function saved() {
-    // const newTotalSpent = parseFloat(inputNewBudgetAmount.value);
-    // const newValueLimit = parseFloat(newGoalLimitAmount.value);
-    // const newValueEndDate = newEndDate.value;
-    // const newValueExpenseName = newBudgetDetailText.value;
+    const newTotalSpent = parseFloat(inputNewBudgetAmount.value);
+    const newValueLimit = parseFloat(newGoalLimitAmount.value);
+    const newValueEndDate = newEndDate.value;
+    const newValueExpenseName = newBudgetDetailText.value;
+    const newCategoryOption = newCategoryOptions.value;
 
-    // addNewExpense(
-    //   expenseNewItemId,
-    //   newValueLimit,
-    //   newCategory,
-    //   newValueEndDate,
-    //   newValueExpenseName,
-    //   newTotalSpent,
-    // );
+    const itemObj = {
+      category: newCategoryOption,
+      name: newValueExpenseName,
+      price: newTotalSpent,
+      date: newValueEndDate,
+      goal: newValueLimit,
+    };
+    addCategoryItem(itemObj);
+    populateExpenses(itemObj.category);
     addCategoryBudget.close();
     addCategoryBudget.innerHTML = "";
   }
 
   //to cancel
-  closeBtn.addEventListener("click", closed);
-  function closed() {
-    addCategoryBudget.close();
-    addCategoryBudget.innerHTML = "";
-  }
+  // closeBtn.addEventListener("click", closed);
+  // function closed() {
+  //   addCategoryBudget.close();
+  //   addCategoryBudget.innerHTML = "";
+  // }
 }

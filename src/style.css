@@ -565,11 +565,21 @@ select {
 
 .util-btn-wrapper {
   margin-top: 1rem;
+}
+
+.util-btn-wrapper,
+.util-right-btns {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+}
+
+.util-left-btns {
+  display: flex;
 }
 
 .util-btns {
+  width: 100%;
+  margin: 0.2rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   border: none;
@@ -967,6 +977,17 @@ dialog::backdrop {
   .add-category-wrapper,
   .edit-budget-dialog-wrapper {
     max-width: 450px;
+  }
+
+  .util-btn-wrapper,
+  .util-right-btns {
+    flex-direction: unset;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .util-btns {
+    width: unset;
   }
 
   .gear-setting-wrapper {

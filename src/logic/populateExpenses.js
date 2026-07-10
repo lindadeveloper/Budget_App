@@ -1,10 +1,10 @@
-import { categoriesData } from "../data/categoriesData.js";
+import { getCategoriesData } from "../data/modifyCategoriesData.js";
 import { editBudget } from "./editBudget.js";
 import { multiSelect } from "./multiSelectBox.js";
 
 export function populateExpenses(objName) {
   const expenseList = document.getElementById("expenseList");
-  const categoryTitle = document.getElementById("category-title");
+  const categoryTitle = document.getElementById("categoryTitle");
 
   let expenseItemId = 0;
 
@@ -19,17 +19,19 @@ export function populateExpenses(objName) {
   expenseList.innerHTML = "";
   categoryTitle.textContent = titleCase(objName);
 
+  const categoriesData = getCategoriesData();
+
   categoriesData.forEach((itemObj) => {
-    let goalLimit = itemObj.price + 100;
+    let goalLimit = itemObj.goal;
     let totalSpent = itemObj.price;
     let endDate = itemObj.date;
     let expenseName = itemObj.name;
     let category = itemObj.category;
 
-    if (objName === itemObj.category) {
+    if (objName.toUpperCase() === itemObj.category.toUpperCase()) {
       const progress = Math.round((itemObj.price / goalLimit) * 100);
       expenseList.insertAdjacentHTML(
-        "beforeend",
+        "afterbegin",
         `<div id="expenseItem${expenseItemId}" class="expense-wrapper">
           <input type="checkbox" id="expenseCheckBox${expenseItemId}" class="expense-check-box hidden">
             <div class="expense-details">
@@ -63,7 +65,14 @@ export function populateExpenses(objName) {
       document.querySelectorAll(".progress-bar").forEach((bar) => {
         bar.style.setProperty("--target-width", bar.dataset.width);
       });
-      editBudget(expenseItemId, goalLimit, category, endDate, expenseName, totalSpent);
+      editBudget(
+        expenseItemId,
+        goalLimit,
+        category,
+        endDate,
+        expenseName,
+        totalSpent,
+      );
       multiSelect(expenseItemId);
     }
     expenseItemId++;

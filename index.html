@@ -18,7 +18,9 @@
   <body class="site-wrapper">
     <!-- left nav bar -->
     <nav id="sidebar" class="sidebar hidden">
-      <button id="x-icon" class="material-symbols-outlined x-icon">close</button>
+      <button id="x-icon" class="material-symbols-outlined x-icon">
+        close
+      </button>
       <img src="/assets/budget-logo.png" alt="logo" class="logo" />
       <ul>
         <li>
@@ -44,7 +46,9 @@
       <header id="site-header" class="site-header" role="banner">
         <div class="nav-list-top">
           <!---This is where the close or menu icon-->
-          <button id="menuBtn" class="material-symbols-outlined menu-icon">menu</button>
+          <button id="menuBtn" class="material-symbols-outlined menu-icon">
+            menu
+          </button>
           <h1 class="brand-name">Budgeting</h1>
         </div>
         <nav>
@@ -68,26 +72,38 @@
       <main id="mainContent" class="main-content">
         <section class="category-icon-container">
           <div id="gearSettingIcon" class="gear-setting-wrapper"></div>
-          <button id="slideLeft" class="material-symbols-outlined slide-left-btn">
+          <button
+            id="slideLeft"
+            class="material-symbols-outlined slide-left-btn"
+          >
             arrow_left
           </button>
           <ul id="trackIcons" class="track-icons"></ul>
-          <button id="slideRight" class="material-symbols-outlined slide-right-btn">
+          <button
+            id="slideRight"
+            class="material-symbols-outlined slide-right-btn"
+          >
             arrow_right
           </button>
         </section>
 
         <div id="utilBtns" class="util-btn-wrapper">
-          <div>
-            <button id="deleteExpenseBtn" class="util-btns hidden">Delete</button>
+          <div class="util-left-btns">
+            <button id="deleteExpenseBtn" class="util-btns hidden">
+              Delete Selected
+            </button>
             <button id="multiSelect" class="util-btns">Multiselect</button>
           </div>
-          <button id="addBudget" class="util-btns">+ Add Budget</button>
+          <div class="util-right-btns">
+            <button id="addBudget" class="util-btns">+ Add Budget</button>
+            <button id="showExamples" class="util-btns">Reset All</button>
+            <button id="resetBtn" class="util-btns">Delete All</button>
+          </div>
         </div>
 
         <section class="category-details">
           <div class="category-detail-wrapper">
-            <h2 id="category-title" class="category-title"></h2>
+            <h2 id="categoryTitle" class="category-title"></h2>
             <div id="expenseList"></div>
           </div>
         </section>
@@ -104,7 +120,9 @@
             close
           </button>
           <ul id="categoryIcons" class="category-modal-icons"></ul>
-          <button onClick="categoryDialogWrapper.close()" class="save-btn">SAVE</button>
+          <button onClick="categoryDialogWrapper.close()" class="save-btn">
+            SAVE
+          </button>
         </div>
       </dialog>
 
@@ -117,7 +135,10 @@
         </div>
       </dialog>
 
-      <dialog id="expenseConfirmationDialog" class="confirmation-dialog-wrapper">
+      <dialog
+        id="expenseConfirmationDialog"
+        class="confirmation-dialog-wrapper"
+      >
         <div class="confirmation-dialog">
           <h2>Delete Expense</h2>
           <p>Are you sure?</p>
@@ -130,7 +151,9 @@
         <div id="category" class="add-category-dialog">
           <p>Add New Category</p>
           <button id="addCategoryBtn" class="add-category-btn">Add</button>
-          <button id="cancelAddCategory" class="cancel-add-category">CANCEL</button>
+          <button id="cancelAddCategory" class="cancel-add-category">
+            CANCEL
+          </button>
         </div>
       </dialog>
 
