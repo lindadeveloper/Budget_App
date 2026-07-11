@@ -45,6 +45,7 @@ export function openModal(modalTitle) {
   //to edit category
 
   const categoryOptions = document.getElementById("newCategoryOptions");
+
   categoryList.forEach((categoryItem) => {
     categoryOptions.innerHTML += `
     <option value="${categoryItem}">
@@ -52,6 +53,8 @@ export function openModal(modalTitle) {
     </option>`;
   });
   addCategoryBudget.showModal();
+
+  // selectAllOptions(categoryOptions);
 
   const saveBtn = document.getElementById("saveCategoryBtn");
 

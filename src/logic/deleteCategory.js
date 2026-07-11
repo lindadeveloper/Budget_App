@@ -3,7 +3,6 @@ export function deleteCategory(categoryCurrentId) {
   const deleteCategoryBtn = document.getElementById("deleteCatIconBtn");
   const cancelCategoryBtn = document.getElementById("cancelCatIconBtn");
   const confirmationDialog = document.getElementById("confirmationDialog");
-  const deleteCatPrompt = document.getElementById("deleteCatPrompt");
 
   const removeBtn = document.getElementById(`removeBtn-${categoryCurrentId}`);
   removeBtn.addEventListener("click", openConfirmation);

@@ -89,6 +89,9 @@
 
         <div id="utilBtns" class="util-btn-wrapper">
           <div class="util-left-btns">
+            <button id="selectAllOption" class="util-btns hidden">
+              Select All
+            </button>
             <button id="deleteExpenseBtn" class="util-btns hidden">
               Delete Selected
             </button>
@@ -96,7 +99,9 @@
           </div>
           <div class="util-right-btns">
             <button id="addBudget" class="util-btns">+ Add Budget</button>
-            <button id="showExamples" class="util-btns">Reset All</button>
+            <button id="showExamples" class="util-btns">
+              Reset to Default
+            </button>
             <button id="resetBtn" class="util-btns">Delete All</button>
           </div>
         </div>
@@ -140,7 +145,7 @@
         class="confirmation-dialog-wrapper"
       >
         <div class="confirmation-dialog">
-          <h2>Delete Expense</h2>
+          <h2>Delete Selected</h2>
           <p>Are you sure?</p>
           <button id="expenseDeleteBtn" class="expenseDeleteBtn">DELETE</button>
           <button id="expenseCancelBtn" class="expenseCancelBtn">CANCEL</button>

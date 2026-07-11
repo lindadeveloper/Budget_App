@@ -470,7 +470,7 @@ select {
 
 /*category details section*/
 .category-detail-wrapper {
-  padding: 1rem 0;
+  padding: 0.7rem 0;
 }
 
 .category-title {
@@ -565,22 +565,19 @@ select {
 
 .util-btn-wrapper {
   margin-top: 1rem;
+  flex-direction: column-reverse;
 }
 
 .util-btn-wrapper,
-.util-right-btns {
-  display: flex;
-  flex-direction: column;
-}
-
+.util-right-btns,
 .util-left-btns {
   display: flex;
 }
 
 .util-btns {
   width: 100%;
-  margin: 0.2rem;
-  padding: 0.5rem 1rem;
+  margin: 0.3rem;
+  padding: 0.8rem;
   border-radius: 0.5rem;
   border: none;
   background-color: var(--color-utils-btn-bg);
@@ -988,6 +985,7 @@ dialog::backdrop {
 
   .util-btns {
     width: unset;
+    padding: 0.5rem;
   }
 
   .gear-setting-wrapper {

@@ -49,7 +49,9 @@ export function editBudget(
     );
 
     //to edit category
-    const categoryBudgetOption = document.getElementById("categoryBudgetOption");
+    const categoryBudgetOption = document.getElementById(
+      "categoryBudgetOption",
+    );
     let categoryArr = [];
     categoriesData.forEach((itemObj) => {
       if (!categoryArr.includes(itemObj.category)) {
@@ -72,10 +74,14 @@ export function editBudget(
     const endDateAmount = document.getElementById("endDateAmount");
     const budgetDetailText = document.getElementById("budgetDetailText");
 
-    const totalSpentNum = document.getElementById(`totalSpending${expenseItemId}`);
+    const totalSpentNum = document.getElementById(
+      `totalSpending${expenseItemId}`,
+    );
     const goalLimitNum = document.getElementById(`goalLimit${expenseItemId}`);
     const endDateNum = document.getElementById(`endDate${expenseItemId}`);
-    const budgetDetailWord = document.getElementById(`budgetName${expenseItemId}`);
+    const budgetDetailWord = document.getElementById(
+      `budgetName${expenseItemId}`,
+    );
 
     //to save
     saveBtn.addEventListener("click", saved);
