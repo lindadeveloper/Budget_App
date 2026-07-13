@@ -1,5 +1,6 @@
 import { resetCategoriesData } from "../data/modifyCategoriesData.js";
 
+//bug found: light and dark theme would reset to light
 export function resetAllData() {
   document.getElementById("resetBtn").addEventListener("click", () => {
     resetCategoriesData();

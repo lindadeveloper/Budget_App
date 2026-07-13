@@ -48,6 +48,7 @@ export function multiSelect(expenseId) {
     selectedCheckBoxArr.length = 0;
   }
 
+  //bug found: It would delete all whenever you select all and then unselect one or a few checkboxes
   /*selects all checkboxes */
   selectAll.addEventListener("click", () => {
     selectAllCheckboxes();

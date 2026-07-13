@@ -206,6 +206,20 @@ select {
   font-size: 1rem;
 }
 
+.log-in-site-wrapper {
+  display: flex;
+}
+
+.log-in-container {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 300px;
+  text-align: center;
+}
+
 /*to remove the dot in the list*/
 .sidebar > ul > li,
 .nav-list-top,
@@ -259,37 +273,24 @@ select {
   box-shadow: 0 10px 10px 1px var(--color-shadow-box);
 }
 
-.menu-link {
-  padding: 1.5rem 0;
-  width: 100%;
-  display: block;
-  text-decoration: none;
-  color: var(--color-link-text);
-}
-
 .menu-link,
 .log-out {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.log-out {
-  background-color: var(--color-logout-hover);
-  color: var(--color-link-text);
-  border: none;
-  font-size: 1rem;
   padding: 1.5rem 0;
-  width: 100%;
-}
-
-.log-out-text {
   text-decoration: none;
   color: var(--color-link-text);
+  font-size: 1rem;
 }
 
 .login-btn {
-  padding: 1.5rem 0;
+  margin-top: 1.5rem;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  color: var(--color-link-text);
+  border-radius: 1rem;
+  background-color: var(--color-side-bg);
 }
 
 /*site content*/
@@ -930,6 +931,7 @@ dialog::backdrop {
     border-bottom: 1px solid var(--color-sidebar-link-border);
   }
 
+  .login-btn:hover,
   .log-out:hover {
     background-color: var(--color-logout-bg-hover);
     color: var(--color-logout-text-hover);
