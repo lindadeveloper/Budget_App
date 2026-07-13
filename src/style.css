@@ -183,7 +183,7 @@ select {
 .material-symbols-outlined {
   border: none;
   padding: 0.5rem;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-variation-settings:
     "FILL" 1,
     "wght" 500,
@@ -226,7 +226,8 @@ select {
 /*sidebar menu*/
 
 .x-icon {
-  position: fixed;
+  margin: 5% 5% 0 0;
+  position: absolute;
   top: 0;
   right: 0;
   background-color: transparent;
@@ -247,16 +248,18 @@ select {
   width: 100%;
   max-width: 100px;
   border-radius: 50%;
-  margin: 2rem 0;
+  margin: 5rem 0 2rem 0;
 }
 
 .sidebar {
   z-index: 1000;
   position: fixed;
   text-align: center;
-  width: 100%;
+  width: 50%;
   height: 100%;
   background-color: var(--color-side-bg);
+  border-right: 1px solid var(--color-sidebar-border);
+  box-shadow: 0 10px 10px 1px var(--color-shadow-box);
 }
 
 .menu-link {
@@ -909,8 +912,10 @@ dialog::backdrop {
   .sidebar {
     position: unset;
     width: 250px;
-    border-right: 1px solid var(--color-sidebar-border);
-    box-shadow: 0 10px 10px 1px var(--color-shadow-box);
+  }
+
+  .logo {
+    margin: 3rem 0;
   }
 
   /*For better accessibility by separating the primary navigation elements from the 
