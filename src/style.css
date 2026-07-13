@@ -206,10 +206,6 @@ select {
   font-size: 1rem;
 }
 
-.log-in-site-wrapper {
-  border: 1px solid black;
-}
-
 .log-in-container,
 .log-in-site-wrapper {
   display: flex;
@@ -262,11 +258,19 @@ select {
   background-color: var(--color-theme-btn-bg);
 }
 
+.login-logo,
 .logo {
   width: 100%;
   max-width: 100px;
   border-radius: 50%;
+}
+
+.logo {
   margin: 5rem 0 2rem 0;
+}
+
+.login-logo {
+  margin-bottom: 1rem;
 }
 
 .sidebar {
@@ -860,6 +864,8 @@ dialog::backdrop {
 }
 
 .edit-budget-date {
+  height: 3rem;
+  width: 100%;
   margin: 0.5rem 0;
   font-size: 1.2rem;
   text-align: center;
