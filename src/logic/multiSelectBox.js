@@ -10,7 +10,7 @@ export function multiSelect(expenseId) {
   const selectAll = document.getElementById("selectAllOption");
   const categoryBtns = document.querySelectorAll(".category-icon-wrapper");
 
-  //Need to fix expense Id since it's null
+  /*Need to fix expense Id since it's null. A bug that needs fixing*/
   const expenseCheckBox = document.getElementById(
     `expenseCheckBox${expenseId}`,
   );

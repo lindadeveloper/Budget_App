@@ -102,7 +102,6 @@ select {
   --color-footer-text: var(--white);
   --color-footer-bg: var(--green-600);
   --color-category-icon-border: var(--green-700);
-  --color-sidebar-border: var(--green-200);
   --color-sidebar-link-border: var(--green-100);
   --color-category-hover: var(--green-300);
   --color-logout-bg-hover: var(--black);
@@ -169,7 +168,6 @@ select {
   --color-footer-text: var(--white);
   --color-footer-bg: var(--blue-600);
   --color-category-icon-border: var(--blue-700);
-  --color-sidebar-border: var(--blue-200);
   --color-sidebar-link-border: var(--blue-700);
   --color-category-hover: var(--blue-500);
   --color-logout-bg-hover: var(--black);
@@ -258,7 +256,6 @@ select {
   width: 50%;
   height: 100%;
   background-color: var(--color-side-bg);
-  border-right: 1px solid var(--color-sidebar-border);
   box-shadow: 0 10px 10px 1px var(--color-shadow-box);
 }
 
@@ -278,13 +275,21 @@ select {
 }
 
 .log-out {
-  padding: 1rem 2rem;
   background-color: var(--color-logout-hover);
   color: var(--color-link-text);
   border: none;
   font-size: 1rem;
   padding: 1.5rem 0;
   width: 100%;
+}
+
+.log-out-text {
+  text-decoration: none;
+  color: var(--color-link-text);
+}
+
+.login-btn {
+  padding: 1.5rem 0;
 }
 
 /*site content*/
@@ -547,6 +552,7 @@ select {
 }
 
 .edit-budget-btn {
+  color: unset;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -927,6 +933,10 @@ dialog::backdrop {
   .log-out:hover {
     background-color: var(--color-logout-bg-hover);
     color: var(--color-logout-text-hover);
+  }
+
+  .log-out-text {
+    color: unset;
   }
   /*category icons*/
   .track-icons {
