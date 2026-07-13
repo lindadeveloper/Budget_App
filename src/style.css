@@ -207,17 +207,23 @@ select {
 }
 
 .log-in-site-wrapper {
-  display: flex;
+  border: 1px solid black;
 }
 
-.log-in-container {
-  margin: auto;
+.log-in-container,
+.log-in-site-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 300px;
-  text-align: center;
+}
+
+.log-in-container {
+  margin: 1rem auto;
+  padding: 2rem;
+  display: flex;
+  border-radius: 1rem;
+  border: 1px solid var(--color-input-border);
 }
 
 /*to remove the dot in the list*/
@@ -285,12 +291,28 @@ select {
 }
 
 .login-btn {
-  margin-top: 1.5rem;
-  padding: 1rem 2rem;
   text-decoration: none;
   color: var(--color-link-text);
-  border-radius: 1rem;
   background-color: var(--color-side-bg);
+}
+
+.login-title {
+  margin-bottom: 1rem;
+}
+
+.login-input,
+.login-btn {
+  text-align: center;
+  margin-top: 1rem;
+  padding: 0.8rem 0;
+  width: 100%;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.login-input {
+  background-color: var(--color-input-bg);
+  border: 1px solid var(--color-input-border);
 }
 
 /*site content*/
@@ -917,12 +939,13 @@ dialog::backdrop {
   }
 
   .sidebar {
+    text-align: center;
     position: unset;
     width: 250px;
   }
 
   .logo {
-    margin: 3rem 0;
+    margin: 2rem 0;
   }
 
   /*For better accessibility by separating the primary navigation elements from the 
@@ -939,6 +962,10 @@ dialog::backdrop {
 
   .log-out-text {
     color: unset;
+  }
+
+  .log-in-container {
+    width: 300px;
   }
   /*category icons*/
   .track-icons {
