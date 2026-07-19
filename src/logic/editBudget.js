@@ -97,11 +97,6 @@ export function editBudget(
       endDate = newValueEndDate;
       expenseName = newValueExpenseName;
 
-      inputBudgetAmount.value = totalSpending;
-      goalLimitAmount.value = goalLimit;
-      endDateAmount.value = endDate;
-      budgetDetailText.value = expenseName;
-
       // inputBudgetAmount.value = localStorage.setItem("totalSpending", totalSpending);
 
       totalSpentNum.textContent = `Total spent: $${totalSpending}`;

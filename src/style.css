@@ -109,6 +109,7 @@ select {
   --color-slide-btn-bg: var(--green-300);
   --color-slide-btn-arrow: var(--white);
   --color-dark-hover: var(--green-600);
+  --color-invalid: var(--red-200);
 }
 
 [data-theme="dark"] {
@@ -175,6 +176,7 @@ select {
   --color-slide-btn-bg: var(--blue-500);
   --color-slide-btn-arrow: var(--white);
   --color-dark-hover: var(--blue-600);
+  --color-invalid: var(--red-200);
 }
 
 /*changes the google material icons styles*/
@@ -198,8 +200,22 @@ select {
   font-feature-settings: "liga";
 }
 
+select,
+option {
+  text-align: center;
+}
+
 .hidden {
   display: none;
+}
+
+.invalid {
+  color: var(--color-invalid);
+  font-size: 2rem;
+}
+
+.warning-text {
+  font-size: 0.8rem;
 }
 
 .text-label {
@@ -595,6 +611,7 @@ select {
 .modal-header {
   width: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
   margin-bottom: 1rem;
 }
@@ -783,7 +800,7 @@ dialog::backdrop {
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .edit-budget-category,
@@ -803,9 +820,17 @@ dialog::backdrop {
   width: 100%;
 }
 
+.input-expense-name,
 .edit-budget-amount {
   width: 100%;
   text-align: center;
+}
+
+.input-expense-name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 2rem;
 }
 
 .dollar {
@@ -823,7 +848,7 @@ dialog::backdrop {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 1rem 0.5rem;
   width: 100%;
 }
 
@@ -876,11 +901,12 @@ dialog::backdrop {
 
 .dollar,
 .edit-budget-amount {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 /*footer section*/
 .footer-p {
+  font-size: 0.7rem;
   padding: 2rem;
   text-align: center;
   color: var(--color-footer-text);
