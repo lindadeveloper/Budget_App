@@ -20,23 +20,23 @@ export function openModal(modalTitle) {
         </button>
         <div>
           <p class="edit-budget-title">${modalTitle}</p>
-          <p id="inputAreas0" class="warning-text invalid hidden">Please fill out the missing areas *</p>
+          <p id="warningText" class="warning-text invalid hidden">Please fill out the missing areas *</p>
         </div>
       </div>
         <div class="dollar">
           <span class="text-label">Total Spent</span>
           $<input type="number" id="inputNewBudgetAmount" class="edit-budget-amount">
-          <span id="inputAreas1" class="invalid hidden">*</span>
+          <span id="inputAreas0" class="invalid hidden">*</span>
         </div>
         <div class="dollar">
           <span class="text-label">Goal Limit</span>
           $<input type="number" id="newGoalLimitAmount" class="edit-budget-amount">
-          <span id="inputAreas2" class="invalid hidden">*</span>
+          <span id="inputAreas1" class="invalid hidden">*</span>
         </div>
         <div class="edit-budget-date-wrapper">
           <p>End Date</p>
           <input type="date" id="newEndDate" class="edit-budget-date" placeholder="MM/DD/YYYY"/>
-          <span id="inputAreas3" class="invalid hidden">*</span>
+          <span id="inputAreas2" class="invalid hidden">*</span>
         </div>
         <select id="newCategoryOptions" class="edit-budget-category" name="Category">
         </select>
@@ -45,7 +45,7 @@ export function openModal(modalTitle) {
           id="newBudgetDetailText" 
           class="edit-budget-category-detail" 
           placeholder="Input Expense Name">
-          <span id="inputAreas4" class="invalid hidden">*</span>
+          <span id="inputAreas3" class="invalid hidden">*</span>
         </div>
     </div>
     <button id="saveCategoryBtn" class="save">SAVE</button>`,
@@ -83,6 +83,7 @@ export function openModal(modalTitle) {
   //to save
   saveBtn.addEventListener("click", saved);
   function saved() {
+    const warningText = document.getElementById("warningText");
     const newTotalSpent = parseFloat(inputNewBudgetAmount.value);
     const newValueLimit = parseFloat(newGoalLimitAmount.value);
     const newValueEndDate = newEndDate.value;
@@ -105,7 +106,7 @@ export function openModal(modalTitle) {
       );
     }
 
-    //need to fix this bug
+    //might need some improvements such as addEventListener to inputs to check validity.
     function showWarnings() {
       let validCount = 0;
       for (let i = 0; i < allInputs.length; i++) {
@@ -113,6 +114,7 @@ export function openModal(modalTitle) {
         if (!inputAreas) continue;
 
         if (isInvalid(allInputs[i])) {
+          warningText.classList.remove("hidden");
           inputAreas.classList.remove("hidden");
         } else {
           inputAreas.classList.add("hidden");
@@ -120,9 +122,8 @@ export function openModal(modalTitle) {
         }
       }
       if (validCount !== allInputs.length) {
-        saveBtn.disabled = true;
-      } else {
-        saveBtn.disabled = false;
+        validCount = 0;
+        checkValidInputs();
       }
       return validCount === allInputs.length;
     }
