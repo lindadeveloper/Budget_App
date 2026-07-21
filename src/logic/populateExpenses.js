@@ -1,6 +1,7 @@
 import { getCategoriesData } from "../data/modifyCategoriesData.js";
 import { editBudget } from "./editBudget.js";
 import { multiSelect } from "./multiSelectBox.js";
+import { progressBarCSS } from "./progressBarCSS.js";
 
 export function populateExpenses(objName) {
   const expenseList = document.getElementById("expenseList");
@@ -22,14 +23,18 @@ export function populateExpenses(objName) {
   const categoriesData = getCategoriesData();
 
   categoriesData.forEach((itemObj) => {
-    let goalLimit = itemObj.goal;
-    let totalSpent = itemObj.price;
-    let endDate = itemObj.date;
-    let expenseName = itemObj.name;
+    console.log(itemObj);
     let category = itemObj.category;
+    let endDate = itemObj.date;
+    let goalLimit = itemObj.goal;
+    let expenseName = itemObj.name;
+    let totalSpent = itemObj.price;
+    let progress = 0;
 
     if (objName.toUpperCase() === itemObj.category.toUpperCase()) {
-      const progress = Math.round((itemObj.price / goalLimit) * 100);
+      progress = Math.round((itemObj.price / goalLimit) * 100);
+      const barWidth = Math.min(100, progress);
+
       expenseList.insertAdjacentHTML(
         "afterbegin",
         `<div id="expenseItem${expenseItemId}" class="expense-wrapper">
@@ -43,11 +48,11 @@ export function populateExpenses(objName) {
               <div class="progress">
                 <p id="totalSpending${expenseItemId}" class="total-spent">Total spent: $${totalSpent}</p>
                 <div 
-                  id="progressBarUnused${expenseItemId}"
+                  id="currentProgressBar${expenseItemId}"
                   class="progress-bar"
-                  data-width="${progress}%"
+                  data-width="${barWidth}%"
                   role="progressbar" 
-                  aria-valuenow="${progress}" 
+                  aria-valuenow="${barWidth}" 
                   aria-valuemin="0"
                   aria-valuemax="100">
                   ${progress}%
@@ -65,6 +70,11 @@ export function populateExpenses(objName) {
       document.querySelectorAll(".progress-bar").forEach((bar) => {
         bar.style.setProperty("--target-width", bar.dataset.width);
       });
+      //to change progress bar color
+      const currentProgressBar = document.getElementById(
+        `currentProgressBar${expenseItemId}`,
+      );
+      progressBarCSS(currentProgressBar, progress);
       editBudget(
         expenseItemId,
         goalLimit,
@@ -72,6 +82,7 @@ export function populateExpenses(objName) {
         endDate,
         expenseName,
         totalSpent,
+        progress,
       );
       multiSelect(expenseItemId);
     }

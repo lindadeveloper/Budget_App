@@ -25,8 +25,14 @@ select {
   font-family: "Inter", sans-serif;
   --black: #1a1a1a;
   --white: #fafafa;
+  --red-100: #e50000;
   --red-200: #ad1111;
   --red-600: #850909;
+  --red-900: #4c0000;
+  --orange-100: #ff952c;
+  --orange-200: #d76b00;
+  --orange-600: #9e4f00;
+  --orange-900: #673300;
   --green-100: #a0d4d6;
   --green-200: #55b2c0;
   --green-300: #3d94a3;
@@ -71,13 +77,19 @@ select {
   --color-category-bg: var(--green-100);
   --color-dialog-bg: var(--white);
   --color-shadow-box: var(--green-700);
+  --color-orange-shadow-box: var(--orange-900);
+  --color-red-shadow-box: var(--red-900);
   --color-round-icon-bg: var(--black);
   --color-round-icon-img: var(--white);
   --color-glass-border: var(--green-200);
+  --color-orange-glass-border: var(--orange-100);
+  --color-red-glass-border: var(--red-100);
   --color-category-h1-bg: var(--green-600);
   --color-category-h1-text: var(--white);
   --color-progress-bar-bg: var(--grey-100);
   --color-progress-bar: var(--green-300);
+  --color-progress-max-bar: var(--red-200);
+  --color-progress-caution-bar: var(--orange-200);
   --color-progress-bar-text: var(--white);
   --color-utils-btn-bg: var(--green-500);
   --color-utils-btn-text: var(--white);
@@ -138,12 +150,18 @@ select {
   --color-category-bg: var(--blue-700);
   --color-dialog-bg: var(--blue-600);
   --color-shadow-box: var(--blue-900);
+  --color-orange-shadow-box: var(--orange-900);
+  --color-red-shadow-box: var(--red-900);
   --color-round-icon-bg: var(--black);
   --color-round-icon-img: var(--white);
   --color-glass-border: var(--blue-300);
+  --color-orange-glass-border: var(--orange-100);
+  --color-red-glass-border: var(--red-100);
   --color-category-h1-bg: var(--blue-600);
   --color-category-h1-text: var(--white);
   --color-progress-bar-bg: var(--blue-700);
+  --color-progress-max-bar: var(--red-200);
+  --color-progress-caution-bar: var(--orange-200);
   --color-progress-bar: var(--blue-500);
   --color-progress-bar-text: var(--white);
   --color-utils-btn-bg: var(--blue-600);
@@ -592,6 +610,20 @@ option {
   color: var(--color-progress-bar-text);
   transition: width 0.5s ease;
   animation: grow 0.6s ease forwards;
+}
+
+.progress-bar-caution {
+  background-color: var(--color-progress-max-bar);
+  border-bottom: 1px solid var(--color-red-glass-border);
+  border-right: 1px solid var(--color-red-glass-border);
+  box-shadow: 0 2px 5px 0 var(--color-red-shadow-box);
+}
+
+.progress-bar-maxed {
+  background-color: var(--color-progress-max-bar);
+  border-bottom: 1px solid var(--color-red-glass-border);
+  border-right: 1px solid var(--color-red-glass-border);
+  box-shadow: 0 2px 5px 0 var(--color-red-shadow-box);
 }
 
 .edit-budget-btn {

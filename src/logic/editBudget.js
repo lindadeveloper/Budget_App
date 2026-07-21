@@ -1,5 +1,6 @@
 import { categoriesData } from "../data/categoriesData.js";
 import { deleteExpense } from "./deleteExpense.js";
+import { progressBarCSS } from "./progressBarCSS.js";
 
 export function editBudget(
   expenseItemId,
@@ -8,6 +9,7 @@ export function editBudget(
   endDate,
   expenseName,
   totalSpending,
+  progress,
 ) {
   const editBudgetBtn = document.getElementById(expenseItemId);
   const editBudgetDialog = document.getElementById("editBudgetDialog");
@@ -73,6 +75,9 @@ export function editBudget(
     const goalLimitAmount = document.getElementById("goalLimitAmount");
     const endDateAmount = document.getElementById("endDateAmount");
     const budgetDetailText = document.getElementById("budgetDetailText");
+    const progressBarId = document.getElementById(
+      `currentProgressBar${expenseItemId}`,
+    );
 
     const totalSpentNum = document.getElementById(
       `totalSpending${expenseItemId}`,
@@ -90,19 +95,35 @@ export function editBudget(
       const newValueLimit = parseFloat(goalLimitAmount.value);
       const newValueEndDate = endDateAmount.value;
       const newValueExpenseName = budgetDetailText.value;
+      const newProgressBar = Math.round((newValueSpent / newValueLimit) * 100);
+      const barWidth = Math.min(100, newProgressBar);
 
       //refer to the above existing parameters... scroll up to 'export function editBudget()'
       totalSpending = newValueSpent;
       goalLimit = newValueLimit;
       endDate = newValueEndDate;
       expenseName = newValueExpenseName;
+      progress = newProgressBar;
 
       // inputBudgetAmount.value = localStorage.setItem("totalSpending", totalSpending);
 
       totalSpentNum.textContent = `Total spent: $${totalSpending}`;
       goalLimitNum.textContent = `Goal limit: $${goalLimit}`;
       endDateNum.textContent = `End date: ${endDate}`;
-      budgetDetailWord.textContent = `${expenseName}`;
+      budgetDetailWord.textContent = expenseName;
+
+      progressBarId.dataset.width = `${barWidth}%`;
+      progressBarId.style.width = `${barWidth}%`;
+      progressBarId.ariaValueNow = barWidth;
+      progressBarId.textContent = `${progress}%`;
+
+      progressBarId.style.setProperty(
+        "--target-width",
+        progressBarId.dataset.width,
+      );
+
+      //changes the bar progress color
+      progressBarCSS(progressBarId, progress);
 
       editBudgetDialog.close();
       editBudgetDialog.innerHTML = "";

@@ -106,7 +106,7 @@ export function openModal(modalTitle) {
       );
     }
 
-    //might need some improvements such as addEventListener to inputs to check validity.
+    //might need some improvements such as addEventListener to "input" to check validity.
     function showWarnings() {
       let validCount = 0;
       for (let i = 0; i < allInputs.length; i++) {
