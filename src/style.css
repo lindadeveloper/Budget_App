@@ -613,10 +613,10 @@ option {
 }
 
 .progress-bar-caution {
-  background-color: var(--color-progress-max-bar);
-  border-bottom: 1px solid var(--color-red-glass-border);
-  border-right: 1px solid var(--color-red-glass-border);
-  box-shadow: 0 2px 5px 0 var(--color-red-shadow-box);
+  background-color: var(--color-progress-caution-bar);
+  border-bottom: 1px solid var(--color-orange-glass-border);
+  border-right: 1px solid var(--color-orange-glass-border);
+  box-shadow: 0 2px 5px 0 var(--color-orange-shadow-box);
 }
 
 .progress-bar-maxed {
