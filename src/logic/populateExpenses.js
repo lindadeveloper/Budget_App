@@ -2,6 +2,7 @@ import { getCategoriesData } from "../data/modifyCategoriesData.js";
 import { editBudget } from "./editBudget.js";
 import { multiSelect } from "./multiSelectBox.js";
 import { progressBarCSS } from "./progressBarCSS.js";
+import { titleCase } from "./titleCase.js";
 
 export function populateExpenses(objName) {
   const expenseList = document.getElementById("expenseList");
@@ -9,21 +10,12 @@ export function populateExpenses(objName) {
 
   let expenseItemId = 0;
 
-  //to make the first letter uppercased on every word
-  function titleCase(str) {
-    return str
-      .split(" ")
-      .map((word) => word[0].toUpperCase() + word.substring(1))
-      .join(" ");
-  }
-
   expenseList.innerHTML = "";
   categoryTitle.textContent = titleCase(objName);
 
   const categoriesData = getCategoriesData();
 
   categoriesData.forEach((itemObj) => {
-    console.log(itemObj);
     let category = itemObj.category;
     let endDate = itemObj.date;
     let goalLimit = itemObj.goal;
@@ -40,7 +32,7 @@ export function populateExpenses(objName) {
         `<div id="expenseItem${expenseItemId}" class="expense-wrapper">
           <input type="checkbox" id="expenseCheckBox${expenseItemId}" class="expense-check-box hidden">
             <div class="expense-details">
-              <span id="budgetName${expenseItemId}"class="item-name">${expenseName}</span>
+              <span id="budgetName${expenseItemId}"class="item-name">${titleCase(expenseName)}</span>
               <div class="date-goal-wrap">
                 <span id="endDate${expenseItemId}">End date: ${endDate}</span>
                 <span id="goalLimit${expenseItemId}">Goal limit: $${goalLimit}</span>

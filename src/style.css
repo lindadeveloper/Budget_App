@@ -111,6 +111,8 @@ select {
   --color-input-border: var(--grey-300);
   --color-input-bg: var(--white);
   --color-input-text: var(--black);
+  --color-input-dropdown-selected: var(--green-100);
+  --color-input-dropdown-li-hover: var(--green-300);
   --color-footer-text: var(--white);
   --color-footer-bg: var(--green-600);
   --color-category-icon-border: var(--green-700);
@@ -184,6 +186,8 @@ select {
   --color-input-border: var(--grey-300);
   --color-input-bg: var(--blue-900);
   --color-input-text: var(--white);
+  --color-input-dropdown-selected: var(--green-100);
+  --color-input-dropdown-li-hover: var(--green-300);
   --color-footer-text: var(--white);
   --color-footer-bg: var(--blue-600);
   --color-category-icon-border: var(--blue-700);
@@ -852,17 +856,58 @@ dialog::backdrop {
   width: 100%;
 }
 
-.input-expense-name,
+.input-title {
+  margin-bottom: -0.8rem;
+}
+
+.input-title-container,
 .edit-budget-amount {
   width: 100%;
   text-align: center;
 }
 
-.input-expense-name {
+.input-title-container {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   font-size: 2rem;
+}
+.input-cat-list {
+  position: relative;
+}
+
+.input-dropdown-list {
+  position: absolute;
+  overflow-y: auto;
+  top: 100%;
+  left: 0;
+  right: 0;
+  list-style: none;
+  z-index: 100;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  max-height: 100px;
+  border-radius: 5px;
+  border: 1px solid var(--color-input-border);
+  color: var(--color-input-text);
+  background-color: var(--color-input-bg);
+  display: none;
+}
+.input-dropdown-list.open {
+  display: block;
+}
+
+.input-dropdown-list > li {
+  padding: 0.3rem 0;
+}
+
+.input-dropdown-list > li.selected {
+  color: var(--black);
+  background-color: var(--color-input-dropdown-selected);
+}
+.input-dropdown-list > li:hover {
+  color: var(--white);
+  background-color: var(--color-input-dropdown-li-hover);
 }
 
 .dollar {
@@ -1175,7 +1220,8 @@ dialog::backdrop {
   .theme-mode-btn,
   .expense-check-box,
   .expenseDeleteBtn,
-  .expenseCancelBtn {
+  .expenseCancelBtn,
+  .input-dropdown-list > li {
     cursor: pointer;
   }
 
@@ -1189,6 +1235,7 @@ dialog::backdrop {
     background-color: var(--color-cancel-btn-bg-hover);
     color: var(--color-cancel-btn-text-hover);
   }
+
   .save:hover,
   .save-btn:hover {
     background-color: var(--color-save-btn-bg-hover);

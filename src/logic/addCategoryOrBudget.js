@@ -1,8 +1,11 @@
 import { addCategoryItem } from "../data/modifyCategoriesData.js";
 import { populateExpenses } from "./populateExpenses.js";
 import { categoryList } from "../data/categoryList.js";
+import { addToCategory } from "./addToCategory.js";
+import { addCategory } from "./addCategory.js";
+import { titleCase } from "./titleCase.js";
 
-export function openModal(modalTitle) {
+export function addCategoryOrBudget(modalTitle) {
   const addCategoryBudget = document.getElementById("addCategoryBudget");
 
   /*Modal for adding new category and budget */
@@ -24,49 +27,95 @@ export function openModal(modalTitle) {
         </div>
       </div>
         <div class="dollar">
-          <span class="text-label">Total Spent</span>
-          $<input type="number" id="inputNewBudgetAmount" class="edit-budget-amount">
+          <label for="inputNewBudgetAmount" class="text-label">Total Spent</label>
+          $<input type="number" id="inputNewBudgetAmount" name="budget_amount" class="edit-budget-amount">
           <span id="inputAreas0" class="invalid hidden">*</span>
         </div>
         <div class="dollar">
-          <span class="text-label">Goal Limit</span>
-          $<input type="number" id="newGoalLimitAmount" class="edit-budget-amount">
+          <label for="newGoalLimitAmount" class="text-label">Goal Limit</label>
+          $<input type="number" id="newGoalLimitAmount" name="goal_limit" class="edit-budget-amount">
           <span id="inputAreas1" class="invalid hidden">*</span>
         </div>
         <div class="edit-budget-date-wrapper">
-          <p>End Date</p>
-          <input type="date" id="newEndDate" class="edit-budget-date" placeholder="MM/DD/YYYY"/>
+          <label for="newEndDate">End Date</label>
+          <input type="date" id="newEndDate" name="date" class="edit-budget-date" placeholder="MM/DD/YYYY"/>
           <span id="inputAreas2" class="invalid hidden">*</span>
         </div>
-        <select id="newCategoryOptions" class="edit-budget-category" name="Category">
-        </select>
-        <div class="input-expense-name">
+        <label for="inputCatOptions" class="input-title">Category:</label>
+        <div class="input-title-container input-cat-list">
         <input type="text" 
-          id="newBudgetDetailText" 
+          id="inputCatOptions"
+          name="category"
           class="edit-budget-category-detail" 
-          placeholder="Input Expense Name">
+          placeholder="eg. Appliances">
+          <ul id="categoriesData" class="input-dropdown-list"></ul>
           <span id="inputAreas3" class="invalid hidden">*</span>
+        </div>
+        <label for="newBudgetDetailText" class="input-title">Expense:</label>
+        <div class="input-title-container">
+        <input type="text" 
+          id="newBudgetDetailText"
+          name="expense" 
+          class="edit-budget-category-detail" 
+          placeholder="eg. Microwave">
+          <span id="inputAreas4" class="invalid hidden">*</span>
         </div>
     </div>
     <button id="saveCategoryBtn" class="save">SAVE</button>`,
   );
 
-  //to edit category
+  //to add and search category
+  const inputCatOptions = document.getElementById("inputCatOptions");
+  const categoriesData = document.getElementById("categoriesData");
 
-  const categoryOptions = document.getElementById("newCategoryOptions");
+  inputCatOptions.addEventListener("input", () => {
+    categoriesData.classList.remove("open");
+    const inputValue = inputCatOptions.value.toUpperCase();
 
-  categoryList.forEach((categoryItem) => {
-    categoryOptions.innerHTML += `
-    <option value="${categoryItem}">
-    ${categoryItem.toUpperCase()}
-    </option>`;
+    document
+      .querySelectorAll("#categoriesData li")
+      .forEach((li) => li.classList.remove("selected"));
+
+    const matchedCategory = categoryList.find(
+      (categoryOption) => categoryOption.toUpperCase() === inputValue,
+    );
+
+    if (matchedCategory) {
+      const categoryListId = document.getElementById(matchedCategory);
+      categoriesData.classList.add("open");
+      categoryListId.classList.add("selected");
+      categoryListId.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    // else {
+    //   return inputValue;
+    // }
   });
+
+  categoriesData.addEventListener("click", (e) => {
+    const clickedItem = e.target.closest("li");
+    if (!clickedItem) return; // for if click didn't land on an <li>
+
+    inputCatOptions.value = clickedItem.textContent.trim();
+    categoriesData.classList.remove("open");
+
+    document
+      .querySelectorAll("#categoriesData li")
+      .forEach((li) => li.classList.remove("selected"));
+    clickedItem.classList.add("selected");
+  });
+
+  function renderCategory() {
+    categoriesData.innerHTML = "";
+    categoryList.forEach((categoryItem) => {
+      categoriesData.innerHTML += `<li id=${categoryItem.toLowerCase()}>
+      ${titleCase(categoryItem)}
+      </li>`;
+    });
+  }
+  renderCategory();
   addCategoryBudget.showModal();
 
-  // selectAllOptions(categoryOptions);
-
   const saveBtn = document.getElementById("saveCategoryBtn");
-
   const inputNewBudgetAmount = document.getElementById("inputNewBudgetAmount");
   const newGoalLimitAmount = document.getElementById("newGoalLimitAmount");
   const newEndDate = document.getElementById("newEndDate");
@@ -77,7 +126,7 @@ export function openModal(modalTitle) {
     newGoalLimitAmount.value = "";
     newEndDate.value = "";
     newBudgetDetailText.value = "";
-    categoryOptions.value = "";
+    inputCatOptions.value = "";
   }
 
   //to save
@@ -87,13 +136,14 @@ export function openModal(modalTitle) {
     const newTotalSpent = parseFloat(inputNewBudgetAmount.value);
     const newValueLimit = parseFloat(newGoalLimitAmount.value);
     const newValueEndDate = newEndDate.value;
+    const newCategoryOption = inputCatOptions.value;
     const newValueExpenseName = newBudgetDetailText.value;
-    const newCategoryOption = categoryOptions.value;
 
     const allInputs = [
       newTotalSpent,
       newValueLimit,
       newValueEndDate,
+      newCategoryOption,
       newValueExpenseName,
     ];
 

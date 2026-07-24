@@ -31,20 +31,22 @@ export function editBudget(
         <p class="edit-budget-title">Edit Budget</p>
       </div>
       <div class="dollar">
-        <span class="text-label">Total Spent</span>
-        $<input type="number" id="inputBudgetAmount" class="edit-budget-amount" value="${totalSpending}">
+        <label for="inputBudgetAmount" class="text-label">Total Spent</label>
+        $<input type="number" id="inputBudgetAmount" name="budget_amount" class="edit-budget-amount" value="${totalSpending}">
       </div>
       <div class="dollar">
-        <span class="text-label">Goal Limit</span>
-        $<input type="number" id="goalLimitAmount" class="edit-budget-amount" value="${goalLimit}">
+        <label for="goalLimitAmount" class="text-label">Goal Limit</label>
+        $<input type="number" id="goalLimitAmount" name="goal_limit" class="edit-budget-amount" value="${goalLimit}">
       </div>
       <div class="edit-budget-date-wrapper">
-      <p class="text-label">End Date</p>
-      <input id="endDateAmount" type="date" class="edit-budget-date" value="${endDate}">
+      <label for="endDateAmount" class="text-label">End Date</label>
+      <input id="endDateAmount" type="date" name="date" class="edit-budget-date" value="${endDate}">
       </div>
+      <label for="categoryBudgetOption" class="input-title">Category:</label>
       <select id="categoryBudgetOption" class="edit-budget-category" name="Category">
       </select>
-      <input id="budgetDetailText" type="text" class="edit-budget-category-detail" value="${expenseName}">
+      <label for="budgetDetailText" class="input-title">Expense:</label>
+      <input id="budgetDetailText" type="text" name="expense" class="edit-budget-category-detail" value="${expenseName}">
       </div>
       <button id="budgetSaveBtn" class="save">SAVE</button>
       <button id="budgetCloseBtn" class="delete">DELETE</button>`,
@@ -62,7 +64,9 @@ export function editBudget(
     });
 
     categoryArr.map((categoryItem) => {
-      categoryBudgetOption.innerHTML += `<option value="${categoryItem}" ${category === categoryItem ? "selected" : ""}>${categoryItem.toUpperCase()}</option>`;
+      categoryBudgetOption.innerHTML += `<option value="${categoryItem}" ${category === categoryItem ? "selected" : ""}>
+      ${categoryItem.toUpperCase()}
+      </option>`;
     });
 
     //edit budget modal start here
